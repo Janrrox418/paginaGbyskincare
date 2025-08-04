@@ -1,3 +1,4 @@
 function saludo() {
-  alert('¡Gracias por visitar GBY Skincare!');
+  alert('¡Gracias por visitar Gby Skincare!');
 }
+
