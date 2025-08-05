@@ -6,3 +6,30 @@ h1 {
   color: #33d1d6;
   text-align: center;
 }
+/* Estilo para que el contenido no quede oculto detrás del sidebar en desktop */
+@media (min-width: 768px) {
+  .offcanvas-start {
+    position: static;
+    width: 250px;
+    border-right: 1px solid #ddd;
+    display: block !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  .main-content {
+    margin-left: 250px;
+  }
+}
+
+/* Personalización de menú */
+.nav-link {
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
