@@ -2,11 +2,13 @@ body {
   background-color: #fdf2f8;
   font-family: 'Segoe UI', sans-serif;
 }
+
 h1 {
   color: #33d1d6;
   text-align: center;
 }
-/* Estilo para que el contenido no quede oculto detrás del sidebar en desktop */
+
+/* Estilo para menú visible en desktop */
 @media (min-width: 768px) {
   .offcanvas-start {
     position: static;
@@ -22,7 +24,7 @@ h1 {
   }
 }
 
-/* Personalización de menú */
+/* Estilo para el menú */
 .nav-link {
   color: #333;
   font-weight: 500;
