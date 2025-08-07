@@ -1,0 +1,42 @@
+body {
+  background-color: #fdf2f8;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1 {
+  color: #33d1d6;
+  text-align: center;
+}
+
+.section {
+  padding: 60px 20px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .offcanvas-start {
+    position: static;
+    width: 250px;
+    border-right: 1px solid #ddd;
+    display: block !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  .main-content {
+    margin-left: 250px;
+  }
+}
+
+.nav-link {
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
