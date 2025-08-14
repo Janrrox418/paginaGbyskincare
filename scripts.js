@@ -2,40 +2,64 @@ function saludo() {
   alert('¡Gracias por visitar GBY Skincare!');
 }
 
-// Cierra automáticamente el menú cuando se hace clic en un enlace
 document.addEventListener("DOMContentLoaded", function () {
-  const offcanvasElement = document.getElementById('sidebar');
-  const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElement);
+  // ===== BOTÓN HAMBURGUESA EN MÓVIL =====
+  const sidebar = document.querySelector(".sidebar");
+  const btn = document.createElement("button");
+  btn.textContent = "☰";
+  btn.classList.add("menu-btn");
+  document.body.appendChild(btn);
 
-  const navLinks = offcanvasElement.querySelectorAll('a.nav-link');
+  btn.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+  });
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      offcanvas.hide();
+  // Cierra el menú al hacer clic en enlace
+  const links = document.querySelectorAll(".sidebar .nav-link");
+  links.forEach(link => {
+    link.addEventListener("click", () => {
+      sidebar.classList.remove("active");
     });
   });
-});
 
-// Animación al hacer scroll con efecto cascada
-document.addEventListener("DOMContentLoaded", function () {
+  // ===== ANIMACIÓN EN CASCADA =====
   const sections = document.querySelectorAll("section");
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const elements = entry.target.querySelectorAll("h1, h2, p, button");
-
         elements.forEach((el, index) => {
           el.classList.add("hidden");
           setTimeout(() => {
             el.classList.add("show");
-          }, index * 200); // 200ms entre cada elemento
+          }, index * 200); // 200ms entre elementos
         });
-
-        observer.unobserve(entry.target); // Evita repetir animación
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
 
   sections.forEach(section => observer.observe(section));
+
+  // ===== MENÚ ACTIVO SEGÚN SCROLL =====
+  const navLinks = document.querySelectorAll(".sidebar .nav-link");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100; // margen para activar antes
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active-link");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active-link");
+      }
+    });
+  });
 });
