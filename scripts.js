@@ -1,9 +1,5 @@
-function saludo() {
-  alert('¡Gracias por visitar GBY Skincare!');
-}
-
 document.addEventListener("DOMContentLoaded", function () {
-  // ===== ANIMACIÓN EN CASCADA =====
+  // ===== ANIMACIÓN EN CASCADA SECCIONES =====
   const sections = document.querySelectorAll("section");
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -19,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }, { threshold: 0.1 });
-
   sections.forEach(section => observer.observe(section));
 
   // ===== MENÚ ACTIVO SEGÚN SCROLL =====
@@ -27,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("scroll", () => {
     let current = "";
-
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
       const sectionHeight = section.clientHeight;
@@ -41,6 +35,33 @@ document.addEventListener("DOMContentLoaded", function () {
       if (link.getAttribute("href") === `#${current}`) {
         link.classList.add("active-link");
       }
+    });
+  });
+
+  // ===== CIERRE MENÚ MÓVIL AL HACER CLICK =====
+  const mobileMenu = document.getElementById("mobileMenu");
+  const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(mobileMenu);
+
+  document.querySelectorAll("#mobileMenu .nav-link").forEach(link => {
+    link.addEventListener("click", () => {
+      offcanvas.hide(); // cierra el offcanvas automáticamente
+    });
+  });
+  
+
+  // ===== ANIMACIÓN CASCADA SUBMENÚS PC =====
+  const dropdowns = document.querySelectorAll(".navbar .dropdown");
+  dropdowns.forEach(drop => {
+    drop.addEventListener("mouseenter", () => {
+      const items = drop.querySelectorAll(".dropdown-menu li");
+      items.forEach((el, index) => {
+        el.style.opacity = 0;
+        el.style.transform = "translateY(10px)";
+        setTimeout(() => {
+          el.style.opacity = 1;
+          el.style.transform = "translateY(0)";
+        }, index * 100); // retraso por item
+      });
     });
   });
 });
