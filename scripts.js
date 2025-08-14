@@ -3,25 +3,6 @@ function saludo() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // ===== BOTÓN HAMBURGUESA EN MÓVIL =====
-  const sidebar = document.querySelector(".sidebar");
-  const btn = document.createElement("button");
-  btn.textContent = "☰";
-  btn.classList.add("menu-btn");
-  document.body.appendChild(btn);
-
-  btn.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
-  });
-
-  // Cierra el menú al hacer clic en enlace
-  const links = document.querySelectorAll(".sidebar .nav-link");
-  links.forEach(link => {
-    link.addEventListener("click", () => {
-      sidebar.classList.remove("active");
-    });
-  });
-
   // ===== ANIMACIÓN EN CASCADA =====
   const sections = document.querySelectorAll("section");
   const observer = new IntersectionObserver((entries) => {
@@ -32,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
           el.classList.add("hidden");
           setTimeout(() => {
             el.classList.add("show");
-          }, index * 200); // 200ms entre elementos
+          }, index * 200);
         });
         observer.unobserve(entry.target);
       }
@@ -42,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
   sections.forEach(section => observer.observe(section));
 
   // ===== MENÚ ACTIVO SEGÚN SCROLL =====
-  const navLinks = document.querySelectorAll(".sidebar .nav-link");
+  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
 
   window.addEventListener("scroll", () => {
     let current = "";
 
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100; // margen para activar antes
+      const sectionTop = section.offsetTop - 120;
       const sectionHeight = section.clientHeight;
       if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
         current = section.getAttribute("id");
