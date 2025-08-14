@@ -1,10 +1,11 @@
+/* ===== BODY ===== */
 body {
   background-color: #fdf2f8;
   font-family: 'Segoe UI', sans-serif;
   padding-top: 56px; /* espacio para navbar fija */
 }
 
-/* Animaciones scroll */
+/* ===== ANIMACIONES SCROLL ===== */
 .hidden {
   opacity: 0;
   transform: translateY(40px);
@@ -16,18 +17,18 @@ body {
   transform: translateY(0);
 }
 
-/* Activo en menú PC */
+/* ===== MENÚ ACTIVO ===== */
 .navbar .nav-link.active-link {
   font-weight: bold;
   color: #00d1d1 !important;
 }
 
-/* Activo en menú móvil */
 .offcanvas .nav-link.active-link {
   font-weight: bold;
   text-decoration: underline;
 }
-/* Submenús PC */
+
+/* ===== SUBMENÚS PC ===== */
 .navbar .dropdown-menu {
   opacity: 0;
   visibility: hidden;
@@ -37,30 +38,25 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Animación cascada para ítems */
-.navbar .dropdown-menu.show li {
+.navbar .dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  max-height: 500px; /* ajustable */
+}
+
+.navbar .dropdown-menu li {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.navbar .dropdown-menu.show li:nth-child(1) { transition-delay: 0.1s; }
-.navbar .dropdown-menu.show li:nth-child(2) { transition-delay: 0.2s; }
-.navbar .dropdown-menu.show li:nth-child(3) { transition-delay: 0.3s; }
-/* Ajusta según la cantidad de ítems */
-.navbar .dropdown-menu.show li {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Submenú móvil en cascada */
+/* ===== SUBMENÚS MÓVIL ===== */
 .offcanvas .collapse li {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Clase que se añade al mostrar los items */
 .offcanvas .collapse.show li {
   opacity: 1;
   transform: translateY(0);
@@ -71,18 +67,16 @@ body {
 .offcanvas .collapse.show li:nth-child(2) { transition-delay: 0.2s; }
 .offcanvas .collapse.show li:nth-child(3) { transition-delay: 0.3s; }
 .offcanvas .collapse.show li:nth-child(4) { transition-delay: 0.4s; }
-/* Añadir más si hay más ítems */
-/* Botón hamburguesa animado */
+
+/* ===== BOTÓN HAMBURGUESA ANIMADO ===== */
 .navbar-toggler {
   transition: transform 0.3s ease;
 }
 
-/* Cuando el menú está abierto, rotamos ligeramente el botón */
 .navbar-toggler.collapsed {
   transform: rotate(0deg);
 }
 
 .navbar-toggler:not(.collapsed) {
-  transform: rotate(90deg); /* Puedes ajustar grados */
+  transform: rotate(90deg);
 }
-
