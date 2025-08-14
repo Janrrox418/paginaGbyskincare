@@ -27,3 +27,62 @@ body {
   font-weight: bold;
   text-decoration: underline;
 }
+/* Submenús PC */
+.navbar .dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Animación cascada para ítems */
+.navbar .dropdown-menu.show li {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.navbar .dropdown-menu.show li:nth-child(1) { transition-delay: 0.1s; }
+.navbar .dropdown-menu.show li:nth-child(2) { transition-delay: 0.2s; }
+.navbar .dropdown-menu.show li:nth-child(3) { transition-delay: 0.3s; }
+/* Ajusta según la cantidad de ítems */
+.navbar .dropdown-menu.show li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Submenú móvil en cascada */
+.offcanvas .collapse li {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Clase que se añade al mostrar los items */
+.offcanvas .collapse.show li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Opcional: retrasos por item */
+.offcanvas .collapse.show li:nth-child(1) { transition-delay: 0.1s; }
+.offcanvas .collapse.show li:nth-child(2) { transition-delay: 0.2s; }
+.offcanvas .collapse.show li:nth-child(3) { transition-delay: 0.3s; }
+.offcanvas .collapse.show li:nth-child(4) { transition-delay: 0.4s; }
+/* Añadir más si hay más ítems */
+/* Botón hamburguesa animado */
+.navbar-toggler {
+  transition: transform 0.3s ease;
+}
+
+/* Cuando el menú está abierto, rotamos ligeramente el botón */
+.navbar-toggler.collapsed {
+  transform: rotate(0deg);
+}
+
+.navbar-toggler:not(.collapsed) {
+  transform: rotate(90deg); /* Puedes ajustar grados */
+}
+
