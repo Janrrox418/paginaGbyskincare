@@ -14,3 +14,16 @@ h1 {
 .main-content {
   padding-top: 80px;
 }
+
+/* Estado inicial oculto */
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+/* Estado visible */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
