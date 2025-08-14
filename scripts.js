@@ -15,3 +15,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// Animación al hacer scroll con efecto cascada
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll("section");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const elements = entry.target.querySelectorAll("h1, h2, p, button");
+
+        elements.forEach((el, index) => {
+          el.classList.add("hidden");
+          setTimeout(() => {
+            el.classList.add("show");
+          }, index * 200); // 200ms entre cada elemento
+        });
+
+        observer.unobserve(entry.target); // Evita repetir animación
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(section => observer.observe(section));
+});
