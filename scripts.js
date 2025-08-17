@@ -37,10 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ===== CIERRE MENÚ MÓVIL AL HACER CLICK =====
-  const mobileMenu = document.getElementById("mobileMenu");
-  const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(mobileMenu);
-  document.querySelectorAll("#mobileMenu .nav-link").forEach(link => {
-    link.addEventListener("click", () => offcanvas.hide());
+  const navbarCollapse = document.querySelector(".navbar-collapse");
+  document.querySelectorAll(".navbar-nav .nav-link, .navbar-nav .dropdown-item").forEach(link => {
+    link.addEventListener("click", () => {
+      if (navbarCollapse.classList.contains("show")) {
+        new bootstrap.Collapse(navbarCollapse).hide();
+      }
+    });
   });
 
   // ===== ANIMACIÓN CASCADA SUBMENÚS PC =====
@@ -67,9 +70,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ===== ANIMACIÓN CASCADA SUBMENÚS MÓVIL =====
-  const mobileSubmenus = document.querySelectorAll(".offcanvas .collapse");
+  const mobileSubmenus = document.querySelectorAll(".navbar-collapse .dropdown-menu");
   mobileSubmenus.forEach(submenu => {
-    submenu.addEventListener('show.bs.collapse', () => {
+    submenu.addEventListener('show.bs.dropdown', () => {
       const items = submenu.querySelectorAll("li");
       items.forEach((el, index) => {
         el.style.opacity = 0;

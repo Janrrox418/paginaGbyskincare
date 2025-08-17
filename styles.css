@@ -80,6 +80,7 @@ body {
 .navbar-toggler:not(.collapsed) {
   transform: rotate(90deg);
 }
+
 /* ===== CUADRO DE BIENVENIDA ===== */
 .welcome-box {
   position: fixed;
@@ -117,3 +118,41 @@ body {
   }
 }
 
+/* ===== MENÚ CELESTE ===== */
+.navbar {
+  background-color: #00d1d1 !important; /* color celeste */
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand,
+.navbar .dropdown-item {
+  color: white !important; /* texto en blanco */
+}
+
+.navbar .nav-link:hover,
+.navbar .dropdown-item:hover {
+  color: #005f5f !important; /* celeste más oscuro al pasar el mouse */
+  background-color: rgba(255,255,255,0.1); /* fondo ligero al hover */
+}
+
+/* Dropdown caret color */
+.navbar .dropdown-toggle::after {
+  border-top-color: white;
+  border-bottom-color: white;
+}
+
+/* Para móvil: fondo celeste de collapse */
+.navbar-collapse {
+  background-color: #00d1d1;
+}
+
+/* Borde y sombra para submenús */
+.dropdown-menu {
+  background-color: #00d1d1 !important;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dropdown-item {
+  color: white !important;
+}
