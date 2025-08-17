@@ -5,27 +5,44 @@ body {
   padding-top: 56px; /* espacio para navbar fija */
 }
 
-/* ===== ANIMACIONES SCROLL ===== */
-.hidden {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease-out;
+/* ===== MENÚ CELSTE ===== */
+.navbar {
+  background-color: #00d1d1 !important; /* color principal celeste */
 }
 
-.show {
-  opacity: 1;
-  transform: translateY(0);
+.navbar .nav-link {
+  color: #fff !important;
+  transition: color 0.3s ease;
 }
 
-/* ===== MENÚ ACTIVO ===== */
+.navbar .nav-link:hover,
 .navbar .nav-link.active-link {
-  font-weight: bold;
-  color: #00d1d1 !important;
+  color: #001f3f !important; /* color más oscuro al hover o activo */
 }
 
-.offcanvas .nav-link.active-link {
-  font-weight: bold;
-  text-decoration: underline;
+.navbar .dropdown-menu {
+  background-color: #00d1d1; /* fondo celeste submenú */
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.navbar .dropdown-item {
+  color: #fff !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: #001f3f; /* hover más oscuro */
+  color: #fff !important;
+}
+
+/* ===== BOTÓN HAMBURGUESA ===== */
+.navbar-toggler {
+  border-color: #fff;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  filter: invert(1); /* icono blanco */
 }
 
 /* ===== SUBMENÚS PC ===== */
@@ -41,7 +58,7 @@ body {
 .navbar .dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  max-height: 500px; /* ajustable */
+  max-height: 500px;
 }
 
 .navbar .dropdown-menu li {
@@ -62,97 +79,14 @@ body {
   transform: translateY(0);
 }
 
-/* Opcional: retrasos por item */
-.offcanvas .collapse.show li:nth-child(1) { transition-delay: 0.1s; }
-.offcanvas .collapse.show li:nth-child(2) { transition-delay: 0.2s; }
-.offcanvas .collapse.show li:nth-child(3) { transition-delay: 0.3s; }
-.offcanvas .collapse.show li:nth-child(4) { transition-delay: 0.4s; }
-
-/* ===== BOTÓN HAMBURGUESA ANIMADO ===== */
-.navbar-toggler {
-  transition: transform 0.3s ease;
+/* ===== ANIMACIONES SCROLL ===== */
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
 }
 
-.navbar-toggler.collapsed {
-  transform: rotate(0deg);
-}
-
-.navbar-toggler:not(.collapsed) {
-  transform: rotate(90deg);
-}
-
-/* ===== CUADRO DE BIENVENIDA ===== */
-.welcome-box {
-  position: fixed;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.95);
-  padding: 20px 30px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
-  text-align: center;
-  max-width: 300px;
-  z-index: 999;
-}
-
-.welcome-box h1 {
-  font-size: 1.8rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.welcome-box p {
-  font-size: 1rem;
-  color: #555;
-}
-
-/* Ocultar en móviles para que no tape contenido */
-@media (max-width: 768px) {
-  .welcome-box {
-    position: relative;
-    top: auto;
-    right: auto;
-    transform: none;
-    margin: 20px auto;
-  }
-}
-
-/* ===== MENÚ CELESTE ===== */
-.navbar {
-  background-color: #00d1d1 !important; /* color celeste */
-}
-
-.navbar .nav-link,
-.navbar .navbar-brand,
-.navbar .dropdown-item {
-  color: white !important; /* texto en blanco */
-}
-
-.navbar .nav-link:hover,
-.navbar .dropdown-item:hover {
-  color: #005f5f !important; /* celeste más oscuro al pasar el mouse */
-  background-color: rgba(255,255,255,0.1); /* fondo ligero al hover */
-}
-
-/* Dropdown caret color */
-.navbar .dropdown-toggle::after {
-  border-top-color: white;
-  border-bottom-color: white;
-}
-
-/* Para móvil: fondo celeste de collapse */
-.navbar-collapse {
-  background-color: #00d1d1;
-}
-
-/* Borde y sombra para submenús */
-.dropdown-menu {
-  background-color: #00d1d1 !important;
-  border: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.dropdown-item {
-  color: white !important;
+.show {
+  opacity: 1;
+  transform: translateY(0);
 }
