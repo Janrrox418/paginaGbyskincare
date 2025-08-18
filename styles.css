@@ -70,7 +70,7 @@ body {
 .navbar-brand img {
   height: auto;
   width: 130px;
-  max-width: 100%;
+  max-width: 80%;
   object-fit: contain;
 }
 
