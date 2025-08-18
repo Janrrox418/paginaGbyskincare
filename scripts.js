@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
       const sectionHeight = section.clientHeight;
-      if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+      const y = window.scrollY;
+      if (y >= sectionTop && y < sectionTop + sectionHeight) {
         current = section.getAttribute("id");
       }
     });
