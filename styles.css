@@ -1,111 +1,124 @@
-/* ===== BODY ===== */
+/* ========================
+   RESET Y BASE
+======================== */
 body {
-  background-color: #fdf2f8;
-  font-family: 'Segoe UI', sans-serif;
-  padding-top: 56px; /* espacio para navbar fija */
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
 }
 
-/* ===== MENÚ CELSTE ===== */
-.navbar {
-  background-color: #00d1d1 !important; /* color principal celeste */
-}
-
-.navbar .nav-link {
-  color: #fff !important;
-  transition: color 0.3s ease;
-}
-
-.navbar .nav-link:hover,
-.navbar .nav-link.active-link {
-  color: #001f3f !important; /* color más oscuro al hover o activo */
-}
-
-.navbar .dropdown-menu {
-  background-color: #00d1d1; /* fondo celeste submenú */
-  border-radius: 0.5rem;
-  padding: 0.5rem 0;
-}
-
-.navbar .dropdown-item {
-  color: #fff !important;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.navbar .dropdown-item:hover {
-  background-color: #001f3f; /* hover más oscuro */
-  color: #fff !important;
-}
-
-/* ===== BOTÓN HAMBURGUESA ===== */
-.navbar-toggler {
-  border-color: #fff;
-}
-
-.navbar-toggler .navbar-toggler-icon {
-  filter: invert(1); /* icono blanco */
-}
-
-/* ===== SUBMENÚS PC ===== */
-.navbar .dropdown-menu {
-  opacity: 0;
-  visibility: hidden;
-  display: block;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.navbar .dropdown:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  max-height: 500px;
-}
-
-.navbar .dropdown-menu li {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* ===== SUBMENÚS MÓVIL ===== */
-.offcanvas .collapse li {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.offcanvas .collapse.show li {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== ANIMACIONES SCROLL ===== */
+/* Ocultar elementos para animación en cascada */
 .hidden {
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease-out;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
 .show {
   opacity: 1;
   transform: translateY(0);
 }
-/* Dropdown hover en PC */
+
+/* ========================
+   NAVBAR
+======================== */
+.navbar {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #ddd;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #222 !important;
+}
+
+.navbar-nav .nav-link {
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active-link {
+  color: #007bff !important;
+}
+
+/* ========================
+   DROPDOWN SUBMENÚ
+======================== */
+.dropdown-menu {
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease;
+}
+.dropdown-menu li {
+  transition: all 0.3s ease;
+}
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Submenús en PC: aparecen al pasar el mouse */
 @media (min-width: 992px) {
   .navbar .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+}
+
+/* Submenús en móvil (los abre script.js con "show") */
+@media (max-width: 991px) {
+  .dropdown-menu {
+    display: none;
+  }
+  .dropdown-menu.show {
     display: block;
   }
 }
 
-/* Dropdown menú colores celeste */
-.navbar .dropdown-menu {
-  background-color: #00d1d1;
+/* ========================
+   OFFCANVAS (MENÚ MÓVIL)
+======================== */
+.offcanvas {
+  background-color: #f8f9fa;
+}
+.offcanvas .nav-link {
+  color: #333;
+}
+.offcanvas .nav-link:hover {
+  color: #007bff;
 }
 
-.navbar .dropdown-item {
-  color: #fff;
+/* ========================
+   BOTONES Y SECCIONES
+======================== */
+button,
+.btn {
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 500;
 }
 
-.navbar .dropdown-item:hover {
-  background-color: #001f3f;
+section {
+  padding: 80px 20px;
+}
+
+section h1,
+section h2 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+section p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* ========================
+   ANIMACIONES
+======================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
