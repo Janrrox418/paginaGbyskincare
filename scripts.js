@@ -2,19 +2,18 @@ document.addEventListener("DOMContentLoaded", function () {
   // ===== ANIMACIÓN EN CASCADA HOME =====
   const leftBox = document.querySelector(".welcome-box-left");
   const rightBox = document.querySelector(".welcome-box-right");
-  const homeSection = document.querySelector(".home-section");
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         leftBox.classList.add("show");
         setTimeout(() => rightBox.classList.add("show"), 500);
-        observer.unobserve(homeSection);
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
 
-  observer.observe(homeSection);
+  observer.observe(document.querySelector(".home-section"));
 
   // ===== MENÚ ACTIVO SEGÚN SCROLL =====
   const sections = document.querySelectorAll("section");
@@ -68,13 +67,5 @@ document.addEventListener("DOMContentLoaded", function () {
         el.style.transform = "";
       });
     });
-  });
-
-  // ===== CIERRE MENÚ MÓVIL AL HACER CLICK FUERA =====
-  const menu = document.querySelector(".navbar-collapse");
-  document.addEventListener("click", function (event) {
-    if (!menu.contains(event.target) && !event.target.matches(".navbar-toggler")) {
-      menu.classList.remove("show");
-    }
   });
 });
