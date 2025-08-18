@@ -20,7 +20,6 @@ body {
   color: #001f3f !important;
 }
 
-/* ===== SUBMENÚS ===== */
 .navbar .dropdown-menu {
   background-color: #00d1d1;
   border-radius: 0.5rem;
@@ -55,7 +54,7 @@ body {
 }
 
 .navbar-toggler .navbar-toggler-icon {
-  filter: invert(1); /* icono blanco */
+  filter: invert(1);
 }
 
 /* ===== LOGO REDONDO ===== */
@@ -64,6 +63,59 @@ body {
   width: 50px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+/* ===== WELCOME BOX HOME ===== */
+.home-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 50px;
+  min-height: 100vh;
+}
+
+.welcome-box-left,
+.welcome-box-right {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+  max-width: 400px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.welcome-box-left {
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.welcome-box-right {
+  margin-left: auto;
+  margin-top: 150px;
+}
+
+.welcome-box-left.show,
+.welcome-box-right.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .home-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .welcome-box-left,
+  .welcome-box-right {
+    margin: 20px auto;
+  }
+  .welcome-box-right {
+    margin-top: 30px;
+  }
 }
 
 /* ===== ANIMACIONES SCROLL ===== */
@@ -76,52 +128,4 @@ body {
 .show {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* ===== WELCOME BOX HOME ===== */
-.welcome-box-left,
-.welcome-box-right {
-  background: rgba(255,255,255,0.95);
-  padding: 20px 30px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
-  max-width: 400px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease-out;
-}
-
-.welcome-box-left.show,
-.welcome-box-right.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Posición responsive */
-.home-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.welcome-box-left {
-  margin-right: auto;
-}
-
-.welcome-box-right {
-  margin-left: auto;
-  margin-top: 30px;
-}
-
-/* Media queries para móviles */
-@media (max-width: 992px) {
-  .home-section {
-    flex-direction: column;
-    align-items: center;
-  }
-  .welcome-box-left,
-  .welcome-box-right {
-    margin: 20px auto;
-  }
 }
