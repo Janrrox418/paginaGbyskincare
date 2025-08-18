@@ -1,5 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+  // ===== ANIMACIÓN ENTRADA HOME =====
+  const leftBox = document.querySelector(".welcome-box-left");
+  const rightBox = document.querySelector(".welcome-box-right");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animación cascada izquierda
+        const leftLines = leftBox.querySelectorAll(".line");
+        leftLines.forEach((el, i) => {
+          setTimeout(() => {
+            el.style.opacity = 1;
+            el.style.transform = "translateY(0)";
+          }, i * 500);
+        });
+
+        // Animación cascada derecha
+        const rightLines = rightBox.querySelectorAll(".line");
+        rightLines.forEach((el, i) => {
+          setTimeout(() => {
+            el.style.opacity = 1;
+            el.style.transform = "translateY(0)";
+          }, i * 500);
+        });
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observer.observe(document.querySelector(".home-section"));
+
+
   // ===== MENÚ ACTIVO SEGÚN SCROLL =====
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
@@ -22,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+
   // ===== CIERRE MENÚ MÓVIL AL HACER CLICK =====
   document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .dropdown-item').forEach(link => {
     link.addEventListener('click', () => {
@@ -31,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
 
   // ===== ANIMACIÓN CASCADA SUBMENÚS PC =====
   const dropdowns = document.querySelectorAll(".navbar .dropdown");
