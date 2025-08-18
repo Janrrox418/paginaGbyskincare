@@ -1,51 +1,54 @@
-// ========================
-// ANIMACIÓN EN CASCADA
-// ========================
-document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll(".hidden");
+// ====== SUBMENÚ EN HOVER (SOLO PARA PC) ======
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.innerWidth > 768) {
+    document.querySelectorAll(".dropdown").forEach(function (dropdown) {
+      dropdown.addEventListener("mouseenter", function () {
+        const menu = this.querySelector(".dropdown-menu");
+        if (menu) {
+          menu.classList.add("show");
+        }
+      });
+      dropdown.addEventListener("mouseleave", function () {
+        const menu = this.querySelector(".dropdown-menu");
+        if (menu) {
+          menu.classList.remove("show");
+        }
+      });
+    });
+  }
+});
 
-  const showOnScroll = () => {
-    const triggerBottom = window.innerHeight * 0.9;
+// ====== ANIMACIÓN DE CASCADA ======
+document.addEventListener("DOMContentLoaded", function () {
+  const hiddenElements = document.querySelectorAll(".hidden");
 
-    elements.forEach((el) => {
-      const boxTop = el.getBoundingClientRect().top;
-      if (boxTop < triggerBottom) {
-        el.classList.add("show");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
       }
     });
-  };
+  }, { threshold: 0.1 });
 
-  window.addEventListener("scroll", showOnScroll);
-  showOnScroll(); // ejecutar al cargar
+  hiddenElements.forEach((el) => observer.observe(el));
 });
 
-// ========================
-// SUBMENÚS RESPONSIVE
-// ========================
-
-// En pantallas pequeñas (móviles/tablets), el submenu se abre al hacer clic
-document.querySelectorAll(".dropdown-toggle").forEach((dropdown) => {
-  dropdown.addEventListener("click", function (e) {
-    if (window.innerWidth < 992) {
-      e.preventDefault();
-      const submenu = this.nextElementSibling;
-
-      if (submenu) {
-        submenu.classList.toggle("show");
+// ====== FORZAR CIERRE DE SUBMENÚ EN MÓVIL ======
+document.querySelectorAll(".dropdown-toggle").forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    if (window.innerWidth <= 768) {
+      const menu = this.nextElementSibling;
+      if (menu) {
+        menu.classList.toggle("show");
       }
     }
   });
 });
-
-// ========================
-// CERRAR MENÚ OFFCANVAS AL HACER CLIC
-// ========================
-document.querySelectorAll(".offcanvas .nav-link").forEach((link) => {
-  link.addEventListener("click", () => {
-    const offcanvas = document.querySelector(".offcanvas.show");
-    if (offcanvas) {
-      const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvas);
-      bsOffcanvas.hide();
-    }
-  });
+// ====== CIERRE DEL MENÚ AL HACER CLICK FUERA ======
+document.addEventListener("click", function (e) {
+  if (!e.target.closest(".navbar-nav") && !e.target.closest(".navbar-toggler")) {
+    document.querySelectorAll(".dropdown-menu.show").forEach((menu) => {
+      menu.classList.remove("show");
+    });
+  }
 });
