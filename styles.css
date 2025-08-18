@@ -17,10 +17,10 @@ body {
   background-color: #00bcd4 !important; /* Celeste */
   padding: 0.8rem 1rem;
 }
-
+/*LOGO*/
 .navbar-brand img {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%; /* Logo redondo */
   object-fit: cover;
 }
