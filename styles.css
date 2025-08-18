@@ -85,32 +85,54 @@ body {
   min-height: 100vh;
 }
 
-.welcome-box-left,
+/* Animación fadeUp */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos líneas de texto */
+.welcome-box-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* sube el texto más arriba */
+  margin-top: 50px; /* ajusta según convenga */
+}
+
+.welcome-box-left .line {
+  color: var(--c-oscuro);
+  font-size: 2.2rem; /* más grande que antes */
+  font-weight: 600;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s ease;
+  text-align: left;
+}
+
 .welcome-box-right {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; /* sigue centrado verticalmente */
 }
 
-.welcome-box-left .line,
 .welcome-box-right .line {
   color: var(--c-oscuro);
   font-size: 1.8rem;
   font-weight: 600;
-  opacity: 0;             /* arranca invisible */
-  transform: translateY(40px); /* arranca abajo */
-  transition: all 0.7s ease;  /* animación suave */
-}
-
-.welcome-box-left .line {
-  text-align: left;
-}
-
-.welcome-box-right .line {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s ease;
   text-align: right;
 }
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
   .home-section {
     flex-direction: column;
@@ -128,7 +150,6 @@ body {
     margin-top: 20px;
   }
 }
-
 
 /* ===== FIX NAVBAR + ANCLAS ===== */
 section {
