@@ -94,7 +94,7 @@ body {
 .welcome-box-right {
   display: flex;
   flex-direction: column;
-  margin-top: 100px; /* baja el contenido del lado derecho */
+  margin-top: -100px; /* baja el contenido del lado derecho */
 }
 
 /* Líneas de texto */
