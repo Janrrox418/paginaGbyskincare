@@ -51,4 +51,11 @@ document.addEventListener("click", function (e) {
       menu.classList.remove("show");
     });
   }
+  // ===== ANIMACIÓN DE CUADROS HOME =====
+const homeLeftBox = document.querySelector(".welcome-box-left");
+const homeRightBox = document.querySelector(".welcome-box-right");
+
+setTimeout(() => homeLeftBox.classList.add("show"), 300);  // izquierdo primero
+setTimeout(() => homeRightBox.classList.add("show"), 800); // derecho un poco después
+
 });
