@@ -78,25 +78,30 @@ body {
 .home-section {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* alineamos al inicio */
+  align-items: flex-start; /* por defecto los elementos arriba */
   flex-wrap: wrap;
   padding: 50px;
   min-height: 100vh;
 }
 
 /* Contenedores de texto */
-.welcome-box-left,
+.welcome-box-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* mantiene la posición actual */
+}
+
 .welcome-box-right {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* más arriba */
+  justify-content: flex-end; /* baja el contenido del lado derecho */
 }
 
 /* Líneas de texto */
 .welcome-box-left .line,
 .welcome-box-right .line {
   color: var(--c-oscuro);
-  font-size: 2.2rem; /* un poco más grande */
+  font-size: 2.2rem; /* tamaño un poco más grande */
   font-weight: 700;
   opacity: 0;             
   transform: translateY(40px); 
@@ -126,9 +131,11 @@ body {
     margin-bottom: 20px;
   }
   .welcome-box-right {
-    margin-top: 20px;
+    margin-top: 20px; /* se separa del top */
+    justify-content: center; /* centra el contenido en móvil */
   }
 }
+
 
 /* ===== FIX NAVBAR + ANCLAS ===== */
 section {
