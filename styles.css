@@ -5,23 +5,29 @@ body {
   padding-top: 70px; /* espacio para navbar fija */
 }
 
+:root {
+  --c-primario: #00d1d1;
+  --c-oscuro: #001f3f;
+  --c-blanco: #fff;
+}
+
 /* ===== NAVBAR CELESTE ===== */
 .navbar {
-  background-color: #00d1d1 !important;
+  background-color: var(--c-primario) !important;
 }
 
 .navbar .nav-link {
-  color: #fff !important;
+  color: var(--c-blanco) !important;
   transition: color 0.3s ease;
 }
 
 .navbar .nav-link:hover,
 .navbar .nav-link.active-link {
-  color: #001f3f !important;
+  color: var(--c-oscuro) !important;
 }
 
 .navbar .dropdown-menu {
-  background-color: #00d1d1;
+  background-color: var(--c-primario);
   border-radius: 0.5rem;
   padding: 0.5rem 0;
   opacity: 0;
@@ -30,27 +36,31 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease;
+  pointer-events: none;
 }
 
-.navbar .dropdown:hover .dropdown-menu {
+/* Mostrar en PC (hover) y en móvil (clase .show) */
+.navbar .dropdown:hover .dropdown-menu,
+.navbar .dropdown-menu.show {
   opacity: 1;
   visibility: visible;
   max-height: 500px;
+  pointer-events: auto;
 }
 
 .navbar .dropdown-item {
-  color: #fff !important;
+  color: var(--c-blanco) !important;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar .dropdown-item:hover {
-  background-color: #001f3f;
-  color: #fff !important;
+  background-color: var(--c-oscuro);
+  color: var(--c-blanco) !important;
 }
 
 /* ===== BOTÓN HAMBURGUESA ===== */
 .navbar-toggler {
-  border-color: #fff;
+  border-color: var(--c-blanco);
 }
 
 .navbar-toggler .navbar-toggler-icon {
@@ -85,6 +95,7 @@ body {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease-out;
+  will-change: transform, opacity;
 }
 
 .welcome-box-left {
@@ -128,4 +139,17 @@ body {
 .show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ===== FIX NAVBAR + ANCLAS ===== */
+section {
+  scroll-margin-top: 90px;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== ACCESIBILIDAD ===== */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
 }
