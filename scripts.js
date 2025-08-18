@@ -1,88 +1,51 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // ===== ANIMACIÓN EN CASCADA SECCIONES =====
-  const sections = document.querySelectorAll("section");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const elements = entry.target.querySelectorAll("h1, h2, p, button");
-        elements.forEach((el, index) => {
-          el.classList.add("hidden");
-          setTimeout(() => {
-            el.classList.add("show");
-          }, index * 200);
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  sections.forEach(section => observer.observe(section));
+// ========================
+// ANIMACIÓN EN CASCADA
+// ========================
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".hidden");
 
-  // ===== MENÚ ACTIVO SEGÚN SCROLL =====
-  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-  window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      const sectionHeight = section.clientHeight;
-      if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-        current = section.getAttribute("id");
-      }
-    });
-    navLinks.forEach(link => {
-      link.classList.remove("active-link");
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active-link");
-      }
-    });
-  });
+  const showOnScroll = () => {
+    const triggerBottom = window.innerHeight * 0.9;
 
-  // ===== CIERRE MENÚ MÓVIL AL HACER CLICK =====
-  document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .dropdown-item').forEach(link => {
-  link.addEventListener('click', () => {
-    const navbar = document.querySelector('.navbar-collapse');
-    if (navbar.classList.contains('show')) {
-      new bootstrap.Collapse(navbar).hide();
+    elements.forEach((el) => {
+      const boxTop = el.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        el.classList.add("show");
+      }
+    });
+  };
+
+  window.addEventListener("scroll", showOnScroll);
+  showOnScroll(); // ejecutar al cargar
+});
+
+// ========================
+// SUBMENÚS RESPONSIVE
+// ========================
+
+// En pantallas pequeñas (móviles/tablets), el submenu se abre al hacer clic
+document.querySelectorAll(".dropdown-toggle").forEach((dropdown) => {
+  dropdown.addEventListener("click", function (e) {
+    if (window.innerWidth < 992) {
+      e.preventDefault();
+      const submenu = this.nextElementSibling;
+
+      if (submenu) {
+        submenu.classList.toggle("show");
+      }
     }
   });
 });
 
-
-  // ===== ANIMACIÓN CASCADA SUBMENÚS PC =====
-  const dropdowns = document.querySelectorAll(".navbar .dropdown");
-  dropdowns.forEach(drop => {
-    drop.addEventListener("mouseenter", () => {
-      const items = drop.querySelectorAll(".dropdown-menu li");
-      items.forEach((el, index) => {
-        el.style.opacity = 0;
-        el.style.transform = "translateY(10px)";
-        setTimeout(() => {
-          el.style.opacity = 1;
-          el.style.transform = "translateY(0)";
-        }, index * 100);
-      });
-    });
-    drop.addEventListener("mouseleave", () => {
-      const items = drop.querySelectorAll(".dropdown-menu li");
-      items.forEach(el => {
-        el.style.opacity = "";
-        el.style.transform = "";
-      });
-    });
-  });
-
-  // ===== ANIMACIÓN CASCADA SUBMENÚS MÓVIL =====
-  const mobileSubmenus = document.querySelectorAll(".navbar-collapse .dropdown-menu");
-  mobileSubmenus.forEach(submenu => {
-    submenu.addEventListener('show.bs.dropdown', () => {
-      const items = submenu.querySelectorAll("li");
-      items.forEach((el, index) => {
-        el.style.opacity = 0;
-        el.style.transform = "translateY(10px)";
-        setTimeout(() => {
-          el.style.opacity = 1;
-          el.style.transform = "translateY(0)";
-        }, index * 100);
-      });
-    });
+// ========================
+// CERRAR MENÚ OFFCANVAS AL HACER CLIC
+// ========================
+document.querySelectorAll(".offcanvas .nav-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    const offcanvas = document.querySelector(".offcanvas.show");
+    if (offcanvas) {
+      const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvas);
+      bsOffcanvas.hide();
+    }
   });
 });
