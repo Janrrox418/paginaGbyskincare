@@ -71,4 +71,15 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
+  // ===== FORMULARIO=====
+    const form = document.querySelector("footer form"); // selecciona tu formulario
+  if (form) {
+    form.addEventListener("submit", function(e) {
+      // Espera un momento para que el formulario se envíe
+      setTimeout(() => {
+        form.reset(); // limpia todos los campos
+        alert("¡Gracias! Tu mensaje ha sido enviado."); // opcional
+      }, 100);
+    });
+  }
 });
