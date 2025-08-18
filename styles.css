@@ -70,7 +70,6 @@ body {
 .navbar-brand img {
   height: 85px;
   width: 85px;
-  border-radius: 50%;
   object-fit: cover;
 }
 
