@@ -1,79 +1,75 @@
-/* ====== RESET GENERAL ====== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* ===== BODY ===== */
 body {
-  font-family: "Arial", sans-serif;
-  line-height: 1.6;
-  background: #f8f9fa;
-  color: #333;
+  background-color: #fdf2f8;
+  font-family: 'Segoe UI', sans-serif;
+  padding-top: 70px; /* espacio para navbar fija */
 }
 
-/* ====== NAVBAR ====== */
+/* ===== NAVBAR CELESTE ===== */
 .navbar {
-  background-color: #00bcd4 !important; /* Celeste */
-  padding: 0.8rem 1rem;
-}
-/*LOGO*/
-.navbar-brand img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%; /* Logo redondo */
-  object-fit: cover;
+  background-color: #00d1d1 !important;
 }
 
 .navbar .nav-link {
-  color: white !important;
-  font-weight: 500;
-  transition: color 0.3s ease-in-out;
+  color: #fff !important;
+  transition: color 0.3s ease;
 }
 
 .navbar .nav-link:hover,
-.navbar .active-link {
-  color: #003c5a !important; /* Celeste más oscuro al hover */
+.navbar .nav-link.active-link {
+  color: #001f3f !important;
 }
 
-/* ====== OFFCANVAS MENU (MÓVIL) ====== */
-.offcanvas {
-  background-color: #00bcd4;
-}
-
-.offcanvas .nav-link {
-  color: white;
-}
-
-.offcanvas .nav-link:hover {
-  color: #003c5a;
-}
-
-/* ====== SUBMENÚS ====== */
-.dropdown-menu {
-  background: white;
-  border-radius: 10px;
+.navbar .dropdown-menu {
+  background-color: #00d1d1;
+  border-radius: 0.5rem;
   padding: 0.5rem 0;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.dropdown-menu li a {
-  color: #333;
-  padding: 0.5rem 1rem;
+  opacity: 0;
+  visibility: hidden;
   display: block;
-  transition: background 0.3s;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.dropdown-menu li a:hover {
-  background: #00bcd4;
-  color: white;
+.navbar .dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  max-height: 500px;
 }
 
-/* ====== ANIMACIÓN CASCADA ====== */
+.navbar .dropdown-item {
+  color: #fff !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: #001f3f;
+  color: #fff !important;
+}
+
+/* ===== BOTÓN HAMBURGUESA ===== */
+.navbar-toggler {
+  border-color: #fff;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  filter: invert(1); /* icono blanco */
+}
+
+/* ===== LOGO REDONDO ===== */
+.navbar-brand img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ===== ANIMACIONES SCROLL ===== */
 .hidden {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
 }
 
 .show {
@@ -81,81 +77,46 @@ body {
   transform: translateY(0);
 }
 
-/* ====== BOTONES ====== */
-button,
-.btn {
-  background: #00bcd4;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  padding: 0.6rem 1.2rem;
-  transition: background 0.3s;
-}
-
-button:hover,
-.btn:hover {
-  background: #0097a7;
-  color: white;
-}
-
-/* ====== SECCIONES ====== */
-section {
-  padding: 80px 20px;
-  text-align: center;
-}
-
-section h1, section h2 {
-  color: #003c5a;
-}
-
-/* ====== FOOTER ====== */
-footer {
-  background: #00bcd4;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-}
-/* ===== CUADROS DE BIENVENIDA MEJORADOS ===== */
-.welcome-box-left, .welcome-box-right {
-  background-color: #00d1d1; /* color celeste principal */
-  color: #fff;
-  padding: 25px 35px;
-  border-radius: 20px;
-  box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
-  max-width: 320px;
+/* ===== WELCOME BOX HOME ===== */
+.welcome-box-left,
+.welcome-box-right {
+  background: rgba(255,255,255,0.95);
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+  max-width: 400px;
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease-out;
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
 }
 
-.welcome-box-left.show, .welcome-box-right.show {
+.welcome-box-left.show,
+.welcome-box-right.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Posición específica */
+/* Posición responsive */
+.home-section {
+  flex-wrap: wrap;
+}
+
 .welcome-box-left {
-  align-self: flex-start;
+  margin-right: auto;
 }
 
 .welcome-box-right {
-  align-self: flex-end;
-  margin-top: 50px; /* un poco más abajo */
+  margin-left: auto;
+  margin-top: 30px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .home-section {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 20px;
   }
-  .welcome-box-left, .welcome-box-right {
-    margin: 20px 0;
-    max-width: 90%;
+  .welcome-box-left,
+  .welcome-box-right {
+    margin: 20px auto;
   }
 }
