@@ -55,28 +55,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ===== ANIMACIÓN EN CASCADA TEXTOS HOME =====
-  const leftBox = document.querySelector(".welcome-box-left");
-  const rightBox = document.querySelector(".welcome-box-right");
+  // ===== ANIMACIÓN CASCADA TEXTOS HOME =====
+  const leftLines = document.querySelectorAll(".welcome-box-left .line");
+  const rightLines = document.querySelectorAll(".welcome-box-right .line");
 
-  if (leftBox && rightBox) {
-    // Animación izquierda
-    const leftLines = leftBox.querySelectorAll(".line");
-    leftLines.forEach((el, i) => {
-      setTimeout(() => {
-        el.style.opacity = 1;
-        el.style.transform = "translateY(0)";
-      }, i * 500);
-    });
+  leftLines.forEach((line, i) => {
+    setTimeout(() => {
+      line.style.opacity = 1;
+      line.style.transform = "translateY(0)";
+    }, i * 500); // 500ms entre líneas
+  });
 
-    // Animación derecha (empieza después de la izquierda)
-    const rightLines = rightBox.querySelectorAll(".line");
-    rightLines.forEach((el, i) => {
-      setTimeout(() => {
-        el.style.opacity = 1;
-        el.style.transform = "translateY(0)";
-      }, (i + leftLines.length) * 500);
-    });
-  }
+  rightLines.forEach((line, i) => {
+    setTimeout(() => {
+      line.style.opacity = 1;
+      line.style.transform = "translateY(0)";
+    }, (leftLines.length + i) * 500); // empieza después de izquierda
+  });
 
 });
