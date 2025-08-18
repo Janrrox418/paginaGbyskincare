@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
+//document.addEventListener("DOMContentLoaded", function () {
   // ===== ANIMACIÓN EN CASCADA HOME =====
-  const leftBox = document.querySelector(".welcome-box-left");
+  /*const leftBox = document.querySelector(".welcome-box-left");
   const rightBox = document.querySelector(".welcome-box-right");
 
   const observer = new IntersectionObserver(entries => {
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }, { threshold: 0.1 });
 
-  observer.observe(document.querySelector(".home-section"));
+  observer.observe(document.querySelector(".home-section"));*/
 
   // ===== MENÚ ACTIVO SEGÚN SCROLL =====
   const sections = document.querySelectorAll("section");
@@ -69,4 +69,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
-});
+//});
