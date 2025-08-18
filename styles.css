@@ -85,12 +85,29 @@ body {
   min-height: 100vh;
 }
 
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .welcome-box-left,
 .welcome-box-right {
-  color: var(--c-oscuro);   /* texto oscuro sobre fondo claro */
+  color: var(--c-oscuro);
   font-size: 1.8rem;
   font-weight: 600;
   text-align: center;
+  opacity: 0; /* arranca oculto */
+}
+
+.welcome-box-left.show,
+.welcome-box-right.show {
+  animation: fadeUp 1s ease forwards;
 }
 
 
@@ -102,12 +119,6 @@ body {
 .welcome-box-right {
   margin-left: auto;
   margin-top: 100px;
-}
-
-.welcome-box-left.show,
-.welcome-box-right.show {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* ===== RESPONSIVE ===== */
