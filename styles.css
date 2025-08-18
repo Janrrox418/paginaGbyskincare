@@ -1,124 +1,118 @@
-/* ========================
-   RESET Y BASE
-======================== */
-body {
+/* ====== RESET GENERAL ====== */
+* {
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fdfdfd;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  background: #f8f9fa;
   color: #333;
 }
 
-/* Ocultar elementos para animación en cascada */
+/* ====== NAVBAR ====== */
+.navbar {
+  background-color: #00bcd4 !important; /* Celeste */
+  padding: 0.8rem 1rem;
+}
+
+.navbar-brand img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* Logo redondo */
+  object-fit: cover;
+}
+
+.navbar .nav-link {
+  color: white !important;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar .nav-link:hover,
+.navbar .active-link {
+  color: #003c5a !important; /* Celeste más oscuro al hover */
+}
+
+/* ====== OFFCANVAS MENU (MÓVIL) ====== */
+.offcanvas {
+  background-color: #00bcd4;
+}
+
+.offcanvas .nav-link {
+  color: white;
+}
+
+.offcanvas .nav-link:hover {
+  color: #003c5a;
+}
+
+/* ====== SUBMENÚS ====== */
+.dropdown-menu {
+  background: white;
+  border-radius: 10px;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu li a {
+  color: #333;
+  padding: 0.5rem 1rem;
+  display: block;
+  transition: background 0.3s;
+}
+
+.dropdown-menu li a:hover {
+  background: #00bcd4;
+  color: white;
+}
+
+/* ====== ANIMACIÓN CASCADA ====== */
 .hidden {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
 .show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ========================
-   NAVBAR
-======================== */
-.navbar {
-  background-color: #f8f9fa;
-  border-bottom: 2px solid #ddd;
-}
-
-.navbar-brand {
-  font-weight: bold;
-  color: #222 !important;
-}
-
-.navbar-nav .nav-link {
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active-link {
-  color: #007bff !important;
-}
-
-/* ========================
-   DROPDOWN SUBMENÚ
-======================== */
-.dropdown-menu {
-  border-radius: 8px;
-  border: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.3s ease;
-}
-.dropdown-menu li {
-  transition: all 0.3s ease;
-}
-.dropdown-menu li:hover {
-  background-color: #f0f0f0;
-}
-
-/* Submenús en PC: aparecen al pasar el mouse */
-@media (min-width: 992px) {
-  .navbar .dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-  }
-}
-
-/* Submenús en móvil (los abre script.js con "show") */
-@media (max-width: 991px) {
-  .dropdown-menu {
-    display: none;
-  }
-  .dropdown-menu.show {
-    display: block;
-  }
-}
-
-/* ========================
-   OFFCANVAS (MENÚ MÓVIL)
-======================== */
-.offcanvas {
-  background-color: #f8f9fa;
-}
-.offcanvas .nav-link {
-  color: #333;
-}
-.offcanvas .nav-link:hover {
-  color: #007bff;
-}
-
-/* ========================
-   BOTONES Y SECCIONES
-======================== */
+/* ====== BOTONES ====== */
 button,
 .btn {
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-weight: 500;
+  background: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 0.6rem 1.2rem;
+  transition: background 0.3s;
 }
 
+button:hover,
+.btn:hover {
+  background: #0097a7;
+  color: white;
+}
+
+/* ====== SECCIONES ====== */
 section {
   padding: 80px 20px;
+  text-align: center;
 }
 
-section h1,
-section h2 {
-  font-weight: bold;
-  margin-bottom: 20px;
+section h1, section h2 {
+  color: #003c5a;
 }
 
-section p {
-  margin-bottom: 15px;
-  line-height: 1.6;
-}
-
-/* ========================
-   ANIMACIONES
-======================== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ====== FOOTER ====== */
+footer {
+  background: #00bcd4;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
 }
