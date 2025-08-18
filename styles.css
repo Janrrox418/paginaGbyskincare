@@ -20,6 +20,7 @@ body {
   color: #001f3f !important;
 }
 
+/* ===== SUBMENÚS ===== */
 .navbar .dropdown-menu {
   background-color: #00d1d1;
   border-radius: 0.5rem;
@@ -98,6 +99,9 @@ body {
 
 /* Posición responsive */
 .home-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -110,6 +114,7 @@ body {
   margin-top: 30px;
 }
 
+/* Media queries para móviles */
 @media (max-width: 992px) {
   .home-section {
     flex-direction: column;
