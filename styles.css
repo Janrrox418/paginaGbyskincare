@@ -85,19 +85,6 @@ body {
   min-height: 100vh;
 }
 
-/* Animación fadeUp */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Estilos líneas de texto */
 .welcome-box-left,
 .welcome-box-right {
   display: flex;
@@ -110,11 +97,11 @@ body {
   color: var(--c-oscuro);
   font-size: 1.8rem;
   font-weight: 600;
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 0;             /* arranca invisible */
+  transform: translateY(40px); /* arranca abajo */
+  transition: all 0.7s ease;  /* animación suave */
 }
 
-/* Texto alineado según lado */
 .welcome-box-left .line {
   text-align: left;
 }
@@ -123,7 +110,7 @@ body {
   text-align: right;
 }
 
-/* ===== RESPONSIVE ===== */
+/* Responsive */
 @media (max-width: 992px) {
   .home-section {
     flex-direction: column;
@@ -141,6 +128,7 @@ body {
     margin-top: 20px;
   }
 }
+
 
 /* ===== FIX NAVBAR + ANCLAS ===== */
 section {
