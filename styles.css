@@ -66,11 +66,18 @@ body {
   filter: invert(1);
 }
 
-/* ===== LOGO REDONDO ===== */
+/* ===== LOGO ===== */
 .navbar-brand img {
-  height: 85px;
-  width: 85px;
-  object-fit: cover;
+  height: auto;
+  width: 180px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+@media (min-width: 992px) {
+  .navbar-brand img {
+    width: 200px; /* Ajusta el tamaño del logo en pantallas pequeñas */
+  }
 }
 
 /* ===== WELCOME BOX HOME ===== */
