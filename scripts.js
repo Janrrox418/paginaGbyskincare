@@ -37,14 +37,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ===== CIERRE MENÚ MÓVIL AL HACER CLICK =====
-  const navbarCollapse = document.querySelector(".navbar-collapse");
-  document.querySelectorAll(".navbar-nav .nav-link, .navbar-nav .dropdown-item").forEach(link => {
-    link.addEventListener("click", () => {
-      if (navbarCollapse.classList.contains("show")) {
-        new bootstrap.Collapse(navbarCollapse).hide();
-      }
-    });
+  document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .dropdown-item').forEach(link => {
+  link.addEventListener('click', () => {
+    const navbar = document.querySelector('.navbar-collapse');
+    if (navbar.classList.contains('show')) {
+      new bootstrap.Collapse(navbar).hide();
+    }
   });
+});
+
 
   // ===== ANIMACIÓN CASCADA SUBMENÚS PC =====
   const dropdowns = document.querySelectorAll(".navbar .dropdown");
