@@ -94,7 +94,7 @@ body {
 .welcome-box-right {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* baja el contenido del lado derecho */
+  margin-top: 200px; /* baja el contenido del lado derecho */
 }
 
 /* Líneas de texto */
@@ -131,8 +131,7 @@ body {
     margin-bottom: 20px;
   }
   .welcome-box-right {
-    margin-top: 20px; /* se separa del top */
-    justify-content: center; /* centra el contenido en móvil */
+    margin-top: 40px; /* se separa del top */
   }
 }
 
