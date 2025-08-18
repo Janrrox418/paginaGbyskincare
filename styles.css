@@ -39,7 +39,6 @@ body {
   pointer-events: none;
 }
 
-/* Mostrar en PC (hover) y en móvil (clase .show) */
 .navbar .dropdown:hover .dropdown-menu,
 .navbar .dropdown-menu.show {
   opacity: 1;
@@ -79,60 +78,40 @@ body {
 .home-section {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start; /* alineamos al inicio */
   flex-wrap: wrap;
   padding: 50px;
   min-height: 100vh;
 }
 
-/* Animación fadeUp */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Estilos líneas de texto */
-.welcome-box-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* sube el texto más arriba */
-  margin-top: 50px; /* ajusta según convenga */
-}
-
-.welcome-box-left .line {
-  color: var(--c-oscuro);
-  font-size: 2.2rem; /* más grande que antes */
-  font-weight: 600;
-  line-height: 1.2;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.7s ease;
-  text-align: left;
-}
-
+/* Contenedores de texto */
+.welcome-box-left,
 .welcome-box-right {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* sigue centrado verticalmente */
+  justify-content: flex-start; /* más arriba */
+}
+
+/* Líneas de texto */
+.welcome-box-left .line,
+.welcome-box-right .line {
+  color: var(--c-oscuro);
+  font-size: 2.2rem; /* un poco más grande */
+  font-weight: 700;
+  opacity: 0;             
+  transform: translateY(40px); 
+  transition: all 0.7s ease;
+}
+
+.welcome-box-left .line {
+  text-align: left;
 }
 
 .welcome-box-right .line {
-  color: var(--c-oscuro);
-  font-size: 1.8rem;
-  font-weight: 600;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.7s ease;
   text-align: right;
 }
 
-/* ===== RESPONSIVE ===== */
+/* Responsive */
 @media (max-width: 992px) {
   .home-section {
     flex-direction: column;
@@ -155,6 +134,7 @@ body {
 section {
   scroll-margin-top: 90px;
 }
+
 html {
   scroll-behavior: smooth;
 }

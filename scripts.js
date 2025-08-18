@@ -1,4 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // ===== ANIMACIÓN LÍNEAS WELCOME =====
+  const leftLines = document.querySelectorAll(".welcome-box-left .line");
+  const rightLines = document.querySelectorAll(".welcome-box-right .line");
+
+  leftLines.forEach((line, index) => {
+    setTimeout(() => {
+      line.style.opacity = "1";
+      line.style.transform = "translateY(0)";
+    }, index * 300); // retardo en cascada
+  });
+
+  rightLines.forEach((line, index) => {
+    setTimeout(() => {
+      line.style.opacity = "1";
+      line.style.transform = "translateY(0)";
+    }, index * 300);
+  });
 
   // ===== MENÚ ACTIVO SEGÚN SCROLL =====
   const sections = document.querySelectorAll("section");
@@ -54,23 +71,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
-
-  // ===== ANIMACIÓN CASCADA TEXTOS HOME =====
-  const leftLines = document.querySelectorAll(".welcome-box-left .line");
-  const rightLines = document.querySelectorAll(".welcome-box-right .line");
-
-  leftLines.forEach((line, i) => {
-    setTimeout(() => {
-      line.style.opacity = 1;
-      line.style.transform = "translateY(0)";
-    }, i * 500); // 500ms entre líneas
-  });
-
-  rightLines.forEach((line, i) => {
-    setTimeout(() => {
-      line.style.opacity = 1;
-      line.style.transform = "translateY(0)";
-    }, (leftLines.length + i) * 500); // empieza después de izquierda
-  });
-
 });
