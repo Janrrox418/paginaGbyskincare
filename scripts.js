@@ -1,19 +1,20 @@
-//document.addEventListener("DOMContentLoaded", function () {
-  // ===== ANIMACIÓN EN CASCADA HOME =====
-  /*const leftBox = document.querySelector(".welcome-box-left");
-  const rightBox = document.querySelector(".welcome-box-right");
+document.addEventListener("DOMContentLoaded", function () {
+ // ===== ANIMACIÓN ENTRADA HOME =====
+const leftBox = document.querySelector(".welcome-box-left");
+const rightBox = document.querySelector(".welcome-box-right");
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        leftBox.classList.add("show");
-        setTimeout(() => rightBox.classList.add("show"), 500);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      leftBox.classList.add("show");
+      setTimeout(() => rightBox.classList.add("show"), 500);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
 
-  observer.observe(document.querySelector(".home-section"));*/
+observer.observe(document.querySelector(".home-section"));
+
 
   // ===== MENÚ ACTIVO SEGÚN SCROLL =====
   const sections = document.querySelectorAll("section");
@@ -69,4 +70,4 @@
       });
     });
   });
-//});
+});
