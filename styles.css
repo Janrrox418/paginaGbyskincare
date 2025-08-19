@@ -94,7 +94,7 @@ body {
 .welcome-box-left {
   display: flex;
   flex-direction: column;
-  margin-top: 100px; /* separa del top */
+  margin-top: 20px; /* separa del top */
 }
 
 .welcome-box-right {
