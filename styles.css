@@ -95,7 +95,12 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 20px; /* separa del top */
+  align-items: flex-start; /* alinea el texto a la izquierda */
 }
+  .welcome-section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
 
 .welcome-box-right {
   display: flex;
@@ -255,18 +260,33 @@ html {
   transform: scale(1.1);
 }
 /* ===== Imagen animada debajo de Wellness ===== */
+/* Imagen animada debajo de Wellness */
 .animated-image {
-  width: 300px;           /* ajusta tamaño de la imagen */
-  margin-top: 20px;       /* separación del texto */
-  opacity: 0;             /* invisible al inicio */
-  transform: translateX(100px); /* empieza desplazada a la derecha */
+  width: 350px;           /* un poco más grande */
+  max-width: 90%;         /* para que no se desborde en móviles */
+  margin-top: 30px;       /* más espacio con el texto */
+  opacity: 0;             
+  transform: translateX(100px);
   animation: slideIn 1.5s ease-out forwards;
 }
 
-/* Animación de entrada */
+/* En móviles centramos la imagen */
+@media (max-width: 768px) {
+  .welcome-box-left {
+    align-items: center;   /* centra todo en pantallas pequeñas */
+    text-align: center;    /* texto también centrado */
+  }
+
+  .animated-image {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+/* Animación de entrada desde la derecha */
 @keyframes slideIn {
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
+
