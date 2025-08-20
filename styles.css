@@ -269,8 +269,8 @@ html {
 
 /* ===== Imagen animada debajo de Wellness ===== */
 .animated-image {
-  width: 350px;
-  max-width: 90%;
+  width: 500px;
+  max-width: 100%;
   margin-top: 30px;
   opacity: 0;
   transform: translateX(100px);
@@ -285,8 +285,9 @@ html {
   }
 
   .animated-image {
-    margin-left: 0;
-    margin-right: 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
