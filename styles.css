@@ -332,17 +332,17 @@ html {
     margin-right: auto;
   }
 }
-/* ===== Alinear texto derecho arriba junto a la imagen ===== */
+/* ===== Alinear texto derecho arriba pero un poco más abajo ===== */
 @media (min-width: 993px) {
   .home-section {
-    align-items: flex-start; /* en vez de center → alinea ambos bloques arriba */
+    align-items: flex-start; /* bloques alineados arriba */
   }
 
   .welcome-box-right {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* asegura que su contenido empiece arriba */
-    margin-top: 0; /* por si tenía margen extra */
+    justify-content: flex-start;
+    margin-top: 40px; /* ajusta: 20px, 30px, 40px según lo quieras */
   }
 }
 
