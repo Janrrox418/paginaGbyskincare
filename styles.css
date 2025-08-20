@@ -355,5 +355,19 @@ html {
   object-fit: cover;
   max-height: 280px; /* ajusta la altura de las imágenes */
 }
+#treatments, #spa, #conditions {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+#treatments h2, #spa h2, #conditions h2 {
+  color: var(--c-oscuro);
+  margin-bottom: 20px;
+}
+
+#spa {
+  background-color: #f4f8f9; /* un fondo distinto para diferenciar */
+}
+
 
 
