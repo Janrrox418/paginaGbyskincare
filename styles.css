@@ -319,7 +319,7 @@ html {
   /* Imagen realmente ancha dentro del lado izquierdo */
   .animated-image {
     width: 100%;       /* llena el ancho disponible del contenedor izquierdo */
-    max-width: 900px;  /* tope de ancho grande (ajústalo si quieres más) */
+    max-width: 600px;  /* tope de ancho grande (ajústalo si quieres más) */
   }
 }
 
