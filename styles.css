@@ -332,4 +332,18 @@ html {
     margin-right: auto;
   }
 }
+/* ===== Alinear texto derecho arriba junto a la imagen ===== */
+@media (min-width: 993px) {
+  .home-section {
+    align-items: flex-start; /* en vez de center → alinea ambos bloques arriba */
+  }
+
+  .welcome-box-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* asegura que su contenido empiece arriba */
+    margin-top: 0; /* por si tenía margen extra */
+  }
+}
+
 
