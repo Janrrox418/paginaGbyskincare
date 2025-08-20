@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Microneedling - GBYSkincare</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Tu CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/logogby.jpg" alt="GBYSkincare">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About us</a></li>
+
+          <!-- Dropdown Treatments -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="treatmentsDropdown" role="button" data-bs-toggle="dropdown">
+              Treatments
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="treatmentsDropdown">
+              <li><a class="dropdown-item active" href="microneedling.html">Microneedling</a></li>
+              <li><a class="dropdown-item" href="skin-tightening.html">Skin Tightening</a></li>
+              <li><a class="dropdown-item" href="prp.html">Platelet Rich Plasma (PRP)</a></li>
+              <li><a class="dropdown-item" href="oxygeneo.html">Oxygeneo</a></li>
+              <li><a class="dropdown-item" href="hydrafacial.html">Hydrafacial</a></li>
+              <li><a class="dropdown-item" href="dermaplaning.html">Dermaplaning</a></li>
+              <li><a class="dropdown-item" href="hair-treatments.html">Hair Treatments</a></li>
+              <li><a class="dropdown-item" href="scalp-treatments.html">Scalp Treatments</a></li>
+              <li><a class="dropdown-item" href="body-contouring.html">Body Contouring</a></li>
+            </ul>
+          </li>
+
+          <!-- Spa -->
+          <li class="nav-item"><a class="nav-link" href="index.html#spa">Spa Services</a></li>
+
+          <!-- Conditions -->
+          <li class="nav-item"><a class="nav-link" href="index.html#conditions">Conditions</a></li>
+
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== CONTENIDO MICRONEEDLING ===== -->
+  <section class="py-5 mt-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Imagen -->
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <img src="assets/microneedling.jpg" alt="Microneedling" class="img-fluid rounded shadow">
+        </div>
+        <!-- Texto -->
+        <div class="col-lg-6">
+          <h2 class="mb-3">Microneedling</h2>
+          <p>
+            El <strong>Microneedling</strong> es un tratamiento mínimamente invasivo que utiliza microagujas para estimular 
+            la producción natural de colágeno y elastina en la piel. Ayuda a mejorar la textura, reducir cicatrices de acné, 
+            suavizar arrugas finas y disminuir manchas.
+          </p>
+          <p>
+            Este procedimiento es seguro, efectivo y se adapta a las necesidades específicas de cada paciente para lograr 
+            un aspecto más saludable y rejuvenecido.
+          </p>
+          <ul>
+            <li>Reduce cicatrices de acné</li>
+            <li>Mejora la elasticidad y firmeza</li>
+            <li>Unifica el tono de piel</li>
+            <li>Tratamiento rápido y mínimamente invasivo</li>
+          </ul>
+          <a href="index.html#contact" class="btn btn-primary mt-3">Agendar Consulta</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="contact" class="footer">
+    <div class="container text-center py-4">
+      <p>&copy; 2025 GBYSkincare - Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts.js" defer></script>
+</body>
+</html>
