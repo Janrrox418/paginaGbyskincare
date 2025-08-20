@@ -342,7 +342,7 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: 80px; /* ajusta: 20px, 30px, 40px según lo quieras */
+    margin-top: 120px; /* ajusta: 20px, 30px, 40px según lo quieras */
   }
 }
 
