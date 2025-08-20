@@ -14,6 +14,7 @@ body {
 /* ===== NAVBAR CELESTE ===== */
 .navbar {
   background-color: var(--c-primario) !important;
+  padding: 0.5rem 1rem;
 }
 
 .navbar .nav-link {
@@ -69,9 +70,7 @@ body {
 /* ===== LOGO ===== */
 .navbar-brand img {
   height: auto;
-  width: 120px;
-  max-width: 100%;
-  object-fit: contain;
+  width: 100px;
 }
 
 @media (min-width: 992px) {
@@ -94,7 +93,7 @@ body {
 .welcome-box-left {
   display: flex;
   flex-direction: column;
-  margin-top: 20px; /* separa del top */
+  gap: 20px; /* separa del top */
   align-items: flex-start; /* alinea el texto a la izquierda */
 }
   .welcome-section {
@@ -108,6 +107,7 @@ body {
   justify-self: center;
   align-items: flex-end; /* alinea el texto a la derecha */
   margin-top: 0px; /* baja el contenido del lado derecho */
+  height: 100%;
 }
 
 /* Líneas de texto */
