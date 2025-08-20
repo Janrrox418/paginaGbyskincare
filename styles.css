@@ -298,3 +298,38 @@ html {
     transform: translateX(0);
   }
 }
+/* ===== Overrides para ensanchar imagen y acercar columnas ===== */
+
+/* En desktop: quitamos el espacio gigante entre columnas y usamos un gap controlado */
+@media (min-width: 993px) {
+  .home-section {
+    justify-content: flex-start; /* en vez de space-between */
+    gap: 40px;                   /* distancia entre columnas (ajusta a gusto: 24px/32px/48px) */
+  }
+
+  /* Damos más espacio al lado izquierdo (texto+imagen) */
+  .welcome-box-left {
+    flex: 2 1 0;  /* ocupa ~2x del derecho */
+  }
+
+  .welcome-box-right {
+    flex: 1 1 0;  /* ocupa menos ancho */
+  }
+
+  /* Imagen realmente ancha dentro del lado izquierdo */
+  .animated-image {
+    width: 100%;       /* llena el ancho disponible del contenedor izquierdo */
+    max-width: 900px;  /* tope de ancho grande (ajústalo si quieres más) */
+  }
+}
+
+/* En tablet/móvil ya tienes reglas, solo aseguramos que la imagen siga bien fluida */
+@media (max-width: 992px) {
+  .animated-image {
+    width: 90%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
