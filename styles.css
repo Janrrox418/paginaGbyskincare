@@ -14,7 +14,7 @@ body {
 /* ===== NAVBAR CELESTE ===== */
 .navbar {
   background-color: var(--c-primario) !important;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem; /* navbar más delgada */
 }
 
 .navbar .nav-link {
@@ -69,13 +69,14 @@ body {
 
 /* ===== LOGO ===== */
 .navbar-brand img {
+  width: 120px;
   height: auto;
-  width: 100px;
+  object-fit: contain;
 }
 
 @media (min-width: 992px) {
   .navbar-brand img {
-    width: 200px; /* Ajusta el tamaño del logo en pantallas pequeñas */
+    width: 150px; /* un poco más grande en desktop */
   }
 }
 
@@ -83,41 +84,42 @@ body {
 .home-section {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* por defecto los elementos arriba */
+  align-items: center;  /* centra verticalmente el contenido */
   flex-wrap: wrap;
-  padding: 50px;
-  min-height: 100vh;
+  padding: 80px;
+  min-height: 110vh; /* más grande que la ventana */
 }
 
 /* Contenedores de texto */
 .welcome-box-left {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* separa del top */
-  align-items: flex-start; /* alinea el texto a la izquierda */
+  gap: 20px;
+  align-items: flex-start;
 }
-  .welcome-section {
-    padding-top: 120px;
-    padding-bottom: 120px;
-  }
+
+.welcome-section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
 
 .welcome-box-right {
   display: flex;
   flex-direction: column;
-  justify-self: center;
-  align-items: flex-end; /* alinea el texto a la derecha */
-  margin-top: 0px; /* baja el contenido del lado derecho */
+  justify-content: center;  /* centra verticalmente */
+  align-items: flex-end;    /* alineado a la derecha */
   height: 100%;
+  margin-top: 0;
 }
 
 /* Líneas de texto */
 .welcome-box-left .line,
 .welcome-box-right .line {
   color: var(--c-oscuro);
-  font-size: 2.2rem; /* tamaño un poco más grande */
+  font-size: 2.2rem;
   font-weight: 700;
-  opacity: 0;             
-  transform: translateY(40px); 
+  opacity: 0;
+  transform: translateY(40px);
   transition: all 0.7s ease;
 }
 
@@ -146,10 +148,9 @@ body {
   .welcome-box-right {
     align-items: center;
     text-align: center;
-    margin-top: 50px; /* se separa del top */
+    margin-top: 50px;
   }
 }
-
 
 /* ===== FIX NAVBAR + ANCLAS ===== */
 section {
@@ -167,9 +168,10 @@ html {
     animation: none !important;
   }
 }
+
 /* ===== Footer Styles ===== */
 .footer {
-  background-color: #00d1d1; /* Celeste oscuro */
+  background-color: #00d1d1;
   color: white;
   padding: 40px 20px;
 }
@@ -217,7 +219,7 @@ html {
 
 .footer-form button {
   padding: 10px;
-  background-color: #084298; /* Azul más fuerte */
+  background-color: #084298;
   color: white;
   border: none;
   border-radius: 5px;
@@ -243,6 +245,7 @@ html {
     max-width: 300px;
   }
 }
+
 /* ===== Social Buttons ===== */
 .social-buttons {
   margin-top: 20px;
@@ -263,13 +266,13 @@ html {
 .social-buttons img:hover {
   transform: scale(1.1);
 }
+
 /* ===== Imagen animada debajo de Wellness ===== */
-/* Imagen animada debajo de Wellness */
 .animated-image {
-  width: 350px;           /* un poco más grande */
-  max-width: 90%;         /* para que no se desborde en móviles */
-  margin-top: 30px;       /* más espacio con el texto */
-  opacity: 0;             
+  width: 350px;
+  max-width: 90%;
+  margin-top: 30px;
+  opacity: 0;
   transform: translateX(100px);
   animation: slideIn 1.5s ease-out forwards;
 }
@@ -277,8 +280,8 @@ html {
 /* En móviles centramos la imagen */
 @media (max-width: 768px) {
   .welcome-box-left {
-    align-items: center;   /* centra todo en pantallas pequeñas */
-    text-align: center;    /* texto también centrado */
+    align-items: center;
+    text-align: center;
   }
 
   .animated-image {
@@ -286,6 +289,7 @@ html {
     margin-right: 0;
   }
 }
+
 /* Animación de entrada desde la derecha */
 @keyframes slideIn {
   to {
@@ -293,4 +297,3 @@ html {
     transform: translateX(0);
   }
 }
-
