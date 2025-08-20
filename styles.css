@@ -69,8 +69,8 @@ body {
 /* ===== LOGO ===== */
 .navbar-brand img {
   height: auto;
-  width: 10px;
-  max-width: 80%;
+  width: 120px;
+  max-width: 100%;
   object-fit: contain;
 }
 
@@ -105,7 +105,9 @@ body {
 .welcome-box-right {
   display: flex;
   flex-direction: column;
-  margin-top: 300px; /* baja el contenido del lado derecho */
+  justify-self: center;
+  align-items: flex-end; /* alinea el texto a la derecha */
+  margin-top: 0px; /* baja el contenido del lado derecho */
 }
 
 /* Líneas de texto */
@@ -142,7 +144,9 @@ body {
     margin-bottom: 20px;
   }
   .welcome-box-right {
-    margin-top: 100px; /* se separa del top */
+    align-items: center;
+    text-align: center;
+    margin-top: 50px; /* se separa del top */
   }
 }
 
