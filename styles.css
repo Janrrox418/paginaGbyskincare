@@ -370,7 +370,7 @@ html {
 }
 /* ==== FIX PARA QUE EL NAVBAR NO TAPE LOS TITULOS ==== */
 body {
-  padding-top: 100px; /* Ajusta según el alto de tu navbar */
+  padding-top: 50px; /* Ajusta según el alto de tu navbar */
 }
 
 /* Ajuste de scroll para que al hacer clic en un link ancla no quede oculto */
