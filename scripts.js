@@ -66,24 +66,26 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ===== DROPDOWNS EN MÓVILES (versión única optimizada) =====
- document.querySelectorAll('.navbar .dropdown-toggle').forEach(toggle => {
-  toggle.addEventListener('click', function (e) {
-    if (window.innerWidth < 992) { // solo en móvil/tablet
-      e.preventDefault(); // evita navegación inmediata
-
+ // ===== DROPDOWNS EN MÓVILES =====
+document.querySelectorAll('.navbar .dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('touchstart', function (e) {
+    if (window.innerWidth < 992) {
+      e.preventDefault(); // bloquea el comportamiento "focus primero"
       const menu = this.nextElementSibling;
       const isOpen = menu.classList.contains("show");
 
-      // cerrar otros abiertos
+      // cerrar todos los abiertos menos este
       document.querySelectorAll('.navbar .dropdown-menu.show').forEach(openMenu => {
         if (openMenu !== menu) openMenu.classList.remove("show");
       });
 
-      // abrir/cerrar el actual
+      // abrir/cerrar actual
       menu.classList.toggle("show", !isOpen);
     }
   });
 });
+
+
 
 
   // ===== FORMULARIO =====
