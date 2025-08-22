@@ -35,33 +35,37 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ===== CIERRE MENÚ MÓVIL AL HACER CLICK =====
-  document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .dropdown-item').forEach(link => {
-    link.addEventListener('click', () => {
-      const navbar = document.querySelector('.navbar-collapse');
-      if (navbar && navbar.classList.contains('show')) {
-        new bootstrap.Collapse(navbar).hide();
-      }
+  // ===== CIERRE MENÚ MÓVIL AL HACER CLICK (excepto dropdown-toggle) =====
+  document
+    .querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle), .navbar-nav .dropdown-item')
+    .forEach(link => {
+      link.addEventListener('click', () => {
+        const navbar = document.querySelector('.navbar-collapse');
+        if (navbar && navbar.classList.contains('show')) {
+          new bootstrap.Collapse(navbar).hide();
+        }
+      });
     });
-  });
 
   // ===== DROPDOWNS MÓVILES: PRIMER TOQUE ABRE/CERRA, NO NAVEGA =====
-  document.querySelectorAll('.navbar .dropdown-toggle').forEach(toggle => {
-    toggle.addEventListener('click', function (e) {
-      if (window.innerWidth < 992) {
-        const menu = this.nextElementSibling;
-        const isOpen = menu.classList.contains('show');
-
+  document.querySelectorAll('.navbar .dropdown-toggle').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      if (window.innerWidth < 992) { // Solo en móviles
         e.preventDefault();
         e.stopPropagation();
 
-        // Cierra otros submenús abiertos
-        document.querySelectorAll('.navbar .dropdown-menu.show').forEach(openMenu => {
-          if (openMenu !== menu) openMenu.classList.remove("show");
+        const menu = this.nextElementSibling;
+        const isShown = menu.classList.contains('show');
+
+        // Cerrar otros submenús
+        document.querySelectorAll('.navbar .dropdown-menu.show').forEach(function (openMenu) {
+          openMenu.classList.remove('show');
         });
 
-        // Alterna este submenú
-        menu.classList.toggle("show", !isOpen);
+        // Abrir/cerrar el submenú actual
+        if (!isShown) {
+          menu.classList.add('show');
+        }
       }
     });
   });

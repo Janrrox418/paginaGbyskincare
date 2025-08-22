@@ -35,13 +35,12 @@ body {
   background-color: var(--c-primario);
   border-radius: 0.5rem;
   padding: 0.5rem 0;
-  /* Oculto por defecto */
   opacity: 0;
   visibility: hidden;
   max-height: 0;
   overflow: hidden;
   pointer-events: none;
-  transition: none; /* sin animaciones */
+  transition: none; /* sin animaciones para respuesta inmediata */
 }
 
 /* Mostrar sólo con .show */
@@ -52,7 +51,7 @@ body {
   pointer-events: auto;
 }
 
-/* Items */
+/* Items dentro del dropdown */
 .navbar .dropdown-item {
   color: var(--c-blanco) !important;
   transition: background-color 0.3s ease, color 0.3s ease;
