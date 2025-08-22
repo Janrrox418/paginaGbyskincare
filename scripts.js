@@ -3,18 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftLines = document.querySelectorAll(".welcome-box-left .line");
   const rightLines = document.querySelectorAll(".welcome-box-right .line");
 
-  leftLines.forEach((line, index) => {
+  [...leftLines].forEach((line, i) => {
     setTimeout(() => {
       line.style.opacity = "1";
       line.style.transform = "translateY(0)";
-    }, index * 300); // retardo en cascada
+    }, i * 300);
   });
 
-  rightLines.forEach((line, index) => {
+  [...rightLines].forEach((line, i) => {
     setTimeout(() => {
       line.style.opacity = "1";
       line.style.transform = "translateY(0)";
-    }, index * 300);
+    }, i * 300);
   });
 
   // ===== MENÚ ACTIVO SEGÚN SCROLL =====
@@ -26,16 +26,12 @@ document.addEventListener("DOMContentLoaded", function () {
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
       const sectionHeight = section.clientHeight;
-      const y = window.scrollY;
-      if (y >= sectionTop && y < sectionTop + sectionHeight) {
-        current = section.getAttribute("id");
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        current = section.id;
       }
     });
     navLinks.forEach(link => {
-      link.classList.remove("active-link");
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active-link");
-      }
+      link.classList.toggle("active-link", link.getAttribute("href") === `#${current}`);
     });
   });
 
@@ -50,78 +46,54 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ===== ANIMACIÓN CASCADA SUBMENÚS PC =====
-  const dropdowns = document.querySelectorAll(".navbar .dropdown");
-  dropdowns.forEach(drop => {
+  document.querySelectorAll(".navbar .dropdown").forEach(drop => {
     drop.addEventListener("mouseenter", () => {
-      const items = drop.querySelectorAll(".dropdown-menu li");
-      items.forEach((el, index) => {
+      drop.querySelectorAll(".dropdown-menu li").forEach((el, i) => {
         el.style.opacity = 0;
         el.style.transform = "translateY(10px)";
         setTimeout(() => {
           el.style.opacity = 1;
           el.style.transform = "translateY(0)";
-        }, index * 100);
+        }, i * 100);
       });
     });
     drop.addEventListener("mouseleave", () => {
-      const items = drop.querySelectorAll(".dropdown-menu li");
-      items.forEach(el => {
+      drop.querySelectorAll(".dropdown-menu li").forEach(el => {
         el.style.opacity = "";
         el.style.transform = "";
       });
     });
   });
 
+  // ===== DROPDOWNS EN MÓVILES (versión única optimizada) =====
+ document.querySelectorAll('.navbar .dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', function (e) {
+    if (window.innerWidth < 992) { // solo en móvil/tablet
+      e.preventDefault(); // evita navegación inmediata
+
+      const menu = this.nextElementSibling;
+      const isOpen = menu.classList.contains("show");
+
+      // cerrar otros abiertos
+      document.querySelectorAll('.navbar .dropdown-menu.show').forEach(openMenu => {
+        if (openMenu !== menu) openMenu.classList.remove("show");
+      });
+
+      // abrir/cerrar el actual
+      menu.classList.toggle("show", !isOpen);
+    }
+  });
+});
+
+
   // ===== FORMULARIO =====
   const form = document.querySelector("footer form");
   if (form) {
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", function () {
       setTimeout(() => {
         form.reset();
         alert("¡Gracias! Tu mensaje ha sido enviado.");
       }, 100);
     });
   }
-
-  // ===== ARREGLAR DROPDOWNS EN MÓVILES =====
-  document.querySelectorAll('.navbar .dropdown-toggle').forEach(toggle => {
-    toggle.addEventListener('click', function (e) {
-      if (window.innerWidth < 992) { // solo en móviles/tablets
-        e.preventDefault(); // evita que se cierre al primer clic
-
-        const menu = this.nextElementSibling;
-
-        // cerrar otros submenús abiertos
-        this.closest('.navbar-nav').querySelectorAll('.dropdown-menu.show').forEach(openMenu => {
-          if (openMenu !== menu) openMenu.classList.remove('show');
-        });
-
-        // alternar el actual
-        menu.classList.toggle('show');
-      }
-    });
-  });
-  document.addEventListener("DOMContentLoaded", function () {
-  // Evitar que los enlaces dropdown naveguen
-  document.querySelectorAll('.navbar .dropdown-toggle').forEach(toggle => {
-    toggle.addEventListener("click", function (e) {
-      if (window.innerWidth < 992) { // solo en móvil/tablet
-        e.preventDefault(); // nunca navega
-        const menu = this.nextElementSibling;
-        const isOpen = menu.classList.contains("show");
-
-        // Cerrar todos los demás
-        document.querySelectorAll('.navbar .dropdown-menu.show').forEach(openMenu => {
-          openMenu.classList.remove("show");
-        });
-
-        // Toggle el actual
-        if (!isOpen) {
-          menu.classList.add("show");
-        }
-      }
-    });
-  });
-});
-
 });
