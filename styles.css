@@ -71,7 +71,7 @@ body {
 
 /* ===== LOGO ===== */
 .navbar-brand img {
-  max-height: 90px;
+  max-height: 150px;
   width: auto;
 }
 
@@ -172,7 +172,7 @@ html {
 
 /* ===== Footer Styles ===== */
 .footer {
-  background-color: #00d1d1;
+  background-color: #319cA1;
   color: white;
   padding: 40px 20px;
 }
