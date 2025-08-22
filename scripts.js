@@ -71,38 +71,34 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
-  // ===== FORMULARIO=====
-    const form = document.querySelector("footer form"); // selecciona tu formulario
+
+  // ===== FORMULARIO =====
+  const form = document.querySelector("footer form");
   if (form) {
-    form.addEventListener("submit", function(e) {
-      // Espera un momento para que el formulario se envíe
+    form.addEventListener("submit", function (e) {
       setTimeout(() => {
-        form.reset(); // limpia todos los campos
-        alert("¡Gracias! Tu mensaje ha sido enviado."); // opcional
+        form.reset();
+        alert("¡Gracias! Tu mensaje ha sido enviado.");
       }, 100);
     });
   }
-  // ===== DROPDOWN EN MÓVILES CON CLICK =====
-const dropdownLinks = document.querySelectorAll('.navbar .dropdown-toggle');
 
-dropdownLinks.forEach(link => {
-  link.addEventListener('click', function (e) {
-    if (window.innerWidth < 992) { // solo aplica en móviles/tablets
-      e.preventDefault(); // evita que el link se cierre
-      const dropdownMenu = this.nextElementSibling;
+  // ===== ARREGLAR DROPDOWNS EN MÓVILES =====
+  document.querySelectorAll('.navbar .dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function (e) {
+      if (window.innerWidth < 992) { // solo en móviles/tablets
+        e.preventDefault(); // evita que se cierre al primer clic
 
-      // alternar manualmente el menú
-      if (dropdownMenu.classList.contains('show')) {
-        dropdownMenu.classList.remove('show');
-      } else {
-        // cerrar otros abiertos antes de abrir el actual
-        document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
-          menu.classList.remove('show');
+        const menu = this.nextElementSibling;
+
+        // cerrar otros submenús abiertos
+        this.closest('.navbar-nav').querySelectorAll('.dropdown-menu.show').forEach(openMenu => {
+          if (openMenu !== menu) openMenu.classList.remove('show');
         });
-        dropdownMenu.classList.add('show');
-      }
-    }
-  });
-});
 
+        // alternar el actual
+        menu.classList.toggle('show');
+      }
+    });
+  });
 });
