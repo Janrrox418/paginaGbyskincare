@@ -397,6 +397,12 @@ section {
 #other-treatments .card:hover {
   transform: translateY(-5px);
 }
+#other-treatments .card-img-top {
+  height: 220px;         /* todas las imágenes tendrán el mismo alto */
+  object-fit: cover;     /* recorta sin deformar */
+  object-position: center; /* centra la imagen */
+  border-radius: 10px;   /* opcional, esquinas suaves */
+}
 
 
 
