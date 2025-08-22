@@ -6,7 +6,7 @@ body {
 }
 
 :root {
-  --c-primario: #00d1d1;
+  --c-primario: #319cA1;
   --c-oscuro: #001f3f;
   --c-blanco: #fff;
 }
@@ -14,12 +14,14 @@ body {
 /* ===== NAVBAR CELESTE ===== */
 .navbar {
   background-color: var(--c-primario) !important;
-  padding: 0.3rem 1rem; /* navbar más delgada */
+  padding: 0.2rem 0.8rem; /* navbar más delgada */
 }
 
 .navbar .nav-link {
   color: var(--c-blanco) !important;
   transition: color 0.3s ease;
+  font-size: 0.9rem; /* tamaño de fuente más pequeño */
+  padding: 0.2rem 0.6rem; /* espacio alrededor del texto */
 }
 
 .navbar .nav-link:hover,
@@ -69,9 +71,8 @@ body {
 
 /* ===== LOGO ===== */
 .navbar-brand img {
-  width: 120px;
-  height: auto;
-  object-fit: contain;
+  max-height: 40px;
+  width: auto;
 }
 
 @media (min-width: 992px) {
@@ -370,12 +371,12 @@ html {
 }
 /* ==== FIX PARA QUE EL NAVBAR NO TAPE LOS TITULOS ==== */
 body {
-  padding-top: 50px; /* Ajusta según el alto de tu navbar */
+  padding-top: 60px; /* Ajusta según el alto de tu navbar */
 }
 
 /* Ajuste de scroll para que al hacer clic en un link ancla no quede oculto */
 section {
-  scroll-margin-top: 100px;
+  scroll-margin-top: 70px;
 }
 
 
