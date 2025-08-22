@@ -14,15 +14,15 @@ body {
 /* ===== NAVBAR ===== */
 .navbar {
   background-color: var(--c-primario) !important;
-  padding-top: 0.2rem; /* navbar más delgada */
-  padding-bottom: 0.2rem; /* navbar más delgada */
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
 }
 
 .navbar .nav-link {
   color: var(--c-blanco) !important;
   transition: color 0.3s ease;
-  font-size: 0.95rem; /* tamaño de fuente más pequeño */
-  padding: 0.25rem 0.6rem; /* espacio alrededor del texto */
+  font-size: 0.95rem;
+  padding: 0.25rem 0.6rem;
 }
 
 .navbar .nav-link:hover,
@@ -30,27 +30,29 @@ body {
   color: var(--c-oscuro) !important;
 }
 
+/* ===== MENÚ DESPLEGABLE ===== */
 .navbar .dropdown-menu {
   background-color: var(--c-primario);
   border-radius: 0.5rem;
   padding: 0.5rem 0;
+  /* Oculto por defecto */
   opacity: 0;
   visibility: hidden;
-  display: block;
   max-height: 0;
   overflow: hidden;
-  transition: all 0.3s ease;
   pointer-events: none;
+  transition: none; /* sin animaciones */
 }
 
-.navbar .dropdown:hover .dropdown-menu,
+/* Mostrar sólo con .show */
 .navbar .dropdown-menu.show {
   opacity: 1;
   visibility: visible;
-  max-height: 500px;
+  max-height: 1000px;
   pointer-events: auto;
 }
 
+/* Items */
 .navbar .dropdown-item {
   color: var(--c-blanco) !important;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -69,6 +71,7 @@ body {
 .navbar-toggler .navbar-toggler-icon {
   filter: invert(1);
 }
+
 
 /* ===== LOGO ===== */
 .navbar-brand img {
