@@ -45,25 +45,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ===== ANIMACIÓN CASCADA SUBMENÚS PC =====
-  document.querySelectorAll(".navbar .dropdown").forEach(drop => {
-    drop.addEventListener("mouseenter", () => {
-      drop.querySelectorAll(".dropdown-menu li").forEach((el, i) => {
-        el.style.opacity = 0;
-        el.style.transform = "translateY(10px)";
-        setTimeout(() => {
-          el.style.opacity = 1;
-          el.style.transform = "translateY(0)";
-        }, i * 100);
+  // ===== ANIMACIÓN CASCADA SUBMENÚS SOLO EN DESKTOP =====
+  if (window.innerWidth >= 992) {
+    document.querySelectorAll(".navbar .dropdown").forEach(drop => {
+      drop.addEventListener("mouseenter", () => {
+        drop.querySelectorAll(".dropdown-menu li").forEach((el, i) => {
+          el.style.opacity = 0;
+          el.style.transform = "translateY(10px)";
+          setTimeout(() => {
+            el.style.opacity = 1;
+            el.style.transform = "translateY(0)";
+          }, i * 100);
+        });
+      });
+      drop.addEventListener("mouseleave", () => {
+        drop.querySelectorAll(".dropdown-menu li").forEach(el => {
+          el.style.opacity = "";
+          el.style.transform = "";
+        });
       });
     });
-    drop.addEventListener("mouseleave", () => {
-      drop.querySelectorAll(".dropdown-menu li").forEach(el => {
-        el.style.opacity = "";
-        el.style.transform = "";
-      });
-    });
-  });
+  }
 
   // ===== DROPDOWNS EN MÓVILES (click optimizado) =====
   document.querySelectorAll('.navbar .dropdown-toggle').forEach(toggle => {
