@@ -101,4 +101,27 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+  document.addEventListener("DOMContentLoaded", function () {
+  // Evitar que los enlaces dropdown naveguen
+  document.querySelectorAll('.navbar .dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener("click", function (e) {
+      if (window.innerWidth < 992) { // solo en móvil/tablet
+        e.preventDefault(); // nunca navega
+        const menu = this.nextElementSibling;
+        const isOpen = menu.classList.contains("show");
+
+        // Cerrar todos los demás
+        document.querySelectorAll('.navbar .dropdown-menu.show').forEach(openMenu => {
+          openMenu.classList.remove("show");
+        });
+
+        // Toggle el actual
+        if (!isOpen) {
+          menu.classList.add("show");
+        }
+      }
+    });
+  });
+});
+
 });
