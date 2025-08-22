@@ -82,4 +82,27 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 100);
     });
   }
+  // ===== DROPDOWN EN MÓVILES CON CLICK =====
+const dropdownLinks = document.querySelectorAll('.navbar .dropdown-toggle');
+
+dropdownLinks.forEach(link => {
+  link.addEventListener('click', function (e) {
+    if (window.innerWidth < 992) { // solo aplica en móviles/tablets
+      e.preventDefault(); // evita que el link se cierre
+      const dropdownMenu = this.nextElementSibling;
+
+      // alternar manualmente el menú
+      if (dropdownMenu.classList.contains('show')) {
+        dropdownMenu.classList.remove('show');
+      } else {
+        // cerrar otros abiertos antes de abrir el actual
+        document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+          menu.classList.remove('show');
+        });
+        dropdownMenu.classList.add('show');
+      }
+    }
+  });
+});
+
 });
