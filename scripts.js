@@ -1,4 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // ===== DESACTIVAR TRANSICIONES/ANIMACIONES EN NAVBAR =====
+  const styleEl = document.createElement('style');
+  styleEl.textContent = `
+    .navbar .dropdown-menu,
+    .navbar .dropdown-menu *,
+    .navbar .dropdown,
+    .navbar .nav-link {
+      transition: none !important;
+      animation: none !important;
+    }
+  `;
+  document.head.appendChild(styleEl);
+
+  // Quita "fade" si existe en los dropdowns (Bootstrap)
+  document.querySelectorAll('.navbar .dropdown-menu').forEach(menu => {
+    menu.classList.remove('fade');
+  });
+
+  // Limpia posibles estilos inline residuales
+  document.querySelectorAll('.navbar .dropdown-menu li').forEach(el => {
+    el.style.opacity = "";
+    el.style.transform = "";
+  });
+
   // ===== ANIMACIÓN LÍNEAS WELCOME =====
   const leftLines = document.querySelectorAll(".welcome-box-left .line");
   const rightLines = document.querySelectorAll(".welcome-box-right .line");
@@ -39,53 +63,17 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .dropdown-item').forEach(link => {
     link.addEventListener('click', () => {
       const navbar = document.querySelector('.navbar-collapse');
-      if (navbar.classList.contains('show')) {
+      if (navbar && navbar.classList.contains('show')) {
         new bootstrap.Collapse(navbar).hide();
       }
     });
   });
 
-  // ===== ANIMACIÓN CASCADA SUBMENÚS SOLO EN DESKTOP =====
-  if (window.innerWidth >= 992) {
-    document.querySelectorAll(".navbar .dropdown").forEach(drop => {
-      drop.addEventListener("mouseenter", () => {
-        drop.querySelectorAll(".dropdown-menu li").forEach((el, i) => {
-          el.style.opacity = 0;
-          el.style.transform = "translateY(10px)";
-          setTimeout(() => {
-            el.style.opacity = 1;
-            el.style.transform = "translateY(0)";
-          }, i * 100);
-        });
-      });
-      drop.addEventListener("mouseleave", () => {
-        drop.querySelectorAll(".dropdown-menu li").forEach(el => {
-          el.style.opacity = "";
-          el.style.transform = "";
-        });
-      });
-    });
-  }
-
-  // ===== DROPDOWNS EN MÓVILES (click optimizado) =====
-  document.querySelectorAll('.navbar .dropdown-toggle').forEach(toggle => {
-    toggle.addEventListener('click', function (e) {
-      if (window.innerWidth < 992) {
-        e.preventDefault(); // evita navegación
-        const menu = this.nextElementSibling;
-        const isOpen = menu.classList.contains("show");
-
-        // cierra otros abiertos
-        document.querySelectorAll('.navbar .dropdown-menu.show').forEach(openMenu => {
-          if (openMenu !== menu) openMenu.classList.remove("show");
-        });
-
-        // abre/cierra este
-        menu.classList.toggle("show", !isOpen);
-      }
-    });
-  });
-
+  // ===== SIN ANIMACIONES EN NAVBAR =====
+  // Eliminado: hover/cascada en desktop
+  // Eliminado: lógica custom de toggle en móviles
+  // Bootstrap manejará los dropdowns por defecto (click), sin animación.
+  
   // ===== FORMULARIO =====
   const form = document.querySelector("footer form");
   if (form) {
