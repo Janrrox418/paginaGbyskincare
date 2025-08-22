@@ -14,7 +14,7 @@ body {
 /* ===== NAVBAR ===== */
 .navbar {
   background-color: var(--c-primario) !important;
-  padding: 0.2rem /* navbar más delgada */
+  padding-top: 0.2rem; /* navbar más delgada */
   padding-bottom: 0.2rem; /* navbar más delgada */
 }
 
