@@ -47,28 +47,40 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-  // ===== DROPDOWNS MÓVILES: PRIMER TOQUE ABRE/CERRA, NO NAVEGA =====
-  document.querySelectorAll('.navbar .dropdown-toggle').forEach(function (link) {
+  // ===== DROPDOWNS: móvil y cierre correcto =====
+(function () {
+  const isMobile = () => window.innerWidth < 992;
+
+  // Cerrar el collapse solo cuando navegamos de verdad
+  document.querySelectorAll('.navbar-nav a').forEach(link => {
     link.addEventListener('click', function (e) {
-      if (window.innerWidth < 992) { // Solo en móviles
+      const isToggle = this.classList.contains('dropdown-toggle');
+      const hasSubmenu = this.nextElementSibling && this.nextElementSibling.classList.contains('dropdown-menu');
+
+      if (isMobile() && (isToggle || hasSubmenu)) {
+        // En móvil: abrir/cerrar dropdown sin cerrar el collapse ni navegar
         e.preventDefault();
         e.stopPropagation();
-
-        const menu = this.nextElementSibling;
-        const isShown = menu.classList.contains('show');
-
-        // Cerrar otros submenús
-        document.querySelectorAll('.navbar .dropdown-menu.show').forEach(function (openMenu) {
-          openMenu.classList.remove('show');
-        });
-
-        // Abrir/cerrar el submenú actual
-        if (!isShown) {
-          menu.classList.add('show');
-        }
+        const dd = bootstrap.Dropdown.getOrCreateInstance(this);
+        dd.toggle();
+        return;
       }
+
+      // Cerrar el menú colapsado si está abierto (navegación normal)
+      const nav = document.querySelector('.navbar-collapse.show');
+      if (nav) bootstrap.Collapse.getOrCreateInstance(nav).hide();
     });
   });
+
+  // Limpieza: al cerrar cualquier dropdown, ocultar submenús que hayan quedado abiertos
+  document.querySelectorAll('.nav-item.dropdown').forEach(drop => {
+    drop.addEventListener('hidden.bs.dropdown', function () {
+      this.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
+    });
+  });
+})();
+
+  
 
   // ===== FORMULARIO =====
   const form = document.querySelector("footer form");
