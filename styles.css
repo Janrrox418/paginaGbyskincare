@@ -368,10 +368,6 @@ html {
 #spa {
   background-color: #f4f8f9; /* un fondo distinto para diferenciar */
 }
-/* ==== FIX PARA QUE EL NAVBAR NO TAPE LOS TITULOS ==== */
-body {
-  padding-top: 65px; /* Ajusta según el alto de tu navbar */
-}
 
 /* Ajuste de scroll para que al hacer clic en un link ancla no quede oculto */
 section {
