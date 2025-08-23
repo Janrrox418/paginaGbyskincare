@@ -397,3 +397,18 @@ section {
   object-position: center; /* centra la imagen */
   border-radius: 10px;   /* opcional, esquinas suaves */
 }
+/* Asegurar que los submenús se vean bien en móviles */
+.dropdown-submenu .dropdown-menu {
+  left: 100%; 
+  top: 0;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+}
+
+/* En móviles que se muestren debajo */
+@media (max-width: 991px) {
+  .dropdown-submenu .dropdown-menu {
+    left: 0;
+    top: 100%;
+  }
+}

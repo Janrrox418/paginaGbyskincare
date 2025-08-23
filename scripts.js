@@ -80,4 +80,32 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 100);
     });
   }
+  // Manejo de submenús en móviles
+document.querySelectorAll('.dropdown-submenu > a').forEach(trigger => {
+  trigger.addEventListener('click', function (e) {
+    e.preventDefault(); // Evita navegación
+    e.stopPropagation();
+
+    // Cierra otros submenús abiertos dentro del mismo dropdown
+    const parentMenu = this.closest('.dropdown-menu');
+    parentMenu.querySelectorAll('.dropdown-menu.show').forEach(openMenu => {
+      if (openMenu !== this.nextElementSibling) {
+        openMenu.classList.remove('show');
+      }
+    });
+
+    // Alternar visibilidad del submenu clicado
+    this.nextElementSibling.classList.toggle('show');
+  });
+});
+
+// Cierra todos los submenús al cerrar el dropdown principal
+document.querySelectorAll('.dropdown').forEach(dropdown => {
+  dropdown.addEventListener('hide.bs.dropdown', function () {
+    this.querySelectorAll('.dropdown-menu.show').forEach(subMenu => {
+      subMenu.classList.remove('show');
+    });
+  });
+});
+
 });
