@@ -14,8 +14,8 @@ body {
 /* ===== NAVBAR ===== */
 .navbar {
   background-color: var(--c-primario) !important;
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
   min-height: 45px;
 }
 
@@ -78,7 +78,7 @@ body {
 
 /* ===== LOGO ===== */
 .navbar-brand img {
-  max-height: 130px;
+  max-height: 100px;
   width: auto;
 }
 
