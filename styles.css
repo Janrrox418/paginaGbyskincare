@@ -32,32 +32,19 @@ body {
 
 /* ===== MENÚ DESPLEGABLE ===== */
 .navbar .dropdown-menu {
-  display: none; /* oculto por defecto */
   background-color: var(--c-primario);
   border-radius: 0.5rem;
   padding: 0.5rem 0;
+  display: none; /* sin animaciones para respuesta inmediata */
 }
 
+/* Mostrar sólo con .show */
 .navbar .dropdown-menu.show {
-  display: block; /* visible cuando Bootstrap aplica .show */
-}
-
-/* Si quieres animación suave solo en móviles */
-@media (max-width: 991px) {
-  .navbar .dropdown-menu {
-    opacity: 0;
-    visibility: hidden;
-    max-height: 0;
-    overflow: hidden;
-    pointer-events: none;
-    transition: all 0.3s ease;
-  }
-  .navbar .dropdown-menu.show {
-    opacity: 1;
-    visibility: visible;
-    max-height: 1000px;
-    pointer-events: auto;
-  }
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  max-height: 1000px;
+  pointer-events: auto;
 }
 
 /* Items dentro del dropdown */
@@ -80,6 +67,7 @@ body {
   filter: invert(1);
 }
 
+
 /* ===== LOGO ===== */
 .navbar-brand img {
   max-height: 130px;
@@ -88,7 +76,7 @@ body {
 
 @media (min-width: 992px) {
   .navbar-brand img {
-    width: 150px;
+    width: 150px; /* un poco más grande en desktop */
   }
 }
 
@@ -96,10 +84,10 @@ body {
 .home-section {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center;  /* centra verticalmente el contenido */
   flex-wrap: wrap;
   padding: 80px;
-  min-height: 110vh;
+  min-height: 110vh; /* más grande que la ventana */
 }
 
 /* Contenedores de texto */
@@ -118,8 +106,8 @@ body {
 .welcome-box-right {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
+  justify-content: center;  /* centra verticalmente */
+  align-items: flex-end;    /* alineado a la derecha */
   height: 100%;
   margin-top: 0;
 }
@@ -135,8 +123,13 @@ body {
   transition: all 0.7s ease;
 }
 
-.welcome-box-left .line { text-align: left; }
-.welcome-box-right .line { text-align: right; }
+.welcome-box-left .line {
+  text-align: left;
+}
+
+.welcome-box-right .line {
+  text-align: right;
+}
 
 /* Responsive */
 @media (max-width: 992px) {
@@ -149,7 +142,9 @@ body {
     width: 100%;
     text-align: center;
   }
-  .welcome-box-left { margin-bottom: 20px; }
+  .welcome-box-left {
+    margin-bottom: 20px;
+  }
   .welcome-box-right {
     align-items: center;
     text-align: center;
@@ -158,12 +153,20 @@ body {
 }
 
 /* ===== FIX NAVBAR + ANCLAS ===== */
-section { scroll-margin-top: 90px; }
-html { scroll-behavior: smooth; }
+section {
+  scroll-margin-top: 90px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 /* ===== ACCESIBILIDAD ===== */
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
 /* ===== Footer Styles ===== */
@@ -183,8 +186,16 @@ html { scroll-behavior: smooth; }
   margin: 0 auto;
 }
 
-.footer h4 { margin-bottom: 15px; font-size: 18px; font-weight: bold; }
-.footer p { margin: 0; line-height: 1.6; }
+.footer h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.footer p {
+  margin: 0;
+  line-height: 1.6;
+}
 
 .footer-form {
   display: flex;
@@ -216,15 +227,19 @@ html { scroll-behavior: smooth; }
   font-weight: bold;
   transition: background 0.3s ease;
 }
-.footer-form button:hover { background-color: #052c65; }
 
-/* Responsive footer */
+.footer-form button:hover {
+  background-color: #052c65;
+}
+
+/* Responsivo */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
+  
   .footer-form {
     width: 100%;
     max-width: 300px;
@@ -232,12 +247,25 @@ html { scroll-behavior: smooth; }
 }
 
 /* ===== Social Buttons ===== */
-.social-buttons { margin-top: 20px; text-align: center; }
-.social-buttons a { margin: 0 10px; display: inline-block; }
-.social-buttons img {
-  width: 40px; height: 40px; transition: transform 0.2s ease;
+.social-buttons {
+  margin-top: 20px;
+  text-align: center;
 }
-.social-buttons img:hover { transform: scale(1.1); }
+
+.social-buttons a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.social-buttons img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s ease;
+}
+
+.social-buttons img:hover {
+  transform: scale(1.1);
+}
 
 /* ===== Imagen animada debajo de Wellness ===== */
 .animated-image {
@@ -249,8 +277,13 @@ html { scroll-behavior: smooth; }
   animation: slideIn 1.5s ease-out forwards;
 }
 
+/* En móviles centramos la imagen */
 @media (max-width: 768px) {
-  .welcome-box-left { align-items: center; text-align: center; }
+  .welcome-box-left {
+    align-items: center;
+    text-align: center;
+  }
+
   .animated-image {
     width: 90%;
     margin-left: auto;
@@ -258,30 +291,39 @@ html { scroll-behavior: smooth; }
   }
 }
 
+/* Animación de entrada desde la derecha */
 @keyframes slideIn {
-  to { opacity: 1; transform: translateX(0); }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-
 /* ===== Overrides para ensanchar imagen y acercar columnas ===== */
+
+/* En desktop: quitamos el espacio gigante entre columnas y usamos un gap controlado */
 @media (min-width: 993px) {
   .home-section {
-    justify-content: flex-start;
-    gap: 40px;
-    align-items: flex-start;
+    justify-content: flex-start; /* en vez de space-between */
+    gap: 40px;                   /* distancia entre columnas (ajusta a gusto: 24px/32px/48px) */
   }
-  .welcome-box-left { flex: 2 1 0; }
+
+  /* Damos más espacio al lado izquierdo (texto+imagen) */
+  .welcome-box-left {
+    flex: 2 1 0;  /* ocupa ~2x del derecho */
+  }
+
   .welcome-box-right {
-    flex: 1 1 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 400px;
+    flex: 1 1 0;  /* ocupa menos ancho */
   }
+
+  /* Imagen realmente ancha dentro del lado izquierdo */
   .animated-image {
-    width: 70%;
-    max-width: 600px;
+    width: 70%;       /* llena el ancho disponible del contenedor izquierdo */
+    max-width: 600px;  /* tope de ancho grande (ajústalo si quieres más) */
   }
 }
+
+/* En tablet/móvil ya tienes reglas, solo aseguramos que la imagen siga bien fluida */
 @media (max-width: 992px) {
   .animated-image {
     width: 90%;
@@ -290,41 +332,72 @@ html { scroll-behavior: smooth; }
     margin-right: auto;
   }
 }
+/* ===== Alinear texto derecho arriba pero un poco más abajo ===== */
+@media (min-width: 993px) {
+  .home-section {
+    align-items: flex-start; /* bloques alineados arriba */
+  }
 
-/* ===== SECCIONES ===== */
+  .welcome-box-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 400px; /* ajusta: 20px, 30px, 40px según lo quieras */
+  }
+}
 #about {
-  background-color: #f9f9f9;
+  background-color: #f9f9f9; /* color suave para diferenciar la sección */
   padding-top: 60px;
   padding-bottom: 60px;
 }
+
 #about img {
   object-fit: cover;
-  max-height: 280px;
+  max-height: 280px; /* ajusta la altura de las imágenes */
 }
-
 #treatments, #spa, #conditions {
   padding-top: 80px;
   padding-bottom: 80px;
 }
+
 #treatments h2, #spa h2, #conditions h2 {
   color: var(--c-oscuro);
   margin-bottom: 20px;
 }
-#spa { background-color: #f4f8f9; }
 
-/* ==== FIX NAVBAR ==== */
-body { padding-top: 65px; }
-section { scroll-margin-top: 75px; }
+#spa {
+  background-color: #f4f8f9; /* un fondo distinto para diferenciar */
+}
+/* ==== FIX PARA QUE EL NAVBAR NO TAPE LOS TITULOS ==== */
+body {
+  padding-top: 65px; /* Ajusta según el alto de tu navbar */
+}
 
-/* ===== Other treatments ===== */
-#other-treatments { background-color: #f9f9f9; }
+/* Ajuste de scroll para que al hacer clic en un link ancla no quede oculto */
+section {
+  scroll-margin-top: 75px;
+}
+#other-treatments {
+  background-color: #f9f9f9; /* color suave */
+}
+
 #other-treatments h2 {
   color: var(--c-oscuro);
   font-weight: 700;
 }
-#other-treatments .treatment-card {
-  background-color: var(--c-blanco);
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+#other-treatments .card {
+  border-radius: 15px;
+  overflow: hidden;
   transition: transform 0.3s ease;
+}
+
+#other-treatments .card:hover {
+  transform: translateY(-5px);
+}
+#other-treatments .card-img-top {
+  height: 220px;         /* todas las imágenes tendrán el mismo alto */
+  object-fit: cover;     /* recorta sin deformar */
+  object-position: center; /* centra la imagen */
+  border-radius: 10px;   /* opcional, esquinas suaves */
 }
