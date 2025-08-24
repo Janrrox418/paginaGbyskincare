@@ -93,10 +93,9 @@ body {
 .home-section {
   display: flex;
   justify-content: space-between;
-  align-items: center;  /* centra verticalmente el contenido */
+  align-items: flex-start;  /* centra verticalmente el contenido */
   flex-wrap: wrap;
-  padding: 0 80px;
-  min-height: auto; /* más grande que la ventana */
+  padding: 0 20px;
 }
 
 /* Contenedores de texto */
