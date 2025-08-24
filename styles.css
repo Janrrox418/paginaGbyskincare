@@ -59,10 +59,8 @@ body {
 }
 /* Dropdown dentro del navbar: que fluya correctamente en el menú colapsado (móvil) */
 @media (max-width: 991px) {
-  .navbar .dropdown-menu {
-    position: static !important;   /* clave para que se dibuje dentro del flow */
-    float: none;
-    margin: .25rem 0;
+  .navbar .collapse {
+    overflow: visible !important;   /* clave para que se dibuje dentro del flow */
   }
 }
 
@@ -162,7 +160,7 @@ body {
 
 /* ===== FIX NAVBAR + ANCLAS ===== */
 section {
-  scroll-margin-top: 120px;
+  scroll-margin-top: 0px;
 }
 
 html {
@@ -379,7 +377,7 @@ html {
 
 /* Ajuste de scroll para que al hacer clic en un link ancla no quede oculto */
 section {
-  scroll-margin-top: 75px;
+  scroll-margin-top: 0px;
 }
 #other-treatments {
   background-color: #f9f9f9; /* color suave */
