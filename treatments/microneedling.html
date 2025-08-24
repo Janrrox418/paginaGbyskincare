@@ -2,95 +2,132 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Microneedling - GBYSkincare</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microneedling | GBYSkincare</title>
 
-  <!-- Bootstrap -->
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- AOS CSS -->
+  <!-- AOS Animations CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <!-- Tu CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
   <!-- ===== NAVBAR ===== -->
-  <nav class="navbar navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background:#319ca1">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">
-        <img src="assets/logogby.jpg" alt="GBYSkincare">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <!-- Botón hamburguesa -->
+      <button class="navbar-toggler me-2" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Abrir menú">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+      <!-- Logo -->
+      <a class="navbar-brand" href="../index.html">
+        <img src="../assets/logoletra.png" alt="logo">
+      </a>
+
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#about">About us</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About Us</a></li>
 
-          <!-- Dropdown Treatments -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" id="treatmentsDropdown" role="button" data-bs-toggle="dropdown">
+          <!-- Treatments -->
+          <li class="nav-item dropdown" data-bs-auto-close="outside">
+            <a class="nav-link dropdown-toggle active" href="javascript:void(0)" id="treatmentsDropdown"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
               Treatments
             </a>
             <ul class="dropdown-menu" aria-labelledby="treatmentsDropdown">
+              <li><a class="dropdown-item" href="acne-treatment.html">Acne Treatment</a></li>
               <li><a class="dropdown-item active" href="microneedling.html">Microneedling</a></li>
               <li><a class="dropdown-item" href="skin-tightening.html">Skin Tightening</a></li>
+              <li><a class="dropdown-item" href="botox.html">Botox</a></li>
+              <li><a class="dropdown-item" href="chemical-peel.html">Chemical peel</a></li>
               <li><a class="dropdown-item" href="prp.html">Platelet Rich Plasma (PRP)</a></li>
               <li><a class="dropdown-item" href="oxygeneo.html">Oxygeneo</a></li>
-              <li><a class="dropdown-item" href="hydrafacial.html">Hydrafacial</a></li>
+              <li><a class="dropdown-item" href="lips-filler.html">Lips filler</a></li>
+              <li><a class="dropdown-item" href="hydrafacial.html">HydraFacial®</a></li>
               <li><a class="dropdown-item" href="dermaplaning.html">Dermaplaning</a></li>
               <li><a class="dropdown-item" href="hair-treatments.html">Hair Treatments</a></li>
+              <li><a class="dropdown-item" href="hair-loss-treatment.html">Hair loss treatment</a></li>
               <li><a class="dropdown-item" href="scalp-treatments.html">Scalp Treatments</a></li>
-              <li><a class="dropdown-item" href="body-contouring.html">Body Contouring</a></li>
+              <li><a class="dropdown-item" href="body-countouring.html">Body Contouring</a></li>
+              <li><a class="dropdown-item" href="skin-tag-removal.html">Skin tag removal-cauterization</a></li>
             </ul>
           </li>
 
-          <!-- Spa -->
-          <li class="nav-item"><a class="nav-link" href="index.html#spa">Spa Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="../#other-treatments">Other treatments</a></li>
+
+          <!-- Spa Service -->
+          <li class="nav-item dropdown" data-bs-auto-close="outside">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="SpaserviceDropdown"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+              Spa Service
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="SpaserviceDropdown">
+              <li><a class="dropdown-item" href="../spa_service/eyebrow-lamination.html">Eyebrow lamination</a></li>
+              <li><a class="dropdown-item" href="../spa_service/head-service.html">Head Service</a></li>
+              <li><a class="dropdown-item" href="../spa_service/hair-loss-solutions.html">Hair loss solutions</a></li>
+              <li><a class="dropdown-item" href="../spa_service/scalp-care.html">Scalp care</a></li>
+            </ul>
+          </li>
 
           <!-- Conditions -->
-          <li class="nav-item"><a class="nav-link" href="index.html#conditions">Conditions</a></li>
+          <li class="nav-item dropdown" data-bs-auto-close="outside">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="conditionsDropdown"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+              Conditions
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="conditionsDropdown">
+              <li><a class="dropdown-item" href="../conditions/acne-blemishes.html">Acne & Blemishes</a></li>
+              <li><a class="dropdown-item" href="../conditions/complexion.html">Complexion</a></li>
+              <li><a class="dropdown-item" href="../conditions/sun-damage-hyperpigmentation.html">Sun damage/Hyperpigmentation</a></li>
+              <li><a class="dropdown-item" href="../conditions/skin-tone-texture.html">Skin tone & Texture</a></li>
+              <li><a class="dropdown-item" href="../conditions/scars.html">Scars</a></li>
+              <li><a class="dropdown-item" href="../conditions/fine-lines-wrinkles.html">Fine lines & Wrinkles</a></li>
+            </ul>
+          </li>
 
-          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="../#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- ===== CONTENIDO MICRONEEDLING ===== -->
-  <section class="py-5 mt-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <!-- Imagen -->
-        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
-          <img src="assets/microneedling.jpg" alt="Microneedling" class="img-fluid rounded shadow">
-        </div>
-        <!-- Texto -->
-        <div class="col-lg-6" data-aos="fade-left">
-          <h2 class="mb-3">Microneedling</h2>
-          <p>
-           <strong>Microneedling</strong>, a minimally invasive cosmetic procedure,
-            has gained prominence in recent years as an effective method for rejuvenating the skin. 
-            This treatment, also known as collagen induction therapy, 
-            involves the use of a specialized device equipped with fine needles 
-            that create controlled micro-injuries in the skin's surface. 
-            These tiny punctures stimulate the skin's natural healing processes, 
-            triggering collagen and elastin production. As a result, microneedling is celebrated for its ability to improve skin texture, 
-            reduce the appearance of scars, fine lines, and wrinkles, and enhance the overall complexion. 
-          </p>
-          <p>
-           This procedure is safe, effective, 
-           and tailored to each patient's specific needs to achieve a healthier,
-            more youthful appearance.
-          </p>
-          <ul>
-            <li>Reduces acne scars</li>
-            <li>Improves elasticity and firmness</li>
-            <li>Evens skin tone</li>
-            <li>Fast and minimally invasive treatment</li>
-          </ul>
+  <!-- ===== SECCIÓN MICRONEEDLING ===== -->
+  <section class="container my-5" style="padding-top: 100px;">
+    <div class="row align-items-center">
+      <!-- Imagen -->
+      <div class="col-lg-6 col-md-12 mb-4 mb-lg-0 text-center" data-aos="fade-right">
+        <img src="../assets/microneedling.jpg" alt="Microneedling" class="img-fluid rounded shadow">
+      </div>
+      <!-- Texto -->
+      <div class="col-lg-6 col-md-12" data-aos="fade-left">
+        <h1 class="mb-4">Microneedling</h1>
+        <h2 class="mb-3">Collagen Induction Therapy</h2>
+        <p>
+          <strong>Microneedling</strong>, a minimally invasive cosmetic procedure,
+          has gained prominence in recent years as an effective method for rejuvenating the skin. 
+          This treatment, also known as collagen induction therapy, involves the use of a specialized device equipped with fine needles 
+          that create controlled micro-injuries in the skin's surface. 
+          These tiny punctures stimulate the skin's natural healing processes, 
+          triggering collagen and elastin production. 
+        </p>
+        <p>
+          As a result, microneedling is celebrated for its ability to improve skin texture, 
+          reduce the appearance of scars, fine lines, and wrinkles, and enhance the overall complexion. 
+          This procedure is safe, effective, and tailored to each patient's specific needs.
+        </p>
+        <ul>
+          <li>Reduces acne scars</li>
+          <li>Improves elasticity and firmness</li>
+          <li>Evens skin tone</li>
+          <li>Fast and minimally invasive treatment</li>
+        </ul>
+        <div class="mt-4">
+          <a href="../#contact" class="btn btn-primary mt-3">Book your appointment</a>
         </div>
       </div>
     </div>
@@ -104,15 +141,14 @@
   </footer>
 
   <!-- Scripts -->
-  <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
-      duration: 1000, // duración en ms
-      once: true      // animar solo una vez
+      duration: 1000,
+      once: true
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="scripts.js" defer></script>
+  <script src="../scripts.js" defer></script> 
 </body>
 </html>
