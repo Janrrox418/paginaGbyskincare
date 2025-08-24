@@ -162,7 +162,7 @@ body {
 
 /* ===== FIX NAVBAR + ANCLAS ===== */
 section {
-  scroll-margin-top: 90px;
+  scroll-margin-top: 120px;
 }
 
 html {
@@ -429,5 +429,8 @@ section {
 @media (max-width: 991px) {
   .pt-navbar {
     padding-top: 90px; /* navbar más pequeño en móviles */
+  }
+  section {
+    scroll-margin-top: 70px;
   }
 }
