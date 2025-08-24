@@ -95,8 +95,8 @@ body {
   justify-content: space-between;
   align-items: center;  /* centra verticalmente el contenido */
   flex-wrap: wrap;
-  padding: 80px;
-  min-height: 110vh; /* más grande que la ventana */
+  padding: 0 80px;
+  min-height: auto; /* más grande que la ventana */
 }
 
 /* Contenedores de texto */
