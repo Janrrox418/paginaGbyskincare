@@ -58,9 +58,9 @@ body {
   color: var(--c-blanco) !important;
 }
 /* Dropdown dentro del navbar: que fluya correctamente en el menú colapsado (móvil) */
-@media (max-width: 991.98px) {
+@media (max-width: 991px) {
   .navbar .dropdown-menu {
-    position: static;   /* clave para que se dibuje dentro del flow */
+    position: static !important;   /* clave para que se dibuje dentro del flow */
     float: none;
     margin: .25rem 0;
   }

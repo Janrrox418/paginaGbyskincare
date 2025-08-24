@@ -32,8 +32,8 @@
           
           <!-- Treatments -->
           <li class="nav-item dropdown" data-bs-auto-close="outside">
-            <a class="nav-link dropdown-toggle" href="#" id="treatmentsDropdown"
-               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="treatmentsDropdown"
+               role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
               Treatments
             </a>
             <ul class="dropdown-menu" aria-labelledby="treatmentsDropdown">
@@ -59,8 +59,8 @@
 
           <!-- Spa Service -->
           <li class="nav-item dropdown" data-bs-auto-close="outside">
-            <a class="nav-link dropdown-toggle" href="#" id="SpaserviceDropdown"
-               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="SpaserviceDropdown"
+               role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
               Spa Service
             </a>
             <ul class="dropdown-menu" aria-labelledby="SpaserviceDropdown">
@@ -73,8 +73,8 @@
 
           <!-- Conditions -->
           <li class="nav-item dropdown" data-bs-auto-close="outside">
-            <a class="nav-link dropdown-toggle" href="#" id="conditionsDropdown"
-               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="conditionsDropdown"
+               role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
               Conditions
             </a>
             <ul class="dropdown-menu" aria-labelledby="conditionsDropdown">
@@ -139,5 +139,22 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../scripts.js" defer></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const navbar = document.querySelector('.navbar');
+  const sections = document.querySelectorAll('section');
+
+  function ajustarScrollMargin() {
+    const alturaNavbar = navbar.getBoundingClientRect().height;
+    sections.forEach(sec => {
+      sec.style.scrollMarginTop = alturaNavbar + 'px';
+    });
+  }
+
+  ajustarScrollMargin(); // al cargar
+  window.addEventListener('resize', ajustarScrollMargin); // al cambiar tamaño
+});
+</script>
+
 </body>
 </html>
