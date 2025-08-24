@@ -439,3 +439,8 @@ section {
   bottom: auto !important;
   margin-top: 0.4rem; /* pequeño espacio opcional */
 }
+.dropdown-menu {
+  transform: none !important;   /* quita transformaciones automáticas de Popper */
+  inset: auto auto auto 0 !important; /* asegura posición hacia abajo */
+  top: 100% !important;
+}
