@@ -2,7 +2,8 @@
 body {
   background-color: #fdf2f8;
   font-family: 'Segoe UI', sans-serif;
-  padding-top: 50px; /* espacio para navbar fija */
+  margin: 0;
+  padding: 0;
 }
 
 :root {
