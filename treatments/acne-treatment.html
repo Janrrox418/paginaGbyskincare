@@ -14,8 +14,8 @@
 </head>
 <body>
   <!-- ===== NAVBAR ===== -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <div class="container">
          <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -94,7 +94,7 @@
   </nav>
 
   <!-- ===== SECCIÓN ACNE TREATMENT ===== -->
-  <section class="container my-5 pt-navbar">
+  <section class="container my-5" style="padding-top: 100px;">
     <div class="row align-items-center">
       <!-- Texto -->
       <div class="col-md-6" data-aos="fade-right">
@@ -137,24 +137,6 @@
       once: true
     });
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../scripts.js" defer></script>
-  <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const navbar = document.querySelector('.navbar');
-  const sections = document.querySelectorAll('section');
-
-  function ajustarScrollMargin() {
-    const alturaNavbar = navbar.getBoundingClientRect().height;
-    sections.forEach(sec => {
-      sec.style.scrollMarginTop = alturaNavbar + 'px';
-    });
-  }
-
-  ajustarScrollMargin(); // al cargar
-  window.addEventListener('resize', ajustarScrollMargin); // al cambiar tamaño
-});
-</script>
 
 </body>
 </html>
