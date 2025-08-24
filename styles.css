@@ -421,3 +421,14 @@ section {
     top: 100%;
   }
 }
+/* Ajuste para que el contenido no quede tapado por navbar fixed */
+.pt-navbar {
+  padding-top: 120px; /* ajusta según la altura real de tu navbar */
+}
+
+/* Opcional: hacer responsive si navbar cambia de altura */
+@media (max-width: 991px) {
+  .pt-navbar {
+    padding-top: 90px; /* navbar más pequeño en móviles */
+  }
+}
