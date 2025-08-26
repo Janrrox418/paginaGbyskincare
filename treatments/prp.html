@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>prp - GBYSkincare</title>
+  <title>PRP | GBYSkincare</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap -->
@@ -11,27 +11,35 @@
   <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- Tu CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
   <!-- ===== NAVBAR ===== -->
-  <nav class="navbar navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background:#319ca1">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">
-        <img src="assets/logogby.jpg" alt="GBYSkincare">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <!-- Botón hamburguesa -->
+      <button class="navbar-toggler me-2" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Abrir menú">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+      <!-- Logo -->
+      <a class="navbar-brand" href="../index.html">
+        <img src="../assets/logoletra.png" alt="GBYSkincare">
+      </a>
+
+      <!-- Links -->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#about">About us</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#about">About Us</a></li>
 
           <!-- Dropdown Treatments -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" id="treatmentsDropdown" role="button" data-bs-toggle="dropdown">
+          <li class="nav-item dropdown" data-bs-auto-close="outside">
+            <a class="nav-link dropdown-toggle active" href="#" id="treatmentsDropdown"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
               Treatments
             </a>
             <ul class="dropdown-menu" aria-labelledby="treatmentsDropdown">
@@ -53,42 +61,69 @@
             </ul>
           </li>
 
-          <!-- Spa -->
-          <li class="nav-item"><a class="nav-link" href="index.html#spa">Spa Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="../#other-treatments">Other treatments</a></li>
+
+          <!-- Spa Services -->
+          <li class="nav-item dropdown" data-bs-auto-close="outside">
+            <a class="nav-link dropdown-toggle" href="#" id="spaDropdown"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+              Spa Service
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="spaDropdown">
+              <li><a class="dropdown-item" href="../spa_service/eyebrow-lamination.html">Eyebrow lamination</a></li>
+              <li><a class="dropdown-item" href="../spa_service/head-service.html">Head Service</a></li>
+              <li><a class="dropdown-item" href="../spa_service/hair-loss-solutions.html">Hair loss solutions</a></li>
+              <li><a class="dropdown-item" href="../spa_service/scalp-care.html">Scalp care</a></li>
+            </ul>
+          </li>
 
           <!-- Conditions -->
-          <li class="nav-item"><a class="nav-link" href="index.html#conditions">Conditions</a></li>
+          <li class="nav-item dropdown" data-bs-auto-close="outside">
+            <a class="nav-link dropdown-toggle" href="#" id="conditionsDropdown"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+              Conditions
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="conditionsDropdown">
+              <li><a class="dropdown-item" href="../conditions/acne-blemishes.html">Acne & Blemishes</a></li>
+              <li><a class="dropdown-item" href="../conditions/complexion.html">Complexion</a></li>
+              <li><a class="dropdown-item" href="../conditions/sun-damage-hyperpigmentation.html">Sun damage/Hyperpigmentation</a></li>
+              <li><a class="dropdown-item" href="../conditions/skin-tone-texture.html">Skin tone & Texture</a></li>
+              <li><a class="dropdown-item" href="../conditions/scars.html">Scars</a></li>
+              <li><a class="dropdown-item" href="../conditions/fine-lines-wrinkles.html">Fine lines & Wrinkles</a></li>
+            </ul>
+          </li>
 
-          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="../#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- ===== CONTENIDO PRP ===== -->
-  <section id="prp" class="py-5" style="margin-top: 100px;">
-  <div class="container">
+  <!-- ===== SECCIÓN PRP ===== -->
+  <section class="container my-5" style="padding-top: 100px;">
     <div class="row align-items-center">
       <!-- Texto -->
       <div class="col-md-6" data-aos="fade-right">
         <h1 class="mb-4">PRP (Platelet Rich Plasma)</h1>
         <p>
           PRP (Platelet-Rich Plasma) injections for skin rejuvenation is a non-surgical cosmetic procedure that harnesses the regenerative power of one's own blood.
-           Blood is drawn, processed to concentrate the platelets, growth factors, and proteins, and then re-injected into the skin. 
-           This concentrated PRP stimulates collagen and elastin production, enhancing skin texture, reducing fine lines,
-            and improving skin elasticity. The treatment promotes natural tissue regeneration and is particularly effective for achieving a more youthful and radiant complexion while minimizing the risks associated with foreign substances.
+          Blood is drawn, processed to concentrate the platelets, growth factors, and proteins, and then re-injected into the skin. 
+          This concentrated PRP stimulates collagen and elastin production, enhancing skin texture, reducing fine lines,
+          and improving skin elasticity. The treatment promotes natural tissue regeneration and is particularly effective for achieving a more youthful and radiant complexion while minimizing the risks associated with foreign substances.
         </p>
         <p>
-        It is a safe, non-surgical technique with multiple aesthetic benefits, ideal for facial rejuvenation and hair strengthening.</p>
+          It is a safe, non-surgical technique with multiple aesthetic benefits, ideal for facial rejuvenation and hair strengthening.
+        </p>
       </div>
-      <!-- Imagen -->
+      <!-- Imagen + botón -->
       <div class="col-md-6 text-center" data-aos="fade-left">
-        <img src="assets/prp.jpg" alt="PRP" class="img-fluid rounded shadow">
+        <img src="../assets/prp.jpg" alt="PRP" class="img-fluid rounded shadow">
+        <div class="mt-4">
+          <a href="../#contact" class="btn btn-primary mt-3">Book your appointment</a>
+        </div>
       </div>
     </div>
   </section>
-</section>
-
 
   <!-- ===== FOOTER ===== -->
   <footer id="contact" class="footer">
@@ -98,15 +133,14 @@
   </footer>
 
   <!-- Scripts -->
-  <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
-      duration: 1000, // duración en ms
-      once: true      // animar solo una vez
+      duration: 1000,
+      once: true
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="scripts.js" defer></script>
+  <script src="../scripts.js" defer></script>
 </body>
 </html>
