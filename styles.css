@@ -1,122 +1,105 @@
 /* ===== BODY ===== */
 body {
-  background-color: #fdf2f8;
-  font-family: 'Segoe UI', sans-serif;
+  background-color: #e4c6b8;
+  color: #333;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
+/* ===== VARIABLES ===== */
 :root {
-  --c-primario: #319cA1;
+  --c-primario: #38939b;
   --c-oscuro: #001f3f;
   --c-blanco: #fff;
+  --c-hover: #ffe0cc;
 }
 
 /* ===== NAVBAR ===== */
 .navbar {
   background-color: var(--c-primario) !important;
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
-  min-height: 45px;
+  padding: 0.2rem 1rem;
 }
 
-.navbar .nav-link {
+.navbar .nav-link,
+.navbar-brand {
   color: var(--c-blanco) !important;
+  font-weight: 500;
   transition: color 0.3s ease;
-  font-size: 0.90rem;
-  padding: 0.2rem 0.4rem;
 }
 
 .navbar .nav-link:hover,
-.navbar .nav-link.active-link {
-  color: var(--c-oscuro) !important;
-}
-
-/* ===== MENÚ DESPLEGABLE ===== */
-.navbar .dropdown-menu {
-  background-color: var(--c-primario);
-  border-radius: 0.5rem;
-  padding: 0.5rem 0;
-}
-
-/* Mostrar sólo con .show */
-.navbar .dropdown-menu.show {
-  opacity: 1;
-  visibility: visible;
-  max-height: 1000px;
-  pointer-events: auto;
-}
-
-/* Items dentro del dropdown */
-.navbar .dropdown-item {
-  color: var(--c-blanco) !important;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 .navbar .dropdown-item:hover {
-  background-color: var(--c-oscuro);
-  color: var(--c-blanco) !important;
+  color: var(--c-hover) !important;
 }
-/* Dropdown dentro del navbar: que fluya correctamente en el menú colapsado (móvil) */
-@media (max-width: 991px) {
-  .navbar .collapse {
-    overflow: visible !important;   /* clave para que se dibuje dentro del flow */
+
+/* Logo más grande */
+.navbar-brand img {
+  max-height: 140px;
+  width: auto;
+}
+@media (min-width: 992px) {
+  .navbar-brand img {
+    width: 180px;
   }
 }
 
+/* ===== DROPDOWN ===== */
+.navbar .dropdown-menu {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  top: 100% !important;
+  transform: none !important;
+  inset: auto auto auto 0 !important;
+}
+
+.navbar .dropdown-item {
+  color: #333 !important;
+}
+
+.navbar .dropdown-item.active,
+.navbar .dropdown-item:active {
+  background-color: var(--c-primario) !important;
+  color: var(--c-blanco) !important;
+}
 
 /* ===== BOTÓN HAMBURGUESA ===== */
 .navbar-toggler {
   border-color: var(--c-blanco);
 }
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-
-
-
-/* ===== LOGO ===== */
-.navbar-brand img {
-  max-height: 120px;
-  width: auto;
-}
-
-@media (min-width: 992px) {
-  .navbar-brand img {
-    width: 150px; /* un poco más grande en desktop */
-  }
-}
-
-/* ===== WELCOME BOX HOME ===== */
+/* ===== HOME SECTION ===== */
 .home-section {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;  /* centra verticalmente el contenido */
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
+  gap: 40px;
   padding: 0 20px;
 }
 
-/* Contenedores de texto */
-.welcome-box-left {
+.welcome-box-left,
+.welcome-box-right {
   display: flex;
   flex-direction: column;
+}
+
+.welcome-box-left {
+  flex: 2 1 0;
   gap: 20px;
   align-items: flex-start;
 }
 
-.welcome-section {
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
-
 .welcome-box-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;  /* centra verticalmente */
-  align-items: flex-end;    /* alineado a la derecha */
-  height: 100%;
-  margin-top: 0;
+  flex: 1 1 0;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: 400px; /* Ajusta según lo visual */
 }
 
 /* Líneas de texto */
@@ -130,79 +113,67 @@ body {
   transition: all 0.7s ease;
 }
 
-.welcome-box-left .line {
-  text-align: left;
+/* Imagen animada */
+.animated-image {
+  width: 70%;
+  max-width: 600px;
+  margin-top: 30px;
+  opacity: 0;
+  transform: translateX(100px);
+  animation: slideIn 1.5s ease-out forwards;
 }
 
-.welcome-box-right .line {
-  text-align: right;
+@keyframes slideIn {
+  to { opacity: 1; transform: translateX(0); }
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .home-section {
-    flex-direction: column;
-    align-items: center;
-  }
-  .welcome-box-left,
-  .welcome-box-right {
-    width: 100%;
-    text-align: center;
-  }
-  .welcome-box-left {
-    margin-bottom: 20px;
-  }
-  .welcome-box-right {
-    align-items: center;
-    text-align: center;
-    margin-top: 50px;
-  }
+/* ===== SECCIONES ===== */
+#about,
+#other-treatments {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
 }
 
-/* ===== FIX NAVBAR + ANCLAS ===== */
-section {
-  scroll-margin-top: 0px;
+#spa {
+  background-color: #f4f8f9;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Cards en Other Treatments */
+#other-treatments .card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
-/* ===== ACCESIBILIDAD ===== */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
-    animation: none !important;
-  }
+#other-treatments .card:hover {
+  transform: translateY(-5px);
 }
 
-/* ===== Footer Styles ===== */
+#other-treatments .card-img-top {
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+/* ===== FOOTER ===== */
 .footer {
-  background-color: #319cA1;
-  color: white;
+  background-color: var(--c-primario);
+  color: var(--c-blanco);
   padding: 40px 20px;
 }
 
 .footer-container {
   display: flex;
   justify-content: space-around;
-  align-items: flex-start;
   flex-wrap: wrap;
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.footer h4 {
-  margin-bottom: 15px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.footer p {
-  margin: 0;
-  line-height: 1.6;
-}
+.footer h4 { margin-bottom: 15px; }
+.footer p { margin: 0; line-height: 1.6; }
 
 .footer-form {
   display: flex;
@@ -219,15 +190,12 @@ html {
   font-size: 14px;
 }
 
-.footer-form textarea {
-  resize: none;
-  min-height: 80px;
-}
+.footer-form textarea { min-height: 80px; resize: none; }
 
 .footer-form button {
   padding: 10px;
-  background-color: #319cA1;
-  color: white;
+  background-color: var(--c-primario);
+  color: var(--c-blanco);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -235,212 +203,35 @@ html {
   transition: background 0.3s ease;
 }
 
-.footer-form button:hover {
-  background-color: #052c65;
-}
+.footer-form button:hover { background-color: #052c65; }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .footer-form {
-    width: 100%;
-    max-width: 300px;
-  }
-}
-
-/* ===== Social Buttons ===== */
+/* ===== SOCIAL ===== */
 .social-buttons {
   margin-top: 20px;
   text-align: center;
 }
 
-.social-buttons a {
-  margin: 0 10px;
-  display: inline-block;
-}
-
+.social-buttons a { margin: 0 10px; display: inline-block; }
 .social-buttons img {
-  width: 40px;
-  height: 40px;
+  width: 40px; height: 40px;
   transition: transform 0.2s ease;
 }
+.social-buttons img:hover { transform: scale(1.1); }
 
-.social-buttons img:hover {
-  transform: scale(1.1);
-}
-
-/* ===== Imagen animada debajo de Wellness ===== */
-.animated-image {
-  width: 800px;
-  max-width: 100%;
-  margin-top: 30px;
-  opacity: 0;
-  transform: translateX(100px);
-  animation: slideIn 1.5s ease-out forwards;
-}
-
-/* En móviles centramos la imagen */
-@media (max-width: 768px) {
-  .welcome-box-left {
-    align-items: center;
-    text-align: center;
-  }
-
-  .animated-image {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-/* Animación de entrada desde la derecha */
-@keyframes slideIn {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-/* ===== Overrides para ensanchar imagen y acercar columnas ===== */
-
-/* En desktop: quitamos el espacio gigante entre columnas y usamos un gap controlado */
-@media (min-width: 993px) {
-  .home-section {
-    justify-content: flex-start; /* en vez de space-between */
-    gap: 40px;                   /* distancia entre columnas (ajusta a gusto: 24px/32px/48px) */
-  }
-
-  /* Damos más espacio al lado izquierdo (texto+imagen) */
-  .welcome-box-left {
-    flex: 2 1 0;  /* ocupa ~2x del derecho */
-  }
-
-  .welcome-box-right {
-    flex: 1 1 0;  /* ocupa menos ancho */
-  }
-
-  /* Imagen realmente ancha dentro del lado izquierdo */
-  .animated-image {
-    width: 70%;       /* llena el ancho disponible del contenedor izquierdo */
-    max-width: 600px;  /* tope de ancho grande (ajústalo si quieres más) */
-  }
-}
-
-/* En tablet/móvil ya tienes reglas, solo aseguramos que la imagen siga bien fluida */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
-  .animated-image {
-    width: 90%;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-/* ===== Alinear texto derecho arriba pero un poco más abajo ===== */
-@media (min-width: 993px) {
-  .home-section {
-    align-items: flex-start; /* bloques alineados arriba */
-  }
+  .home-section { flex-direction: column; align-items: center; gap: 20px; }
+  .welcome-box-left,
+  .welcome-box-right { width: 100%; text-align: center; }
+  .welcome-box-right { margin-top: 50px; align-items: center; }
 
-  .welcome-box-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 400px; /* ajusta: 20px, 30px, 40px según lo quieras */
-  }
-}
-#about {
-  background-color: #f9f9f9; /* color suave para diferenciar la sección */
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
+  .animated-image { width: 90%; max-width: 100%; margin: 0 auto; }
 
-#about img {
-  object-fit: cover;
-  max-height: 280px; /* ajusta la altura de las imágenes */
-}
-#treatments, #spa, #conditions {
-  padding-top: 80px;
-  padding-bottom: 80px;
-}
+  .pt-navbar { padding-top: 90px; }
+  section { scroll-margin-top: 70px; }
 
-#treatments h2, #spa h2, #conditions h2 {
-  color: var(--c-oscuro);
-  margin-bottom: 20px;
-}
+  .footer-container { flex-direction: column; align-items: center; text-align: center; }
+  .footer-form { width: 100%; max-width: 300px; }
 
-#spa {
-  background-color: #f4f8f9; /* un fondo distinto para diferenciar */
-}
-
-/* Ajuste de scroll para que al hacer clic en un link ancla no quede oculto */
-section {
-  scroll-margin-top: 0px;
-}
-#other-treatments {
-  background-color: #f9f9f9; /* color suave */
-}
-
-#other-treatments h2 {
-  color: var(--c-oscuro);
-  font-weight: 700;
-}
-
-#other-treatments .card {
-  border-radius: 15px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-#other-treatments .card:hover {
-  transform: translateY(-5px);
-}
-#other-treatments .card-img-top {
-  height: 220px;         /* todas las imágenes tendrán el mismo alto */
-  object-fit: cover;     /* recorta sin deformar */
-  object-position: center; /* centra la imagen */
-  border-radius: 10px;   /* opcional, esquinas suaves */
-}
-/* Asegurar que los submenús se vean bien en móviles */
-.dropdown-submenu .dropdown-menu {
-  left: 100%; 
-  top: 0;
-  margin-left: 0.1rem;
-  margin-right: 0.1rem;
-}
-
-/* En móviles que se muestren debajo */
-@media (max-width: 991px) {
-  .dropdown-submenu .dropdown-menu {
-    left: 0;
-    top: 100%;
-  }
-}
-/* Ajuste para que el contenido no quede tapado por navbar fixed */
-.pt-navbar {
-  padding-top: 0px; /* ajusta según la altura real de tu navbar */
-}
-
-/* Opcional: hacer responsive si navbar cambia de altura */
-@media (max-width: 991px) {
-  .pt-navbar {
-    padding-top: 90px; /* navbar más pequeño en móviles */
-  }
-  section {
-    scroll-margin-top: 70px;
-  }
-}
-/* Forzar que todos los dropdowns del navbar se abran hacia abajo */
-.navbar .dropdown-menu {
-  top: 100% !important;
-  bottom: auto !important;
-  margin-top: 0.4rem; /* pequeño espacio opcional */
-}
-.dropdown-menu {
-  transform: none !important;   /* quita transformaciones automáticas de Popper */
-  inset: auto auto auto 0 !important; /* asegura posición hacia abajo */
-  top: 100% !important;
+  .dropdown-submenu .dropdown-menu { left: 0; top: 100%; }
 }
