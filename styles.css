@@ -83,7 +83,7 @@ body {
   padding: 0 20px;
 }
 .welcome-title {
-  font-size: 8rem;
+  font-size: 20rem;
   font-weight: 1000;
   color: var(--c-oscuro);
 }
