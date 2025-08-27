@@ -82,6 +82,12 @@ body {
   gap: 40px;
   padding: 0 20px;
 }
+.welcome-title {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--c-oscuro);
+}
+
 
 .welcome-box-left,
 .welcome-box-right {
