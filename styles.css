@@ -127,17 +127,6 @@ body {
   to { opacity: 1; transform: translateX(0); }
 }
 
-/* ===== SECCIONES ===== */
-#about,
-#other-treatments {
-  padding: 60px 20px;
-  background-color: #f9f9f9;
-}
-
-#spa {
-  background-color: #f4f8f9;
-}
-
 /* Cards en Other Treatments */
 #other-treatments .card {
   border-radius: 15px;
