@@ -82,29 +82,20 @@ body {
   gap: 40px;
   padding: 0 20px;
 }
-.welcome-title {
-  font-size: 300px;   /* Tamaño grande en PC */
+.line.welcome-title {
+  font-size: 300px;
   font-weight: 900;
   color: var(--c-oscuro);
   line-height: 1.1;
 }
 
-/* Ajuste para tablets */
 @media (max-width: 992px) {
-  .welcome-title {
-    font-size: 80px;   /* Un poco más pequeño */
-  }
+  .line.welcome-title { font-size: 80px; }
 }
 
-/* Ajuste para móviles */
 @media (max-width: 576px) {
-  .welcome-title {
-    font-size: 50px;   /* Bien legible en pantallas chicas */
-  }
+  .line.welcome-title { font-size: 50px; }
 }
-
-
-
 .welcome-box-left,
 .welcome-box-right {
   display: flex;
