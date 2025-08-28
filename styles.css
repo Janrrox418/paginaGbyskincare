@@ -1,4 +1,16 @@
-/* ===== BODY ===== */
+/* =======================================================
+   1. VARIABLES
+======================================================= */
+:root {
+  --c-primario: #38939b;
+  --c-oscuro: #001f3f;
+  --c-blanco: #fff;
+  --c-hover: #ffe0cc;
+}
+
+/* =======================================================
+   2. BODY
+======================================================= */
 body {
   background-color: #e4c6b8;
   color: #333;
@@ -7,15 +19,9 @@ body {
   padding: 0;
 }
 
-/* ===== VARIABLES ===== */
-:root {
-  --c-primario: #38939b;
-  --c-oscuro: #001f3f;
-  --c-blanco: #fff;
-  --c-hover: #ffe0cc;
-}
-
-/* ===== NAVBAR ===== */
+/* =======================================================
+   3. NAVBAR
+======================================================= */
 .navbar {
   background-color: var(--c-primario) !important;
   padding: 0.2rem 1rem;
@@ -39,12 +45,10 @@ body {
   width: auto;
 }
 @media (min-width: 992px) {
-  .navbar-brand img {
-    width: 180px;
-  }
+  .navbar-brand img { width: 180px; }
 }
 
-/* ===== DROPDOWN ===== */
+/* ===== Dropdown ===== */
 .navbar .dropdown-menu {
   background-color: #ffffff;
   border-radius: 8px;
@@ -55,9 +59,7 @@ body {
   inset: auto auto auto 0 !important;
 }
 
-.navbar .dropdown-item {
-  color: #333 !important;
-}
+.navbar .dropdown-item { color: #333 !important; }
 
 .navbar .dropdown-item.active,
 .navbar .dropdown-item:active {
@@ -65,25 +67,25 @@ body {
   color: var(--c-blanco) !important;
 }
 
-/* ===== BOTÓN HAMBURGUESA ===== */
-.navbar-toggler {
-  border-color: var(--c-blanco);
-}
+/* ===== Botón Hamburguesa ===== */
+.navbar-toggler { border-color: var(--c-blanco); }
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* ===== HOME SECTION ===== */
+/* =======================================================
+   4. HOME / WELCOME
+======================================================= */
 .home-section {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: flex-start;     /* 🔹 Esto sube el welcome hacia arriba */
   flex-wrap: wrap;
   gap: 40px;
-  padding: 0 20px;
+  padding: 80px 20px 0;        /* 🔹 Espacio superior ajustable */
 }
 
-/* Líneas de texto (estilo general) */
+/* Líneas de texto (general) */
 .welcome-box-left .line,
 .welcome-box-right .line {
   color: var(--c-oscuro);
@@ -96,12 +98,13 @@ body {
 
 /* Título principal */
 .line.welcome-title {
-  font-size: 50px;   /* 🔹 corregido (antes 2000px) */
+  font-size: 50px;  /* 🔹 corregido (antes 2000px) */
   font-weight: 500;
   color: var(--c-oscuro);
   line-height: 1.1;
 }
 
+/* Boxes */
 .welcome-box-left,
 .welcome-box-right {
   display: flex;
@@ -118,7 +121,7 @@ body {
   flex: 1 1 0;
   justify-content: flex-start;
   align-items: flex-end;
-  margin-top: 400px; /* Ajusta según lo visual */
+  margin-top: 200px;  /* 🔹 Lo bajaba mucho (antes 400px) */
 }
 
 /* Imagen animada */
@@ -135,17 +138,15 @@ body {
   to { opacity: 1; transform: translateX(0); }
 }
 
-/* ===== CARDS (Other Treatments) ===== */
+/* =======================================================
+   5. CARDS (Other Treatments)
+======================================================= */
 #other-treatments .card {
   border-radius: 15px;
   overflow: hidden;
   transition: transform 0.3s ease;
 }
-
-#other-treatments .card:hover {
-  transform: translateY(-5px);
-}
-
+#other-treatments .card:hover { transform: translateY(-5px); }
 #other-treatments .card-img-top {
   height: 220px;
   object-fit: cover;
@@ -153,7 +154,9 @@ body {
   border-radius: 10px;
 }
 
-/* ===== FOOTER ===== */
+/* =======================================================
+   6. FOOTER
+======================================================= */
 .footer {
   background-color: var(--c-primario);
   color: var(--c-blanco);
@@ -199,15 +202,15 @@ body {
   font-weight: bold;
   transition: background 0.3s ease;
 }
-
 .footer-form button:hover { background-color: #052c65; }
 
-/* ===== SOCIAL ===== */
+/* =======================================================
+   7. SOCIAL
+======================================================= */
 .social-buttons {
   margin-top: 20px;
   text-align: center;
 }
-
 .social-buttons a { margin: 0 10px; display: inline-block; }
 .social-buttons img {
   width: 40px; height: 40px;
@@ -215,7 +218,9 @@ body {
 }
 .social-buttons img:hover { transform: scale(1.1); }
 
-/* ===== RESPONSIVE ===== */
+/* =======================================================
+   8. RESPONSIVE
+======================================================= */
 @media (max-width: 992px) {
   .home-section { flex-direction: column; align-items: center; gap: 20px; }
   .welcome-box-left,
