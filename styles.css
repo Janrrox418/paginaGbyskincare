@@ -23,30 +23,26 @@ body {
    3. NAVBAR
 ======================================================= */
 .navbar {
-  background-color: var(--c-primario) !important;
+  background-color: transparent !important; /* 🔹 transparente por defecto */
   padding: 0.2rem 1rem;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: top 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-.navbar .nav-link,
-.navbar-brand {
-  color: var(--c-blanco) !important;
-  font-weight: 500;
-  transition: color 0.3s ease;
+/* 🔹 Ocultar navbar */
+.navbar.hide {
+  top: -100px;
 }
 
-.navbar .nav-link:hover,
-.navbar .dropdown-item:hover {
-  color: var(--c-hover) !important;
+/* 🔹 Cuando el usuario baja */
+.navbar.scrolled {
+  background-color: var(--c-primario) !important;
 }
 
-/* Logo */
-.navbar-brand img {
-  max-height: 140px;
-  width: auto;
-}
-@media (min-width: 992px) {
-  .navbar-brand img { width: 180px; }
-}
 
 /* ===== Dropdown ===== */
 .navbar .dropdown-menu {

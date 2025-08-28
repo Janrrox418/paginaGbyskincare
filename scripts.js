@@ -35,4 +35,21 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 100);
     });
   }
+  // ===== NAVBAR HIDE ON SCROLL =====
+  let lastScrollTop = 0;
+  const navbar = document.querySelector(".navbar");
+
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      // Bajando -> ocultar
+      navbar.classList.add("hide");
+    } else {
+      // Subiendo -> mostrar
+      navbar.classList.remove("hide");
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // evita valores negativos
+  });
 });
