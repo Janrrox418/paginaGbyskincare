@@ -23,25 +23,24 @@ body {
    3. NAVBAR
 ======================================================= */
 .navbar {
-  background-color: transparent !important; /* 🔹 transparente por defecto */
+  background-color: transparent !important;
   padding: 0.2rem 1rem;
-
-  position: fixed;
+  position: fixed;   /* ✅ ya con esto se fija arriba */
   top: 0;
   width: 100%;
   z-index: 1000;
   transition: top 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-/* 🔹 Ocultar navbar */
 .navbar.hide {
-  top: -100px;
+  top: -100px; /* ✅ se oculta hacia arriba */
 }
 
-/* 🔹 Cuando el usuario baja */
 .navbar.scrolled {
-  background-color: var(--c-primario) !important;
+  background-color: var(--c-primario) !important; /* ✅ aparece con color */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* ✅ sombra ligera */
 }
+
 
 
 /* ===== Dropdown ===== */
@@ -209,7 +208,7 @@ body {
 }
 .social-buttons a { margin: 0 10px; display: inline-block; }
 .social-buttons img {
-  width: 40px; height: 40px;
+  width: auto; max-height: 50px;
   transition: transform 0.2s ease;
 }
 .social-buttons img:hover { transform: scale(1.1); }
