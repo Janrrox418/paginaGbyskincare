@@ -98,7 +98,7 @@ body {
 
 /* Título principal */
 .line.welcome-title {
-  font-size: 100px;  /* 🔹 corregido (antes 2000px) */
+  font-size: 70px;  /* 🔹 corregido (antes 2000px) */
   font-weight: 800;
   color: var(--c-oscuro);
   line-height: 1.1;
