@@ -111,3 +111,24 @@ document.addEventListener("DOMContentLoaded", function () {
   ajustarPadding();
   window.addEventListener("resize", ajustarPadding);
 });
+document.querySelectorAll(".dropdown-submenu > a").forEach(function (el) {
+  el.addEventListener("click", function (e) {
+    if (window.innerWidth < 992) {
+      e.preventDefault();
+      e.stopPropagation();
+      let submenu = this.nextElementSibling;
+      if (!submenu) return;
+
+      // Cerrar otros submenús en el mismo nivel
+      let parentMenu = this.closest(".dropdown-menu");
+      parentMenu.querySelectorAll(".dropdown-menu.show").forEach(function (openSub) {
+        if (openSub !== submenu) openSub.classList.remove("show");
+      });
+
+      // Alternar visibilidad del submenú
+      submenu.classList.toggle("show");
+    }
+  });
+});
+
+
