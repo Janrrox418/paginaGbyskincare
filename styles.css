@@ -144,22 +144,42 @@ body {
 /* =======================================================
    5. CARDS (Other Treatments)
 ======================================================= */
-#other-treatments h3 {
-  color: var(--c-primario);
-  margin-bottom: 10px;
+.treatment-box {
+  background-color: #fff;
+  border: 1px solid var(--c-primario);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 700px;
+  min-height: 500px; /* altura uniforme */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-#other-treatments p, 
-#other-treatments li {
+.treatment-box h3 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: var(--c-oscuro);
+}
+
+.treatment-box p {
   font-size: 1rem;
-  color: #555;
+  color: #444;
+  margin-bottom: 0.5rem;
 }
 
-#other-treatments img {
-  max-height: 300px;
-  object-fit: cover;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+.treatment-box ul {
+  margin: 0;
+  padding-left: 1.2rem;
 }
+
+.treatment-box img {
+  max-height: 200px;
+  object-fit: contain;
+}
+
 
 
 /* =======================================================
