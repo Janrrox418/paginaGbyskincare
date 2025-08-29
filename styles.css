@@ -33,9 +33,7 @@ body {
   transition: transform .3s ease, background-color .3s ease, box-shadow .3s ease;
 }
 
-.navbar.hide {
-  transform: translateY(-100%);
-}
+.navbar.hide { transform: translateY(-100%); }
 
 .navbar.scrolled {
   background-color: var(--c-primario) !important;
@@ -47,17 +45,28 @@ body {
   width: auto;
 }
 
-/* Submenú derecho */
-.dropdown-submenu { position: relative; }
-.dropdown-submenu > .dropdown-menu {
-  top: 0 ;
-  left: 100% ;
-  margin-left: 0.1rem;
-  margin-right: 0.1rem;
-  inset: unset;
+/* ===== Submenú derecho (Dermal Fillers) ===== */
+.dropdown-submenu {
+  position: relative;
 }
 
-/* Dropdown general */
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+  display: none;
+  position: absolute;
+  z-index: 1000;
+}
+
+@media (min-width: 992px) {
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+  }
+}
+
+/* ===== Dropdown general ===== */
 .navbar .dropdown-menu {
   background-color: #fff;
   border-radius: 8px;
@@ -68,14 +77,26 @@ body {
   inset: auto auto auto 0 !important;
 }
 
-.navbar .dropdown-item { color: #333 !important; }
+/* ===== Colores y hover de los items ===== */
+.navbar .dropdown-item,
+.navbar .nav-link {
+  color: #333 !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .dropdown-item:hover,
+.navbar .nav-link:hover {
+  background-color: var(--c-hover);
+  color: #000;
+}
+
 .navbar .dropdown-item.active,
 .navbar .dropdown-item:active {
   background-color: var(--c-primario) !important;
   color: var(--c-blanco) !important;
 }
 
-/* Botón hamburguesa */
+/* ===== Botón hamburguesa ===== */
 .navbar-toggler { border-color: var(--c-blanco); }
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
