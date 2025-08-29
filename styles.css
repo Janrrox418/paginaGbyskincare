@@ -55,16 +55,18 @@ body {
   position: relative;
 }
 
-.dropdown-submenu > .dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-left: 0.1rem;
-  margin-right: 0.1rem;
+/* Submenú se abre a la derecha */
+.dropdown-submenu {
+  position: relative;
 }
 
-
-
-
+.dropdown-submenu > .dropdown-menu {
+  top: 0 !important;       /* alineado con el item padre */
+  left: 100% !important;   /* se abre a la derecha */
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+  inset: auto auto auto auto !important; /* sobreescribe el inset global */
+}
 
 
 /* ===== Dropdown ===== */
