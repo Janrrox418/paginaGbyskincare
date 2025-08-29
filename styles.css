@@ -105,10 +105,9 @@ body {
   font-size: 1.4rem;
   margin-top: 15px;
   color: var(--c-primario);
-  overflow: hidden;
-  white-space: nowrap;
-  display: inline-block;
-  animation: slideText 4s linear infinite;
+  opacity: 0;
+  animation: fadeInRight 4s ease-in-out infinite;
+  animation-delay: 1s; /* entra un poco después del h1 */
 }
 
 @keyframes float {
@@ -116,22 +115,21 @@ body {
   50% { transform: translateY(-15px); }
 }
 
-@keyframes slideText {
+@keyframes fadeInRight {
   0% {
-    transform: translateX(100%);
     opacity: 0;
+    transform: translateX(100px);
   }
-  20% {
+  20%, 80% {
     opacity: 1;
-  }
-  80% {
-    opacity: 1;
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
     opacity: 0;
+    transform: translateX(100px);
   }
 }
+
 
 
 /* =======================================================
