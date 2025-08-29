@@ -50,7 +50,19 @@ body {
 .navbar-brand img {
   max-height: 50px;
   width: auto;
+}/* Submenús dentro de dropdown */
+.dropdown-submenu {
+  position: relative;
 }
+
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+}
+
+
 
 
 
@@ -355,7 +367,6 @@ body {
 /* =======================================================
    9. HERO VIDEO
 ======================================================= */
-/* ===== HERO VIDEO ===== */
 .hero-video {
   position: relative;
   width: 100%;
