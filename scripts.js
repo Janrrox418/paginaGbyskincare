@@ -112,25 +112,22 @@ document.addEventListener("DOMContentLoaded", function () {
 // ===== SUBMENÚS MÓVILES =====
   const isMobile = () => window.innerWidth < 992;
 
-  document.querySelectorAll(".dropdown-submenu > a").forEach(function (el) {
-    el.addEventListener("click", function (e) {
-      if (isMobile()) {
-        e.preventDefault();
-        e.stopPropagation();
+ document.querySelectorAll(".dropdown-submenu > a").forEach(function (el) {
+  el.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
 
-        let submenu = this.nextElementSibling;
-        if (submenu) {
-          // Cierra otros submenús abiertos en el mismo dropdown
-          const parentMenu = this.closest(".dropdown-menu");
-          parentMenu.querySelectorAll(".dropdown-menu.show").forEach(sm => {
-            if (sm !== submenu) sm.classList.remove("show");
-          });
-
-          submenu.classList.toggle("show");
-        }
-      }
-    });
+    const submenu = this.nextElementSibling;
+    if (submenu) {
+      const parentMenu = this.closest(".dropdown-menu");
+      parentMenu.querySelectorAll(".dropdown-menu.show").forEach(sm => {
+        if (sm !== submenu) sm.classList.remove("show");
+      });
+      submenu.classList.toggle("show");
+    }
   });
+});
+
 
   // Cierra submenús al cerrar dropdown principal
   document.querySelectorAll(".dropdown").forEach(dropdown => {
