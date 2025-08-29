@@ -144,18 +144,23 @@ body {
 /* =======================================================
    5. CARDS (Other Treatments)
 ======================================================= */
-#other-treatments .card {
-  border-radius: 15px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
+#other-treatments h3 {
+  color: var(--c-primario);
+  margin-bottom: 10px;
 }
-#other-treatments .card:hover { transform: translateY(-5px); }
-#other-treatments .card-img-top {
-  height: 220px;
+
+#other-treatments p, 
+#other-treatments li {
+  font-size: 1rem;
+  color: #555;
+}
+
+#other-treatments img {
+  max-height: 300px;
   object-fit: cover;
-  object-position: center;
-  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
 }
+
 
 /* =======================================================
    6. FOOTER
