@@ -109,6 +109,15 @@ body {
   animation: fadeInRight 4s ease-in-out infinite;
   animation-delay: 1s; /* entra un poco después del h1 */
 }
+.welcome-text-box {
+  border: 2px solid var(--c-primario); /* color de navbar */
+  padding: 20px 40px;
+  border-radius: 10px; /* esquinas sutilmente redondeadas */
+  display: inline-block; /* se ajusta al contenido */
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2); /* opcional, un fondo translúcido elegante */
+  backdrop-filter: blur(4px); /* efecto de vidrio esmerilado si quieres */
+}
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
