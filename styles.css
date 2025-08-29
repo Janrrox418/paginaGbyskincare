@@ -45,6 +45,17 @@ body {
   width: auto;
 }
 
+/* ===== Dropdown general ===== */
+.navbar .dropdown-menu {
+  background-color: #fff;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  top: 100% !important;
+  transform: none !important;
+  inset: auto auto auto 0 !important;
+}
+
 /* ===== Submenú derecho (Dermal Fillers) ===== */
 .dropdown-submenu {
   position: relative;
@@ -60,21 +71,11 @@ body {
   z-index: 1000;
 }
 
+/* Hover lateral en PC */
 @media (min-width: 992px) {
   .dropdown-submenu:hover > .dropdown-menu {
     display: block;
   }
-}
-
-/* ===== Dropdown general ===== */
-.navbar .dropdown-menu {
-  background-color: #fff;
-  border-radius: 8px;
-  border: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  top: 100% !important;
-  transform: none !important;
-  inset: auto auto auto 0 !important;
 }
 
 /* ===== Colores y hover de los items ===== */
