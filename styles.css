@@ -50,9 +50,6 @@ body {
 .navbar-brand img {
   max-height: 50px;
   width: auto;
-}/* Submenús dentro de dropdown */
-.dropdown-submenu {
-  position: relative;
 }
 
 /* Submenú se abre a la derecha */
