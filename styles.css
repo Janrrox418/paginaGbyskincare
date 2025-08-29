@@ -180,6 +180,39 @@ body {
   object-fit: contain;
 }
 
+/* Flechas del carrusel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.6); /* fondo oscuro */
+  border-radius: 50%;                  /* redondas */
+  width: 50px;
+  height: 50px;
+  background-size: 60%;                 /* icono más grande dentro */
+}
+
+/* Hover efecto */
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: var(--c-primario);  /* usa tu color principal (ej: el de la navbar) */
+}
+
+/* Ajuste de posición */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 10%;   /* área clickeable más grande */
+}
+
+/* Para móviles: flechas un poco más grandes */
+@media (max-width: 768px) {
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 60px;
+    height: 60px;
+    background-size: 70%;
+  }
+}
+
+
 
 
 /* =======================================================
