@@ -350,42 +350,47 @@ body {
 /* =======================================================
    10. IMAGEN FLOTANTE TIPO POWERPOINT (FIXED)
 ======================================================= */
-/* === Imagen flotante con animación tipo "Rueda" === */
-/* === Imagen flotante con animación tipo "Rueda" === */
+/* === Imagen flotante con aparición suave === */
 .imagen-flotante {
-  position: fixed;          /* Siempre fija en pantalla */
+  position: fixed !important; /* fuerza el fixed */
   top: 15px;
-  left: 15px;               /* PC → esquina superior izquierda */
+  left: 15px; /* PC → esquina superior izquierda */
   width: 50px;
   height: auto;
   z-index: 9999;
-  animation: rueda 2s ease-in-out infinite; /* Animación en bucle */
-  transform-origin: center center; /* Punto de giro */
+  animation: aparecer 1s ease-in-out infinite;
+  animation-delay: 4s; /* 4s de pausa + 1s de animación = 5s total */
 }
 
-/* Animación tipo "Rueda" */
-@keyframes rueda {
+/* Animación de aparición suave */
+@keyframes aparecer {
   0% {
-    transform: rotate(-360deg) scale(0);
     opacity: 0;
+    transform: scale(0.9);
   }
-  50% {
+  20% {
     opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1);
   }
   100% {
-    transform: rotate(0deg) scale(1);
-    opacity: 1;
+    opacity: 0;
+    transform: scale(0.9);
   }
 }
 
-/* === Ajuste para móviles === */
+/* Ajuste para móviles */
 @media (max-width: 768px) {
   .imagen-flotante {
     left: auto;
-    right: 15px;   /* esquina superior derecha */
+    right: 15px; /* esquina superior derecha */
     width: 40px;
   }
 }
+
 
 
 
