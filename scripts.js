@@ -111,24 +111,31 @@ document.addEventListener("DOMContentLoaded", function () {
 // ===== SUBMENÚS: CLICK EN MÓVIL + HOVER EN PC =====
 const isMobile = () => window.innerWidth < 992;
 
-document.querySelectorAll(".dropdown-submenu").forEach(function (submenu) {
-  const link = submenu.querySelector("a.dropdown-toggle");
-  const menu = submenu.querySelector(".dropdown-menu");
+document.querySelectorAll(".dropdown-submenu > a.dropdown-toggle").forEach((link) => {
+  if (link.dataset.bound === "true") return; // evita doble binding si el script se recarga
+  link.dataset.bound = "true";
+
+  const menu = link.nextElementSibling;
 
   // Click en móviles
   link.addEventListener("click", function (e) {
-    if (isMobile()) {
-      e.preventDefault();
-      e.stopPropagation();
-      const parentMenu = this.closest(".dropdown-menu");
+    if (!isMobile()) return; // en desktop se maneja por hover
+    e.preventDefault();
+    e.stopPropagation();
+
+    const parentMenu = link.closest(".dropdown-menu");
+    if (parentMenu) {
       parentMenu.querySelectorAll(".dropdown-menu.show").forEach((sm) => {
         if (sm !== menu) sm.classList.remove("show");
       });
-      menu.classList.toggle("show");
     }
+    menu.classList.toggle("show");
   });
+});
 
-  // Hover en PC
+// Hover en PC (igual que ya tenías)
+document.querySelectorAll(".dropdown-submenu").forEach((submenu) => {
+  const menu = submenu.querySelector(".dropdown-menu");
   submenu.addEventListener("mouseenter", function () {
     if (!isMobile()) menu.classList.add("show");
   });
@@ -137,12 +144,20 @@ document.querySelectorAll(".dropdown-submenu").forEach(function (submenu) {
   });
 });
 
-// ===== Cierra submenús al cerrar dropdown principal =====
+// Cierra submenús al cerrar el dropdown principal
 document.querySelectorAll(".dropdown").forEach((dropdown) => {
   dropdown.addEventListener("hidden.bs.dropdown", function () {
     this.querySelectorAll(".dropdown-menu.show").forEach((sm) => sm.classList.remove("show"));
   });
 });
+
+// Limpia estados al cambiar tamaño (evita submenús "pegados" tras rotar o redimensionar)
+window.addEventListener("resize", () => {
+  if (!isMobile()) {
+    document.querySelectorAll(".dropdown-menu.show").forEach((sm) => sm.classList.remove("show"));
+  }
+});
+
 // ===== Imagen flotante decorativa =====
 document.addEventListener("DOMContentLoaded", function () {
   const floatingImg = document.querySelector(".floating-image");
