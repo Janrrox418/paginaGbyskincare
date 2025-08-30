@@ -353,9 +353,9 @@ body {
 /* Imagen flotante */
 .imagen-flotante {
   position: fixed; /* fija junto con la navbar */
-  top: 5px; /* más arriba que antes */
+  top: 10px; /* más arriba que antes */
   left: 15px; /* PC → esquina superior izquierda */
-  width: 110px; /* más grande en PC */
+  width: 140px; /* más grande en PC */
   height: auto;
   z-index: 1100; /* por encima de la navbar */
   animation: aparecer 10s ease-in-out infinite;
@@ -384,10 +384,10 @@ body {
 /* Ajuste para móviles */
 @media (max-width: 768px) {
   .imagen-flotante {
-    top: 5px; /* también más arriba en móvil */
+    top: 10px; /* también más arriba en móvil */
     left: auto;
     right: 15px; /* esquina superior derecha */
-    width: 90px; /* más grande en móviles */
+    width: 120px; /* más grande en móviles */
   }
 }
 
