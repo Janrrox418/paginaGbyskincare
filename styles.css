@@ -353,10 +353,10 @@ body {
 /* === Imagen flotante === */
 .imagen-flotante {
   position: fixed;
-  bottom: 15px;
-  right: 15px;       /* PC → esquina derecha */
-  width: 50px;       /* tamaño fijo pequeño */
-  height: auto;      /* mantiene proporción */
+  top: 15px;
+  left: 15px;       /* PC → esquina superior izquierda */
+  width: 80px;      /* tamaño fijo pequeño */
+  height: auto;     
   z-index: 9999;
   animation: flotar 3s ease-in-out infinite;
 }
@@ -371,11 +371,12 @@ body {
 /* === Ajuste para móviles === */
 @media (max-width: 768px) {
   .imagen-flotante {
-    left: 15px;   /* esquina izquierda */
-    right: auto;
-    width: 40px;  /* aún más pequeña en móviles */
+    left: auto;
+    right: 15px;   /* esquina superior derecha */
+    width: 60px;   /* más pequeña en móviles */
   }
 }
+
 
 
 
