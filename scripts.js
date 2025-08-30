@@ -109,46 +109,37 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ===== SUBMENÚS: CLICK EN MÓVIL + HOVER EN PC =====
-document.addEventListener("DOMContentLoaded", function () {
-  const isMobile = () => window.innerWidth < 992;
+const isMobile = () => window.innerWidth < 992;
 
-  document.querySelectorAll(".dropdown-submenu").forEach(function (submenu) {
-    const link = submenu.querySelector("a.dropdown-toggle");
-    const menu = submenu.querySelector(".dropdown-menu");
+document.querySelectorAll(".dropdown-submenu").forEach(function (submenu) {
+  const link = submenu.querySelector("a.dropdown-toggle");
+  const menu = submenu.querySelector(".dropdown-menu");
 
-    // Click en móviles
-    link.addEventListener("click", function (e) {
-      if (isMobile()) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        // Cierra otros submenús abiertos en el mismo nivel
-        const parentMenu = this.closest(".dropdown-menu");
-        parentMenu.querySelectorAll(".dropdown-menu.show").forEach((sm) => {
-          if (sm !== menu) sm.classList.remove("show");
-        });
-
-        // Alterna visibilidad del submenú
-        menu.classList.toggle("show");
-      }
-    });
-
-    // Hover en PC
-    submenu.addEventListener("mouseenter", function () {
-      if (!isMobile()) menu.classList.add("show");
-    });
-    submenu.addEventListener("mouseleave", function () {
-      if (!isMobile()) menu.classList.remove("show");
-    });
+  // Click en móviles
+  link.addEventListener("click", function (e) {
+    if (isMobile()) {
+      e.preventDefault();
+      e.stopPropagation();
+      const parentMenu = this.closest(".dropdown-menu");
+      parentMenu.querySelectorAll(".dropdown-menu.show").forEach((sm) => {
+        if (sm !== menu) sm.classList.remove("show");
+      });
+      menu.classList.toggle("show");
+    }
   });
 
-  // Cierra submenús al cerrar dropdown principal
-  document.querySelectorAll(".dropdown").forEach((dropdown) => {
-    dropdown.addEventListener("hidden.bs.dropdown", function () {
-      this.querySelectorAll(".dropdown-menu.show").forEach((sm) =>
-        sm.classList.remove("show")
-      );
-    });
+  // Hover en PC
+  submenu.addEventListener("mouseenter", function () {
+    if (!isMobile()) menu.classList.add("show");
+  });
+  submenu.addEventListener("mouseleave", function () {
+    if (!isMobile()) menu.classList.remove("show");
   });
 });
 
+// ===== Cierra submenús al cerrar dropdown principal =====
+document.querySelectorAll(".dropdown").forEach((dropdown) => {
+  dropdown.addEventListener("hidden.bs.dropdown", function () {
+    this.querySelectorAll(".dropdown-menu.show").forEach((sm) => sm.classList.remove("show"));
+  });
+});
