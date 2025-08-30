@@ -46,20 +46,17 @@ body {
 }
 /* Submenús abren a la derecha también en móviles */
 @media (max-width: 991px) {
-  .dropdown-submenu > .dropdown-menu {
-    display: none; /* oculto por defecto */
-    position: absolute; /* abre a la derecha */
-    top: 0;
-    left: 100%;
+  .dropdown-submenu > .dropdown-menu.show {
+    display: block;       /* se muestra al hacer clic */
+    position: absolute;   /* abrir a la derecha */
+    top: 0 !important;
+    left: 100% !important;
     margin-left: 0.1rem;
     margin-right: 0.1rem;
     z-index: 1000;
   }
-
-  .dropdown-submenu > .dropdown-menu.show {
-    display: block; /* se muestra al hacer clic */
-  }
 }
+
 
 
 
