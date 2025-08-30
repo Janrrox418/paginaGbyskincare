@@ -44,6 +44,18 @@ body {
   max-height: 50px;
   width: auto;
 }
+/* Mostrar submenús en móviles cuando tengan la clase show */
+@media (max-width: 991px) {
+  .dropdown-submenu > .dropdown-menu.show {
+    display: block;
+    position: relative; /* que se muestre debajo del item padre */
+    left: 0 !important;
+    top: 0 !important;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 
 /* ===== Dropdown general ===== */
 .navbar .dropdown-menu {
