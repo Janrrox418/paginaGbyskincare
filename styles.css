@@ -355,7 +355,7 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;       /* PC → esquina derecha */
-  width: 80px;       /* tamaño controlado */
+  width: 40px;       /* tamaño controlado */
   max-width: 20vw;   /* nunca más grande que 20% de la pantalla */
   z-index: 9999;
   animation: flotar 3s ease-in-out infinite; /* animación en bucle */
@@ -373,7 +373,7 @@ body {
   .imagen-flotante {
     left: 20px;   /* esquina izquierda */
     right: auto;  /* quita la derecha */
-    width: 60px;  /* más pequeña en móviles */
+    width: 20px;  /* más pequeña en móviles */
   }
 }
 
