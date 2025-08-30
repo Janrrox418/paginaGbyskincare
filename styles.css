@@ -19,10 +19,10 @@ body {
   padding-top: 50px;
 }
 @media (max-width: 992px) {
-  body { padding-top: 40%; }
+  body { padding-top: 100%; }
 }
 @media (max-width: 576px) {
-  body { padding-top: 30px; }
+  body { padding-top: 70px; }
 }
 
 /* =======================================================
@@ -67,7 +67,7 @@ body {
 
 /* Ajuste para móviles */
 @media (max-width: 992px) {
-  .navbar .imagen-flotante { height: 70px; }
+  .navbar .imagen-flotante { height: 90px; }
 }
 @media (max-width: 576px) {
   .navbar .imagen-flotante { height: 80px; }
