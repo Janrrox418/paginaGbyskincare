@@ -347,36 +347,45 @@ body {
   }
 }
 /* =======================================================
-   10. IMAGEN FLOTANTE INDEPENDIENTE
+   10. IMAGEN FLOTANTE INDEPENDIENTE CON ANIMACIÓN
 ======================================================= */
 .floating-image {
-  position: fixed;        
-  max-width: 120px;       
-  opacity: 0;             
-  transform: translateY(20px); 
+  position: fixed;
+  opacity: 0;
+  transform: translateY(20px);
   transition: opacity 1s ease, transform 1s ease;
-  z-index: 1050;          
+  z-index: 1050;
+  animation: spin 10s linear infinite; /* Animación de rueda */
 }
 
-/* Activar animación */
+/* Activar animación y aparición */
 .floating-image.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Posición en PC */
+/* Posición y tamaño en PC */
 @media (min-width: 992px) {
   .floating-image {
     top: 20px;
     left: 20px;
+    max-width: 160px; /* tamaño más grande en PC */
   }
 }
 
-/* Posición en móviles */
+/* Posición y tamaño en móviles */
 @media (max-width: 991px) {
   .floating-image {
     top: 20px;
     right: 20px;
+    max-width: 100px; /* tamaño más pequeño en móviles */
   }
 }
+
+/* Animación de rueda */
+@keyframes spin {
+  0% { transform: rotate(0deg) translateY(0); }
+  100% { transform: rotate(360deg) translateY(0); }
+}
+
 
