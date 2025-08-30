@@ -350,29 +350,28 @@ body {
 /* =======================================================
    10. IMAGEN FLOTANTE TIPO POWERPOINT (FIXED)
 ======================================================= */
-/* === Imagen flotante con aparición suave === */
+/* Imagen flotante */
 .imagen-flotante {
-  position: fixed !important; /* fuerza el fixed */
+  position: fixed; /* fija junto con la navbar */
   top: 15px;
   left: 15px; /* PC → esquina superior izquierda */
-  width: 50px;
+  width: 90px; /* más grande en PC */
   height: auto;
-  z-index: 9999;
-  animation: aparecer 1s ease-in-out infinite;
-  animation-delay: 4s; /* 4s de pausa + 1s de animación = 5s total */
+  z-index: 1100; /* por encima de la navbar */
+  animation: aparecer 10s ease-in-out infinite;
 }
 
-/* Animación de aparición suave */
+/* Animación: 1s aparecer, 8s visible, 1s desaparecer */
 @keyframes aparecer {
   0% {
     opacity: 0;
     transform: scale(0.9);
   }
-  20% {
+  10% {
     opacity: 1;
     transform: scale(1);
   }
-  80% {
+  90% {
     opacity: 1;
     transform: scale(1);
   }
@@ -387,9 +386,11 @@ body {
   .imagen-flotante {
     left: auto;
     right: 15px; /* esquina superior derecha */
-    width: 40px;
+    width: 70px; /* más grande en móviles también */
   }
 }
+
+
 
 
 
