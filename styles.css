@@ -346,4 +346,37 @@ body {
     padding: 0 15px;
   }
 }
+/* =======================================================
+   10. IMAGEN FLOTANTE INDEPENDIENTE
+======================================================= */
+.floating-image {
+  position: fixed;        
+  max-width: 120px;       
+  opacity: 0;             
+  transform: translateY(20px); 
+  transition: opacity 1s ease, transform 1s ease;
+  z-index: 1050;          
+}
+
+/* Activar animación */
+.floating-image.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Posición en PC */
+@media (min-width: 992px) {
+  .floating-image {
+    top: 20px;
+    left: 20px;
+  }
+}
+
+/* Posición en móviles */
+@media (max-width: 991px) {
+  .floating-image {
+    top: 20px;
+    right: 20px;
+  }
+}
 
