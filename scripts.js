@@ -10,10 +10,21 @@ document.addEventListener("DOMContentLoaded", function () {
     line.style.animationDelay = `${index * 0.3}s`;
   });
 
-  // ===== CERRAR MENÚ EN MÓVIL AL CLICAR LINK =====
+  // ===== CERRAR MENÚ EN MÓVIL AL CLICAR LINK (solo si NO tiene submenú) =====
   const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
   navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (e) => {
+      const parentLi = link.closest(".nav-item.dropdown");
+
+      // Si es un dropdown (tiene submenu) en móvil, no cerramos el menú principal
+      if (parentLi && window.innerWidth < 992) {
+        e.preventDefault(); // evita que navegue de golpe
+        const menu = parentLi.querySelector(".dropdown-menu");
+        menu.classList.toggle("show");
+        return;
+      }
+
+      // Si es un link normal, cerramos el menú
       const navbarCollapse = document.querySelector(".navbar-collapse");
       const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
       if (bsCollapse) {
