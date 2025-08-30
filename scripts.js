@@ -21,16 +21,19 @@ document.addEventListener("DOMContentLoaded", function () {
 // ===== CERRAR MENÚ EN MÓVIL AL HACER CLICK =====
 const navCollapse = document.getElementById("navbarNavDropdown");
 if (navCollapse) {
-  document
-    .querySelectorAll(".navbar-nav .dropdown-item, .navbar-nav .nav-link:not(.dropdown-toggle)")
+  document.querySelectorAll(".navbar-nav .dropdown-item, .navbar-nav .nav-link:not(.dropdown-toggle)")
     .forEach((el) => {
-      el.addEventListener("click", () => {
+      el.addEventListener("click", (e) => {
+        // Si es un item que abre submenu, no cerrar el collapse
+        if (e.target.closest(".dropdown-submenu")) return;
+
         if (navCollapse.classList.contains("show")) {
           bootstrap.Collapse.getOrCreateInstance(navCollapse).hide();
         }
       });
     });
 }
+
 
 // ===== FORMULARIO (reset + alerta) =====
 const form = document.querySelector("footer form");
