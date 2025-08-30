@@ -353,27 +353,27 @@ body {
 /* === Imagen flotante === */
 .imagen-flotante {
   position: fixed;
-  bottom: 20px;
-  right: 20px;       /* PC → esquina derecha */
-  width: 40px;       /* tamaño controlado */
-  max-width: 20vw;   /* nunca más grande que 20% de la pantalla */
+  bottom: 15px;
+  right: 15px;       /* PC → esquina derecha */
+  width: 50px;       /* tamaño fijo pequeño */
+  height: auto;      /* mantiene proporción */
   z-index: 9999;
-  animation: flotar 3s ease-in-out infinite; /* animación en bucle */
+  animation: flotar 3s ease-in-out infinite;
 }
 
 /* Animación en bucle */
 @keyframes flotar {
   0%   { transform: translateY(0); opacity: 1; }
-  50%  { transform: translateY(-15px); opacity: 0.8; }
+  50%  { transform: translateY(-8px); opacity: 0.9; }
   100% { transform: translateY(0); opacity: 1; }
 }
 
 /* === Ajuste para móviles === */
 @media (max-width: 768px) {
   .imagen-flotante {
-    left: 20px;   /* esquina izquierda */
-    right: auto;  /* quita la derecha */
-    width: 20px;  /* más pequeña en móviles */
+    left: 15px;   /* esquina izquierda */
+    right: auto;
+    width: 40px;  /* aún más pequeña en móviles */
   }
 }
 
