@@ -34,7 +34,6 @@ if (navCollapse) {
     });
 }
 
-
 // ===== FORMULARIO (reset + alerta) =====
 const form = document.querySelector("footer form");
 if (form) {
@@ -133,7 +132,7 @@ document.querySelectorAll(".dropdown-submenu > a.dropdown-toggle").forEach((link
   });
 });
 
-// Hover en PC (igual que ya tenías)
+// Hover en PC
 document.querySelectorAll(".dropdown-submenu").forEach((submenu) => {
   const menu = submenu.querySelector(".dropdown-menu");
   submenu.addEventListener("mouseenter", function () {
@@ -151,7 +150,7 @@ document.querySelectorAll(".dropdown").forEach((dropdown) => {
   });
 });
 
-// Limpia estados al cambiar tamaño (evita submenús "pegados" tras rotar o redimensionar)
+// Limpia estados al cambiar tamaño
 window.addEventListener("resize", () => {
   if (!isMobile()) {
     document.querySelectorAll(".dropdown-menu.show").forEach((sm) => sm.classList.remove("show"));
@@ -168,3 +167,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// ===== FADE-IN ANIMACIONES (About Us + Other Treatments, etc.) =====
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".fade-in");
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        obs.unobserve(entry.target); // animar solo una vez
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+});
