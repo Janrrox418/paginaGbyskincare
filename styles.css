@@ -44,23 +44,17 @@ body {
   max-height: 50px;
   width: auto;
 }
-/* Submenús abren a la derecha también en móviles */
+/* Mostrar submenús en móviles cuando tengan la clase show */
 @media (max-width: 991px) {
-  .dropdown-submenu > .dropdown-menu {
-    display: none; /* oculto por defecto */
-    position: absolute; /* abre a la derecha */
-    top: 0;
-    left: 100%;
-    margin-left: 0.1rem;
-    margin-right: 0.1rem;
-    z-index: 1000;
-  }
-
   .dropdown-submenu > .dropdown-menu.show {
-    display: block; /* se muestra al hacer clic */
+    display: block;
+    position: relative; /* que se muestre debajo del item padre */
+    left: 0 !important;
+    top: 0 !important;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
-
 
 
 /* ===== Dropdown general ===== */
