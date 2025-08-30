@@ -347,26 +347,36 @@ body {
   }
 }
 /* =======================================================
-   10. IMAGEN FLOTANTE TIPO POWERPOINT
+   10. IMAGEN FLOTANTE TIPO POWERPOINT (FIXED)
 ======================================================= */
 .floating-image {
-  position: fixed;
-  opacity: 0;
+  position: fixed; /* siempre fija */
+  top: 20px;
   z-index: 1050;
-  transform: rotate(-30deg) translateY(-20px);
-  transition: opacity 1s ease, transform 1s ease;
+  opacity: 0;
+  transform: rotate(-30deg) scale(0.8);
+  transition: opacity 0.5s ease;
+  animation: none; /* se activa después con JS */
 }
 
-/* Activar animación */
+/* Activar animación de aparición tipo PowerPoint */
 .floating-image.show {
   opacity: 1;
-  transform: rotate(0deg) translateY(0);
+  animation: floatPowerPoint 3s ease-in-out infinite;
+}
+
+/* Animación: giro ligero tipo PowerPoint */
+@keyframes floatPowerPoint {
+  0%   { transform: rotate(-30deg) scale(0.8); opacity: 0; }
+  20%  { transform: rotate(10deg) scale(1); opacity: 1; }
+  50%  { transform: rotate(-10deg) scale(1.05); opacity: 1; }
+  80%  { transform: rotate(5deg) scale(1); opacity: 1; }
+  100% { transform: rotate(-5deg) scale(1); opacity: 1; }
 }
 
 /* Posición y tamaño en PC */
 @media (min-width: 992px) {
   .floating-image {
-    top: 20px;
     left: 20px;
     max-width: 160px;
   }
@@ -375,10 +385,10 @@ body {
 /* Posición y tamaño en móviles */
 @media (max-width: 991px) {
   .floating-image {
-    top: 20px;
     right: 20px;
     max-width: 100px;
   }
 }
+
 
 
