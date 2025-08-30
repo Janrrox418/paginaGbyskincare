@@ -18,6 +18,9 @@ body {
   margin: 0;
   padding-top: 70px;
 }
+@media (max-width: 992px) {
+  body { padding-top: 60px; }
+}
 @media (max-width: 576px) {
   body { padding-top: 60px; }
 }
@@ -63,8 +66,11 @@ body {
 }
 
 /* Ajuste para móviles */
-@media (max-width: 768px) {
-  .navbar .imagen-flotante { height: 150px; }
+@media (max-width: 992px) {
+  .navbar .imagen-flotante { height: 100px; }
+}
+@media (max-width: 576px) {
+  .navbar .imagen-flotante { height: 80px; }
 }
 
 /* Mostrar submenús en móviles cuando tengan la clase show */
