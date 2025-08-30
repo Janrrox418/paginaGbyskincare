@@ -45,19 +45,16 @@ body {
   width: auto;
 }
 
-/* ===== Dropdown general ===== */
-.navbar .dropdown-menu {
+/* ===== Dropdown general (solo principal) ===== */
+.navbar .dropdown > .dropdown-menu {
   background-color: #fff;
   border-radius: 8px;
   border: none;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  top: 100% !important;  /* solo dropdown principal abre hacia abajo */
+  top: 100% !important;  /* principal abre hacia abajo */
+  left: 0 !important;
   transform: none !important;
-  inset: auto auto auto 0 !important;
 }
-
-/* ===== Submenú derecho (abre a la derecha) ===== */
-
 
 /* =======================================================
    SUBMENÚS DENTRO DE DROPDOWNS
@@ -67,28 +64,45 @@ body {
 }
 
 .dropdown-submenu > .dropdown-menu {
+  position: absolute;
   top: 0;
-  left: 100%;   /* PC: se abre a la derecha */
+  left: 100%; /* siempre a la derecha */
   margin-top: -1px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  display: none;
+  inset: unset; /* Evita que Bootstrap sobrescriba con 'inset: auto auto auto auto' */
+  min-width: 200px; /* Evita que se colapse en móvil */
+  z-index: 1050; /* Encima de otros elementos */
 }
 
-/* En móviles: submenús tipo acordeón (debajo del ítem) */
-@media (max-width: 991.98px) {
-  .dropdown-submenu > .dropdown-menu {
-    position: static;   /* ya no absolute */
-    float: none;
-    width: 100%;
-    margin: 0;
-    border: none;       /* opcional: quita bordes extras */
-    box-shadow: none;   /* opcional: quita sombra en móvil */
-  }
-}
-/* Mostrar submenú al pasar el ratón en PC */
-@media (min-width: 992px) {
+/* Mostrar submenú al hacer hover en PC */
+@media (hover: hover) {
   .dropdown-submenu:hover > .dropdown-menu {
     display: block;
   }
 }
+
+/* En móviles también se abrirá a la derecha al hacer click (controlado por JS) */
+.dropdown-submenu > .dropdown-menu.show {
+  display: block;
+}
+/* Flecha girada para indicar submenú */
+.dropdown-submenu > .dropdown-toggle::after {
+  transform: rotate(-90deg);
+  vertical-align: middle;
+}
+
+/* Evitar que en móvil se reposicione por media queries de Bootstrap */
+@media (max-width: 991.98px) {
+  .dropdown-submenu > .dropdown-menu {
+    position: absolute; /* Mantener hacia la derecha también en móvil */
+    left: 100%;
+    top: 0;
+  }
+}
+
 
 /* ===== Colores y hover de los items ===== */
 .navbar .dropdown-item,
