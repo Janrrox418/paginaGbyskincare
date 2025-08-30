@@ -66,6 +66,7 @@ body {
   top: 100% !important;  /* solo dropdown principal abre hacia abajo */
   transform: none !important;
   inset: auto auto auto 0 !important;
+  z-index: 2000;
 }
 
 /* ===== Submenú derecho (abre a la derecha) ===== */
@@ -350,9 +351,10 @@ body {
    10. IMAGEN FLOTANTE TIPO POWERPOINT (FIXED)
 ======================================================= */
 .floating-image {
+  pointer-events: none; /* no interfiere con clicks */
   position: fixed; /* siempre fija */
   top: 20px;
-  z-index: 1050;
+  z-index: 1000;
   opacity: 0;
   transform: rotate(-30deg) scale(0.8);
 }

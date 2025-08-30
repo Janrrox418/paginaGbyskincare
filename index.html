@@ -298,62 +298,6 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scripts.js" defer></script>
-  <script>
-document.addEventListener("DOMContentLoaded", function () {
-  // Detectar si es móvil (cuando el botón hamburguesa está visible)
-  const isMobile = () => window.innerWidth < 992;
-
-  // Manejar submenús en móviles
-  document.querySelectorAll(".dropdown-submenu > a").forEach(function (el) {
-    el.addEventListener("click", function (e) {
-      if (isMobile()) {
-        e.preventDefault(); // Evita que cierre el menú
-        e.stopPropagation();
-
-        let submenu = this.nextElementSibling;
-
-        if (submenu && submenu.classList.contains("dropdown-menu")) {
-          // Cierra otros submenús abiertos en el mismo nivel
-          let parentMenu = this.closest(".dropdown-menu");
-          parentMenu.querySelectorAll(".dropdown-menu.show").forEach(function (openSub) {
-            if (openSub !== submenu) openSub.classList.remove("show");
-          });
-
-          // Alternar visibilidad del submenú
-          submenu.classList.toggle("show");
-        }
-      }
-    });
-  });
-
-  // Cerrar submenús cuando se cierra el dropdown principal
-  document.querySelectorAll(".dropdown").forEach(function (dropdown) {
-    dropdown.addEventListener("hidden.bs.dropdown", function () {
-      this.querySelectorAll(".dropdown-menu.show").forEach(function (submenu) {
-        submenu.classList.remove("show");
-      });
-    });
-  });
-});
-</script>
-
-<!-- Ajustar padding-top del home según altura navbar -->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const navbar = document.querySelector('.navbar');
-  const homeSection = document.querySelector('#welcome');
-
-  function ajustarPadding() {
-    const alturaNavbar = navbar.getBoundingClientRect().height;
-    homeSection.style.paddingTop = alturaNavbar + 'px';
-  }
-
-  ajustarPadding(); // al cargar
-  window.addEventListener('resize', ajustarPadding); // al cambiar tamaño
-});
-</script>
-
-
 
 </body>
 </html>
