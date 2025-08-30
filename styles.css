@@ -350,47 +350,35 @@ body {
 /* =======================================================
    10. IMAGEN FLOTANTE TIPO POWERPOINT (FIXED)
 ======================================================= */
-.floating-image {
-  pointer-events: none; /* no interfiere con clicks */
-  position: fixed; /* siempre fija */
-  top: 20px;
-  z-index: 1000;
-  opacity: 0;
-  transform: rotate(-30deg) scale(0.8);
+/* === Estilos base === */
+.imagen-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;   /* por defecto, PC → esquina derecha */
+  width: 80px;   /* ajusta el tamaño */
+  z-index: 9999;
+  opacity: 0;        /* inicio invisible */
+  transform: translateY(30px); /* inicio desplazada */
+  animation: aparecer 1s ease-out forwards; /* animación */
 }
 
-/* Activar animación de aparición tipo PowerPoint */
-.floating-image.show {
-  opacity: 1;
-  animation: floatPowerPoint 4s ease-in-out infinite;
-}
-
-/* Animación: giro y leve movimiento tipo PowerPoint */
-@keyframes floatPowerPoint {
-  0%   { transform: rotate(-30deg) scale(0.8); opacity: 0; }
-  20%  { transform: rotate(10deg) scale(1); opacity: 1; }
-  50%  { transform: rotate(-10deg) scale(1.05); opacity: 1; }
-  80%  { transform: rotate(5deg) scale(1); opacity: 1; }
-  100% { transform: rotate(0deg) scale(1); opacity: 1; }
-}
-
-/* Posición y tamaño en PC */
-@media (min-width: 992px) {
-  .floating-image {
-    left: 20px;      /* izquierda en PC */
-    right: auto;
-    max-width: 160px; /* un poco más grande */
+/* Animación de aparición */
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Posición y tamaño en móviles */
-@media (max-width: 991px) {
-  .floating-image {
-    right: 20px;     /* derecha en móvil */
-    left: auto;
-    max-width: 100px; /* más pequeño en móviles */
+/* === Ajuste para móviles === */
+@media (max-width: 768px) {
+  .imagen-flotante {
+    left: 20px;   /* en móviles → esquina izquierda */
+    right: auto;  /* quitamos la derecha */
+    width: 60px;  /* un poco más pequeña en móvil */
   }
 }
+
 
 
 
