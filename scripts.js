@@ -182,3 +182,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   elements.forEach(el => observer.observe(el));
 });
+// ===== PROCEDURES / ANIMACIONES DE CARDS DE PROCEDIMIENTOS =====
+document.addEventListener("DOMContentLoaded", () => {
+  const procedureCards = document.querySelectorAll(".procedure-card");
+
+  // Animación fade-in al hacer scroll
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        obs.unobserve(entry.target); // animar solo una vez
+      }
+    });
+  }, { threshold: 0.2 });
+
+  procedureCards.forEach(card => observer.observe(card));
+
+  // Hover con efecto leve de elevación
+  procedureCards.forEach(card => {
+    card.addEventListener("mouseenter", () => {
+      card.style.transform = "translateY(-5px)";
+      card.style.boxShadow = "0 8px 20px rgba(0,0,0,0.15)";
+    });
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "translateY(0)";
+      card.style.boxShadow = "0 4px 10px rgba(0,0,0,0.08)";
+    });
+  });
+});
+
