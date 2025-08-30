@@ -45,7 +45,7 @@ body {
 
 /* Logo flotante animado dentro de la navbar */
 .navbar .imagen-flotante {
-  height: 100px;
+  height: 150px;
   width: auto;
   animation: caerExpandir 3s ease-in-out infinite;
 }
@@ -76,7 +76,7 @@ body {
 /* Ajuste para móviles */
 @media (max-width: 768px) {
   .navbar .imagen-flotante {
-    height: 80px;
+    height: 120px;
   }
 }
 
