@@ -19,10 +19,10 @@ body {
   padding-top: 50px;
 }
 @media (max-width: 992px) {
-  body { padding-top: 100%; }
+  body { padding-top: 110%; }
 }
 @media (max-width: 576px) {
-  body { padding-top: 90px; }
+  body { padding-top: 100px; }
 }
 
 /* =======================================================
@@ -67,10 +67,10 @@ body {
 
 /* Ajuste para móviles */
 @media (max-width: 992px) {
-  .navbar .imagen-flotante { height: 110px; }
+  .navbar .imagen-flotante { height: 130px; }
 }
 @media (max-width: 576px) {
-  .navbar .imagen-flotante { height: 90px; }
+  .navbar .imagen-flotante { height: 100px; }
 }
 
 /* Mostrar submenús en móviles cuando tengan la clase show */
