@@ -55,22 +55,19 @@ body {
     display: block;
   }
 }
-/* Submenús móviles: abrir verticalmente debajo del item padre */
-@media (max-width: 991px) {
-  .dropdown-submenu > .dropdown-menu {
-    position: relative !important; /* vertical */
-    left: 0 !important;
-    top: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    display: none; /* oculto por defecto */
-  }
 
+/* Submenús abren a la derecha también en móviles */
+@media (max-width: 991px) {
   .dropdown-submenu > .dropdown-menu.show {
-    display: block; /* mostrar al hacer clic */
+    display: block;       /* se muestra al hacer clic */
+    position: absolute;   /* abrir a la derecha */
+    top: 0 !important;
+    left: 100% !important;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    z-index: 1000;
   }
 }
-
 
 /* Colores y hover de los items */
 .navbar .dropdown-item,
