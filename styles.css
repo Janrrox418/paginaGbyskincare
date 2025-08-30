@@ -16,13 +16,13 @@ body {
   color: #333;
   font-family: Arial, sans-serif;
   margin: 0;
-  padding-top: 70px;
+  padding-top: 50px;
 }
 @media (max-width: 992px) {
-  body { padding-top: 60px; }
+  body { padding-top: 40%; }
 }
 @media (max-width: 576px) {
-  body { padding-top: 60px; }
+  body { padding-top: 30px; }
 }
 
 /* =======================================================
@@ -67,10 +67,10 @@ body {
 
 /* Ajuste para móviles */
 @media (max-width: 992px) {
-  .navbar .imagen-flotante { height: 100px; }
+  .navbar .imagen-flotante { height: 70px; }
 }
 @media (max-width: 576px) {
-  .navbar .imagen-flotante { height: 80px; }
+  .navbar .imagen-flotante { height: 50px; }
 }
 
 /* Mostrar submenús en móviles cuando tengan la clase show */
