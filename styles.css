@@ -61,6 +61,7 @@ body {
 .navbar .dropdown-menu {
   background-color: #fff;
   border-radius: 8px;
+  position: absolute !important;
   border: none;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   top: 100% !important;  /* solo dropdown principal abre hacia abajo */
@@ -75,18 +76,18 @@ body {
 }
 
 .dropdown-submenu > .dropdown-menu {
-  position: absolute;
-  top: 0 !important;      /* fuerza a alinear arriba del padre */
-  left: 100% !important;  /* fuerza a abrir a la derecha */
-  margin-left: 0.1rem;
-  margin-right: 0.1rem;
-  display: none;
+  position: absolute !important;
+  top: 0 ;      /* fuerza a alinear arriba del padre */
+  left: 100% ;  /* fuerza a abrir a la derecha */
+  margin-top: -1px; /* alinea borde superior */
+  display: none; /* oculto por defecto */
   z-index: 1000;
 }
 
 /* Mostrar submenú al pasar el ratón en PC */
 @media (min-width: 992px) {
-  .dropdown-submenu:hover > .dropdown-menu {
+  .dropdown-submenu:hover > .dropdown-menu, 
+ .dropdown-menu.show {
     display: block;
   }
 }
