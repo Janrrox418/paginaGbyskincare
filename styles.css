@@ -70,7 +70,7 @@ body {
   .navbar .imagen-flotante { height: 70px; }
 }
 @media (max-width: 576px) {
-  .navbar .imagen-flotante { height: 50px; }
+  .navbar .imagen-flotante { height: 80px; }
 }
 
 /* Mostrar submenús en móviles cuando tengan la clase show */
