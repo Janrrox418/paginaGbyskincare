@@ -383,3 +383,63 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+/* =======================================================
+   11. PROCEDURES / PROCEDIMIENTOS
+======================================================= */
+.procedures-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+  background-color: #f5f0ec;
+}
+
+.procedure-card {
+  background-color: #fff;
+  border: 1px solid var(--c-primario);
+  border-radius: 12px;
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.procedure-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.procedure-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.procedure-card h4 {
+  font-size: 1.5rem;
+  color: var(--c-oscuro);
+  margin-bottom: 10px;
+}
+
+.procedure-card p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* Responsive Procedures */
+@media (max-width: 768px) {
+  .procedure-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 576px) {
+  .procedure-card {
+    width: 90%;
+  }
+}
+
