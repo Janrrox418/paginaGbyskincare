@@ -20,42 +20,30 @@ body {
 }
 
 /* =======================================================
-   3. NAVBAR / DROPDOWNS
+   3. NAVBAR
 ======================================================= */
-
-/* Dropdown general */
-.navbar .dropdown-menu {
-  background-color: #fff;
-  border-radius: 8px;
-  border: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  top: 100% !important; /* dropdown principal abre hacia abajo */
-  transform: none !important;
-  inset: auto auto auto 0 !important;
-}
-
-/* Submenú derecho (abre a la derecha) */
-.dropdown-submenu {
-  position: relative;
-}
-
-.dropdown-submenu > .dropdown-menu {
-  position: absolute;
-  top: 0 !important;      
-  left: 100% !important;  
-  margin-left: 0.1rem;
-  margin-right: 0.1rem;
-  display: none;           /* oculto por defecto */
+.navbar {
+  background-color: transparent !important;
+  padding: 0.2rem 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 1000;
+  transform: translateY(0);
+  transition: transform .3s ease, background-color .3s ease, box-shadow .3s ease;
 }
 
-/* Mostrar submenú al pasar el ratón en PC */
-@media (min-width: 992px) {
-  .dropdown-submenu:hover > .dropdown-menu {
-    display: block;
-  }
+.navbar.hide { transform: translateY(-100%); }
+
+.navbar.scrolled {
+  background-color: var(--c-primario) !important;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+.navbar-brand img {
+  max-height: 50px;
+  width: auto;
+}
 /* Submenús abren a la derecha también en móviles */
 @media (max-width: 991px) {
   .dropdown-submenu > .dropdown-menu.show {
@@ -69,7 +57,43 @@ body {
   }
 }
 
-/* Colores y hover de los items */
+
+
+
+/* ===== Dropdown general ===== */
+.navbar .dropdown-menu {
+  background-color: #fff;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  top: 100% !important;  /* solo dropdown principal abre hacia abajo */
+  transform: none !important;
+  inset: auto auto auto 0 !important;
+}
+
+/* ===== Submenú derecho (abre a la derecha) ===== */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  position: absolute;
+  top: 0 !important;      /* fuerza a alinear arriba del padre */
+  left: 100% !important;  /* fuerza a abrir a la derecha */
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+  display: none;
+  z-index: 1000;
+}
+
+/* Mostrar submenú al pasar el ratón en PC */
+@media (min-width: 992px) {
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+  }
+}
+
+/* ===== Colores y hover de los items ===== */
 .navbar .dropdown-item,
 .navbar .nav-link {
   color: #333 !important;
@@ -87,7 +111,6 @@ body {
   background-color: var(--c-primario) !important;
   color: var(--c-blanco) !important;
 }
-
 
 /* ===== Botón hamburguesa ===== */
 .navbar-toggler { border-color: var(--c-blanco); }
