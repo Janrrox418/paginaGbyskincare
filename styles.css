@@ -46,7 +46,7 @@ body {
 }
 
 /* ===== Dropdown general (solo principal) ===== */
-.navbar .dropdown > .dropdown-menu {
+.navbar > .container-fluid > .collapse > .navbar-nav > .dropdown > .dropdown-menu {
   background-color: #fff;
   border-radius: 8px;
   border: none;
@@ -64,15 +64,15 @@ body {
 }
 
 .dropdown-submenu > .dropdown-menu {
-  position: absolute;
-  top: 0;
-  left: 100%; /* siempre a la derecha */
+  position: absolute !important;
+  top: 0  !important; /* alineado con el item padre */
+  left: 100% !important; /* siempre a la derecha */
   margin-top: -1px;
   border-radius: 8px;
   border: none;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   display: none;
-  inset: unset; /* Evita que Bootstrap sobrescriba con 'inset: auto auto auto auto' */
+  inset: unset !important; /* Evita que Bootstrap sobrescriba con 'inset: auto auto auto auto' */
   min-width: 200px; /* Evita que se colapse en móvil */
   z-index: 1050; /* Encima de otros elementos */
 }
@@ -91,6 +91,7 @@ body {
 /* Flecha girada para indicar submenú */
 .dropdown-submenu > .dropdown-toggle::after {
   transform: rotate(-90deg);
+  margin-left: .3em;
   vertical-align: middle;
 }
 
