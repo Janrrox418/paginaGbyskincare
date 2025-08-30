@@ -22,7 +22,6 @@ body {
 /* =======================================================
    3. NAVBAR / DROPDOWNS
 ======================================================= */
-
 /* Dropdown general */
 .navbar .dropdown-menu {
   background-color: #fff;
@@ -34,42 +33,47 @@ body {
   inset: auto auto auto 0 !important;
 }
 
-/* Submenú derecho (abre a la derecha) */
+/* Submenú (padre relativo) */
 .dropdown-submenu {
   position: relative;
 }
 
+/* Submenú absoluto para PC */
 .dropdown-submenu > .dropdown-menu {
   position: absolute;
-  top: 0 !important;      
-  left: 100% !important;  
+  top: 0 !important;
+  left: 100% !important;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
   display: none;           /* oculto por defecto */
   z-index: 1000;
 }
 
-/* Mostrar submenú al pasar el ratón en PC */
+/* Hover en PC: mostrar submenú */
 @media (min-width: 992px) {
   .dropdown-submenu:hover > .dropdown-menu {
     display: block;
   }
 }
 
-/* Submenús abren a la derecha también en móviles */
+/* Móviles: submenú vertical debajo del item padre */
 @media (max-width: 991px) {
-  .dropdown-submenu > .dropdown-menu.show {
-    display: block;       /* se muestra al hacer clic */
-    position: absolute;   /* abrir a la derecha */
+  .dropdown-submenu > .dropdown-menu {
+    position: relative !important; /* vertical debajo */
+    left: 0 !important;
     top: 0 !important;
-    left: 100% !important;
-    margin-left: 0.1rem;
-    margin-right: 0.1rem;
-    z-index: 1000;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: none; /* oculto por defecto */
+  }
+
+  /* Mostrar al hacer clic */
+  .dropdown-submenu > .dropdown-menu.show {
+    display: block;
   }
 }
 
-/* Colores y hover de los items */
+/* Colores y hover de items */
 .navbar .dropdown-item,
 .navbar .nav-link {
   color: #333 !important;
@@ -87,6 +91,7 @@ body {
   background-color: var(--c-primario) !important;
   color: var(--c-blanco) !important;
 }
+
 
 
 /* ===== Botón hamburguesa ===== */
