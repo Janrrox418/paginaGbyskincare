@@ -3,7 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftLines = document.querySelectorAll(".welcome-box-left .line");
   const rightLines = document.querySelectorAll(".welcome-box-right .line");
 
-  [...leftLines, ...rightLines].forEach((line, i) => {
+  leftLines.forEach((line, i) => {
+    setTimeout(() => {
+      line.style.opacity = "1";
+      line.style.transform = "translateY(0)";
+    }, i * 300);
+  });
+
+  rightLines.forEach((line, i) => {
     setTimeout(() => {
       line.style.opacity = "1";
       line.style.transform = "translateY(0)";
@@ -37,7 +44,7 @@ if (form) {
   });
 }
 
-// ===== NAVBAR: HIDE ON SCROLL + COLOR =====
+// ===== NAVBAR: HIDE ON SCROLL + COLOR SOLO CUANDO CORRESPONDE =====
 const navbar = document.querySelector(".navbar");
 let lastY = window.scrollY;
 let ticking = false;
@@ -53,7 +60,12 @@ function navbarOnScroll() {
     return;
   }
 
-  navbar.classList.toggle("hide", goingDown);
+  if (goingDown) {
+    navbar.classList.add("hide");
+  } else {
+    navbar.classList.remove("hide");
+  }
+
   if (!pastTop) {
     navbar.classList.remove("scrolled");
   } else if (!goingDown) {
@@ -82,11 +94,10 @@ document.addEventListener("hidden.bs.collapse", (e) => {
   if (e.target === navCollapse) navbarOnScroll();
 });
 
-// ===== AJUSTAR PADDING DEL HOME =====
+// ===== AJUSTAR PADDING-TOP DEL HOME SEGÚN ALTURA NAVBAR =====
 document.addEventListener("DOMContentLoaded", function () {
   const homeSection = document.querySelector("#welcome");
   function ajustarPadding() {
-    if (!homeSection) return;
     const alturaNavbar = navbar.getBoundingClientRect().height;
     homeSection.style.paddingTop = alturaNavbar + "px";
   }
@@ -101,28 +112,17 @@ document.querySelectorAll(".dropdown-submenu").forEach(function (submenu) {
   const link = submenu.querySelector("a.dropdown-toggle");
   const menu = submenu.querySelector(".dropdown-menu");
 
-  if (!link || !menu) return;
-
   // Click en móviles
   link.addEventListener("click", function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    // Cerrar otros submenús del mismo nivel
-    const parentMenu = this.closest(".dropdown-menu");
-    if (parentMenu) {
+    if (isMobile()) {
+      e.preventDefault();
+      e.stopPropagation();
+      const parentMenu = this.closest(".dropdown-menu");
       parentMenu.querySelectorAll(".dropdown-menu.show").forEach((sm) => {
         if (sm !== menu) sm.classList.remove("show");
       });
+      menu.classList.toggle("show");
     }
-
-    // Toggle del submenú actual
-    menu.classList.toggle("show");
-
-    // Forzar apertura hacia la derecha
-    menu.style.left = "100%";
-    menu.style.top = "0";
-    menu.style.position = "absolute";
   });
 
   // Hover en PC
@@ -137,9 +137,6 @@ document.querySelectorAll(".dropdown-submenu").forEach(function (submenu) {
 // ===== Cierra submenús al cerrar dropdown principal =====
 document.querySelectorAll(".dropdown").forEach((dropdown) => {
   dropdown.addEventListener("hidden.bs.dropdown", function () {
-    this.querySelectorAll(".dropdown-menu.show").forEach((sm) =>
-      sm.classList.remove("show")
-    );
+    this.querySelectorAll(".dropdown-menu.show").forEach((sm) => sm.classList.remove("show"));
   });
 });
-
