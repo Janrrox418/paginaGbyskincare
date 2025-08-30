@@ -16,20 +16,18 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener("click", (e) => {
       const parentLi = link.closest(".nav-item.dropdown");
 
-      // Si es un dropdown (tiene submenu) en móvil, no cerramos el menú principal
+      // Si es un dropdown padre en móvil, solo toggle el submenu
       if (parentLi && window.innerWidth < 992) {
-        e.preventDefault(); // evita que navegue de golpe
+        e.preventDefault();
         const menu = parentLi.querySelector(".dropdown-menu");
         menu.classList.toggle("show");
         return;
       }
 
-      // Si es un link normal, cerramos el menú
+      // Link normal → cerrar menú
       const navbarCollapse = document.querySelector(".navbar-collapse");
       const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-      if (bsCollapse) {
-        bsCollapse.hide();
-      }
+      if (bsCollapse) bsCollapse.hide();
     });
   });
 
@@ -66,14 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Hover en PC
     dropdown.addEventListener("mouseenter", function () {
-      if (window.innerWidth >= 992) {
-        menu.classList.add("show");
-      }
+      if (window.innerWidth >= 992) menu.classList.add("show");
     });
     dropdown.addEventListener("mouseleave", function () {
-      if (window.innerWidth >= 992) {
-        menu.classList.remove("show");
-      }
+      if (window.innerWidth >= 992) menu.classList.remove("show");
     });
   });
 
@@ -108,12 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // ===== CARDS DE PROCEDURES (animación) =====
   const procedureCards = document.querySelectorAll(".procedure-card");
   procedureCards.forEach((card) => {
-    card.addEventListener("mouseenter", () =>
-      card.classList.add("hovered")
-    );
-    card.addEventListener("mouseleave", () =>
-      card.classList.remove("hovered")
-    );
+    card.addEventListener("mouseenter", () => card.classList.add("hovered"));
+    card.addEventListener("mouseleave", () => card.classList.remove("hovered"));
   });
 
   // ===== FIX: SUBMENÚS PRINCIPALES EN MÓVIL =====
@@ -124,11 +114,30 @@ document.addEventListener("DOMContentLoaded", function () {
         const menu = parentLi.querySelector(".dropdown-menu");
 
         if (!menu.classList.contains("show")) {
-          e.preventDefault(); // Evita navegar en el primer toque
+          e.preventDefault(); // evita navegar en el primer toque
           let dropdown = new bootstrap.Dropdown(this);
           dropdown.show();
         }
       }
+    });
+  });
+
+  // ===== FIX: SUBMENÚS DE SEGUNDO NIVEL EN MÓVIL =====
+  document.querySelectorAll('.dropdown-submenu > .dropdown-toggle').forEach((toggle) => {
+    toggle.addEventListener('click', function (e) {
+      if (window.innerWidth < 992) {
+        e.preventDefault();
+        e.stopPropagation();
+        const submenu = this.nextElementSibling;
+        if (submenu) submenu.classList.toggle('show');
+      }
+    });
+  });
+
+  // Evitar que el clic en submenu cierre el menú principal
+  document.querySelectorAll('.dropdown-menu').forEach((menu) => {
+    menu.addEventListener('click', function (e) {
+      if (window.innerWidth < 992) e.stopPropagation();
     });
   });
 });
@@ -151,18 +160,12 @@ function navbarOnScroll() {
     return;
   }
 
-  if (goingDown) {
-    navbar.classList.add("hide");   // se esconde
-  } else {
-    navbar.classList.remove("hide"); // aparece
-  }
+  if (goingDown) navbar.classList.add("hide");
+  else navbar.classList.remove("hide");
 
   // Color de fondo al pasar del top
-  if (!pastTop) {
-    navbar.classList.remove("scrolled");
-  } else if (!goingDown) {
-    navbar.classList.add("scrolled");
-  }
+  if (!pastTop) navbar.classList.remove("scrolled");
+  else if (!goingDown) navbar.classList.add("scrolled");
 
   lastY = y <= 0 ? 0 : y;
   ticking = false;
