@@ -143,3 +143,13 @@ document.querySelectorAll(".dropdown").forEach((dropdown) => {
     this.querySelectorAll(".dropdown-menu.show").forEach((sm) => sm.classList.remove("show"));
   });
 });
+// ===== Imagen flotante decorativa =====
+document.addEventListener("DOMContentLoaded", function () {
+  const floatingImg = document.querySelector(".floating-image");
+  if (floatingImg) {
+    setTimeout(() => {
+      floatingImg.classList.add("show");
+    }, 300);
+  }
+});
+
