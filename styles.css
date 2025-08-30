@@ -22,7 +22,7 @@ body {
   body { padding-top: 100%; }
 }
 @media (max-width: 576px) {
-  body { padding-top: 70px; }
+  body { padding-top: 90px; }
 }
 
 /* =======================================================
@@ -67,10 +67,10 @@ body {
 
 /* Ajuste para móviles */
 @media (max-width: 992px) {
-  .navbar .imagen-flotante { height: 90px; }
+  .navbar .imagen-flotante { height: 110px; }
 }
 @media (max-width: 576px) {
-  .navbar .imagen-flotante { height: 80px; }
+  .navbar .imagen-flotante { height: 90px; }
 }
 
 /* Mostrar submenús en móviles cuando tengan la clase show */
