@@ -347,21 +347,20 @@ body {
   }
 }
 /* =======================================================
-   10. IMAGEN FLOTANTE INDEPENDIENTE CON ANIMACIÓN
+   10. IMAGEN FLOTANTE TIPO POWERPOINT
 ======================================================= */
 .floating-image {
   position: fixed;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease, transform 1s ease;
   z-index: 1050;
-  animation: spin 10s linear infinite; /* Animación de rueda */
+  transform: rotate(-30deg) translateY(-20px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Activar animación y aparición */
+/* Activar animación */
 .floating-image.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: rotate(0deg) translateY(0);
 }
 
 /* Posición y tamaño en PC */
@@ -369,7 +368,7 @@ body {
   .floating-image {
     top: 20px;
     left: 20px;
-    max-width: 160px; /* tamaño más grande en PC */
+    max-width: 160px;
   }
 }
 
@@ -378,14 +377,8 @@ body {
   .floating-image {
     top: 20px;
     right: 20px;
-    max-width: 100px; /* tamaño más pequeño en móviles */
+    max-width: 100px;
   }
-}
-
-/* Animación de rueda */
-@keyframes spin {
-  0% { transform: rotate(0deg) translateY(0); }
-  100% { transform: rotate(360deg) translateY(0); }
 }
 
 
