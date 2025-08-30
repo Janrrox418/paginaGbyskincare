@@ -38,6 +38,9 @@ body {
 
 .navbar.hide { transform: translateY(-100%); }
 
+/* NUEVO → para compatibilidad con JS */
+.navbar-hidden { transform: translateY(-100%); }
+
 .navbar.scrolled {
   background-color: var(--c-primario) !important;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -90,6 +93,13 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* NUEVO → Mostrar menú en móvil si tiene clase .show */
+.navbar .dropdown-menu.show {
+  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
 /* ===== Submenú derecho (abre a la derecha) ===== */
@@ -383,6 +393,7 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
 /* =======================================================
    11. PROCEDURES / PROCEDIMIENTOS
 ======================================================= */
@@ -442,4 +453,3 @@ body {
     width: 90%;
   }
 }
-

@@ -32,26 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ===== NAVBAR DINÁMICA =====
-  const navbar = document.querySelector(".navbar");
-  let lastScroll = 0;
-  window.addEventListener("scroll", function () {
-    let currentScroll = window.scrollY;
-    if (currentScroll > lastScroll && currentScroll > 50) {
-      navbar.classList.add("navbar-hidden");
-    } else {
-      navbar.classList.remove("navbar-hidden");
-    }
-    lastScroll = currentScroll;
-
-    if (window.scrollY > 50) {
-      navbar.classList.add("navbar-colored");
-    } else {
-      navbar.classList.remove("navbar-colored");
-    }
-  });
-
   // ===== AJUSTAR PADDING EN HOME SEGÚN NAVBAR =====
+  const navbar = document.querySelector(".navbar");
   const homeSection = document.querySelector(".home");
   if (homeSection) {
     homeSection.style.paddingTop = `${navbar.offsetHeight}px`;
@@ -139,3 +121,45 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// ===== NAVBAR: ESCONDER EN SCROLL HACIA ABAJO, MOSTRAR EN SCROLL HACIA ARRIBA =====
+const navbar = document.querySelector(".navbar");
+const navCollapse = document.getElementById("navbarNavDropdown");
+let lastY = window.scrollY;
+let ticking = false;
+
+function navbarOnScroll() {
+  const y = window.scrollY;
+  const goingDown = y > lastY;
+  const pastTop = y > 80;
+
+  // Si el menú móvil está abierto, no esconder navbar
+  if (navCollapse && navCollapse.classList.contains("show")) {
+    navbar.classList.remove("hide");
+    lastY = y <= 0 ? 0 : y;
+    return;
+  }
+
+  if (goingDown) {
+    navbar.classList.add("hide");   // se esconde
+  } else {
+    navbar.classList.remove("hide"); // aparece
+  }
+
+  // Color de fondo al pasar del top
+  if (!pastTop) {
+    navbar.classList.remove("scrolled");
+  } else if (!goingDown) {
+    navbar.classList.add("scrolled");
+  }
+
+  lastY = y <= 0 ? 0 : y;
+  ticking = false;
+}
+
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    requestAnimationFrame(navbarOnScroll);
+    ticking = true;
+  }
+}, { passive: true });
