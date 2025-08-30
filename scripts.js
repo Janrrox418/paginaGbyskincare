@@ -105,26 +105,24 @@ document.querySelectorAll(".dropdown-submenu").forEach(function (submenu) {
 
   // Click en móviles
   link.addEventListener("click", function (e) {
-    if (isMobile()) {
-      e.preventDefault();
-      e.stopPropagation();
+    e.preventDefault();
+    e.stopPropagation();
 
-      // Cerrar otros submenús del mismo nivel
-      const parentMenu = this.closest(".dropdown-menu");
-      if (parentMenu) {
-        parentMenu.querySelectorAll(".dropdown-menu.show").forEach((sm) => {
-          if (sm !== menu) sm.classList.remove("show");
-        });
-      }
-
-      // Toggle del submenú actual
-      menu.classList.toggle("show");
-
-      // 👉 Ajuste: Forzar apertura hacia la derecha en móvil
-      menu.style.left = "100%";
-      menu.style.top = "0";
-      menu.style.position = "absolute";
+    // Cerrar otros submenús del mismo nivel
+    const parentMenu = this.closest(".dropdown-menu");
+    if (parentMenu) {
+      parentMenu.querySelectorAll(".dropdown-menu.show").forEach((sm) => {
+        if (sm !== menu) sm.classList.remove("show");
+      });
     }
+
+    // Toggle del submenú actual
+    menu.classList.toggle("show");
+
+    // Forzar apertura hacia la derecha
+    menu.style.left = "100%";
+    menu.style.top = "0";
+    menu.style.position = "absolute";
   });
 
   // Hover en PC
@@ -144,3 +142,4 @@ document.querySelectorAll(".dropdown").forEach((dropdown) => {
     );
   });
 });
+
