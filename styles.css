@@ -453,3 +453,15 @@ body {
     width: 90%;
   }
 }
+/* ===== FIX SUBMENÚ EN MÓVIL ===== */
+@media (max-width: 991px) {
+  .dropdown-menu .dropdown-toggle::after {
+    transform: rotate(-90deg);
+  }
+  
+  .dropdown-menu .dropdown-menu {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
