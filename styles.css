@@ -353,7 +353,7 @@ body {
 /* Imagen flotante */
 .imagen-flotante {
   position: fixed; /* fija junto con la navbar */
-  top: 0px; /* más arriba que antes */
+  top: 1px; /* más arriba que antes */
   left: 15px; /* PC → esquina superior izquierda */
   width: 140px; /* más grande en PC */
   height: auto;
@@ -384,7 +384,7 @@ body {
 /* Ajuste para móviles */
 @media (max-width: 768px) {
   .imagen-flotante {
-    top: 0px; /* también más arriba en móvil */
+    top: 1px; /* también más arriba en móvil */
     left: auto;
     right: 15px; /* esquina superior derecha */
     width: 120px; /* más grande en móviles */
