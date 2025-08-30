@@ -20,7 +20,7 @@ body {
 }
 
 /* =======================================================
-   3. NAVBAR
+   3. NAVBAR (FIJA + LOGO FLOTANTE ANIMADO)
 ======================================================= */
 .navbar {
   background-color: transparent !important;
@@ -40,10 +40,43 @@ body {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.navbar-brand img {
-  max-height: 50px;
+/* Logo flotante animado dentro de la navbar */
+.navbar .imagen-flotante {
+  height: 60px;
   width: auto;
+  animation: caerExpandir 3s ease-in-out infinite;
 }
+
+/* Animación: caída desde arriba + expansión */
+@keyframes caerExpandir {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.8);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0) scale(1.05);
+  }
+  40% {
+    transform: translateY(0) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.8);
+  }
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+  .navbar .imagen-flotante {
+    height: 50px;
+  }
+}
+
 /* Mostrar submenús en móviles cuando tengan la clase show */
 @media (max-width: 991px) {
   .dropdown-submenu > .dropdown-menu.show {
@@ -345,48 +378,6 @@ body {
   {
     font-size: 1.5rem;
     padding: 0 15px;
-  }
-}
-/* =======================================================
-   10. IMAGEN FLOTANTE TIPO POWERPOINT (FIXED)
-======================================================= */
-/* Imagen flotante */
-.imagen-flotante {
-  position: absolute; /* fija junto con la navbar */
-  top: 0; /* más arriba que antes */
-  left: 15px; /* PC → esquina superior izquierda */
-  width: 140px; /* más grande en PC */
-  height: auto;
-  animation: aparecer 10s ease-in-out infinite;
-}
-
-/* Animación: 1s aparecer, 8s visible, 1s desaparecer */
-@keyframes aparecer {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  10% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  90% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-}
-
-/* Ajuste para móviles */
-@media (max-width: 768px) {
-  .navbar .imagen-flotante {
-    top: 0; /* también más arriba en móvil */
-    left: auto;
-    right: 15px; /* esquina superior derecha */
-    width: 120px; /* más grande en móviles */
   }
 }
 
