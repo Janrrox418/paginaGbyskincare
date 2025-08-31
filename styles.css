@@ -50,6 +50,7 @@ body {
 }
 
 /* Logo flotante animado dentro de la navbar */
+.navbar-brand img
 .navbar .imagen-flotante {
   height: 150px;
   width: auto;
@@ -67,9 +68,11 @@ body {
 
 /* Ajuste para móviles */
 @media (max-width: 992px) {
+  .navbar-brand img, 
   .navbar .imagen-flotante { height: 130px; }
 }
 @media (max-width: 576px) {
+  .navbar-brand img,
   .navbar .imagen-flotante { height: 100px; }
 }
 
