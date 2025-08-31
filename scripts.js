@@ -124,34 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ===== PROCEDURES LINK: PC navega, móvil abre dropdown =====
-const proceduresLink = document.querySelector("#treatmentsDropdown"); // tu ID en HTML
-if (proceduresLink) {
-  function updateProceduresBehavior() {
-    if (window.innerWidth >= 992) {
-      // PC → quita el data-bs-toggle para que navegue normalmente
-      proceduresLink.removeAttribute("data-bs-toggle");
-      proceduresLink.removeEventListener("click", mobileClickHandler);
-    } else {
-      // Móvil → asegura que tenga el toggle
-      proceduresLink.setAttribute("data-bs-toggle", "dropdown");
-      proceduresLink.addEventListener("click", mobileClickHandler);
-    }
-  }
-
-  // Manejo clic en móvil
-  function mobileClickHandler(e) {
-    e.preventDefault();
-    const menu = proceduresLink.nextElementSibling; // el dropdown
-    if (menu) menu.classList.toggle("show");
-  }
-
-  // Inicial
-  updateProceduresBehavior();
-
-  // Actualiza al cambiar tamaño de ventana
-  window.addEventListener("resize", updateProceduresBehavior);
-}
 });
 
 // ===== NAVBAR: ESCONDER EN SCROLL HACIA ABAJO, MOSTRAR EN SCROLL HACIA ARRIBA =====
