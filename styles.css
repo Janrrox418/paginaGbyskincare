@@ -29,14 +29,14 @@ body {
    3. NAVBAR (FIJA + LOGO FLOTANTE ANIMADO)
 ======================================================= */
 .navbar {
-  background-color: var(--c-blanco);
+  background-color: transparent !important;
   padding: 0.2rem 1rem;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
   transform: translateY(0);
-  transition: background-color .3s ease .3s ease, background-color .3s ease, box-shadow .3s ease;
+  transition: transform .3s ease, background-color .3s ease, box-shadow .3s ease;
 }
 
 .navbar.hide { transform: translateY(-100%); }
