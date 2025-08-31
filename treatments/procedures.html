@@ -4,49 +4,107 @@
   <meta charset="UTF-8">
   <title>Our Procedures - GBYSkincare</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
-  <!-- Navbar idéntico al index -->
-  <nav class="navbar navbar-expand-lg">
+    <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
-      <img src="assets/logoletra.png" alt="GBY Skincare Logo" class="imagen-flotante">
+      <!-- Logo -->
+      <img src="assets/logoletra.png" alt="Decorativa" class="imagen-flotante">
+      <!-- Botón hamburguesa -->
       <button class="navbar-toggler me-2" type="button"
         data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Abrir menú">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+      <!-- Menú (envuelto en el collapse que controla el hamburguesa) -->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#about">About us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About us</a></li>
+
+          <!-- Treatments -->
+          
+<li class="nav-item dropdown" data-bs-auto-close="outside">
+  <a class="nav-link dropdown-toggle" href="treatments/procedures.html" id="treatmentsDropdown"
+     role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Procedures
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="treatmentsDropdown">
+
+      <!-- Dermal Fillers con submenú -->
+    <li class="dropdown-submenu">
+      <a class="dropdown-item dropdown-toggle" href="javascript:void(0)">Dermal Fillers</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="treatments/lips-filler.html">Lips Filler</a></li>
+        <li><a class="dropdown-item" href="treatments/cheeks-filler.html">Cheeks Filler</a></li>
+        <li><a class="dropdown-item" href="treatments/under-eye-filler.html">Under Eye Filler</a></li>
+        <li><a class="dropdown-item" href="treatments/botox.html">Botox</a></li>
+      </ul>
+    </li> 
+
+    <li><a class="dropdown-item" href="treatments/acne-treatment.html">Acne Treatment</a></li>
+    <li><a class="dropdown-item" href="treatments/microneedling.html">Microneedling</a></li>
+    <li><a class="dropdown-item" href="treatments/skin-tightening.html">Skin Tightening</a></li>
+    <li><a class="dropdown-item" href="treatments/chemical-peel.html">Chemical peel</a></li>
+    <li><a class="dropdown-item" href="treatments/prp.html">Platelet Rich Plasma (PRP)</a></li>
+    <li><a class="dropdown-item" href="treatments/oxygeneo.html">Oxygeneo</a></li>
+    <li><a class="dropdown-item" href="treatments/lips-filler.html">Lips filler</a></li>
+    <li><a class="dropdown-item" href="treatments/hydrafacial.html">HydraFacial®</a></li>
+    <li><a class="dropdown-item" href="treatments/dermaplaning.html">Dermaplaning</a></li>
+    <li><a class="dropdown-item" href="treatments/hair-treatments.html">Hair Treatments</a></li>
+    <li><a class="dropdown-item" href="treatments/hair-loss-treatment.html">Hair loss treatment</a></li>
+    <li><a class="dropdown-item" href="treatments/scalp-treatments.html">Scalp Treatments</a></li>
+    <li><a class="dropdown-item" href="treatments/body-countouring.html">Body Contouring</a></li>
+    <li><a class="dropdown-item" href="treatments/skin-tag-removal.html">Skin tag removal-cauterization</a></li>
+    
+    <!-- Nuevo botón dentro del menú -->
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#other-treatments">Other Treatments</a></li>
+  </ul>
+</li>
+
+          <!-- Spa Service -->
           <li class="nav-item dropdown" data-bs-auto-close="outside">
-            <a class="nav-link dropdown-toggle" href="javascript:void(0)">Procedures</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="treatments/lips-filler.html">Lips Filler</a></li>
-              <li><a class="dropdown-item" href="treatments/cheeks-filler.html">Cheeks Filler</a></li>
-              <li><a class="dropdown-item" href="treatments/under-eye-filler.html">Under Eye Filler</a></li>
-              <li><a class="dropdown-item" href="treatments/botox.html">Botox</a></li>
-              <li><a class="dropdown-item" href="treatments/acne-treatment.html">Acne Treatment</a></li>
-              <li><a class="dropdown-item" href="treatments/microneedling.html">Microneedling</a></li>
-              <li><a class="dropdown-item" href="treatments/skin-tightening.html">Skin Tightening</a></li>
-              <li><a class="dropdown-item" href="treatments/chemical-peel.html">Chemical Peel</a></li>
-              <li><a class="dropdown-item" href="treatments/prp.html">PRP</a></li>
-              <li><a class="dropdown-item" href="treatments/oxygeneo.html">Oxygeneo</a></li>
-              <li><a class="dropdown-item" href="treatments/hydrafacial.html">HydraFacial®</a></li>
-              <li><a class="dropdown-item" href="treatments/dermaplaning.html">Dermaplaning</a></li>
-              <li><a class="dropdown-item" href="treatments/hair-treatments.html">Hair Treatments</a></li>
-              <li><a class="dropdown-item" href="treatments/hair-loss-treatment.html">Hair Loss Treatment</a></li>
-              <li><a class="dropdown-item" href="treatments/scalp-treatments.html">Scalp Treatments</a></li>
-              <li><a class="dropdown-item" href="treatments/body-contouring.html">Body Contouring</a></li>
-              <li><a class="dropdown-item" href="treatments/skin-tag-removal.html">Skin Tag Removal</a></li>
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="SpaserviceDropdown"
+               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Spa Service
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="SpaserviceDropdown">
+              <li><a class="dropdown-item" href="spa_service/eyebrow-lamination.html">Eyebrow lamination</a></li>
+              <li><a class="dropdown-item" href="spa_service/head-service.html">Head Service</a></li>
+              <li><a class="dropdown-item" href="spa_service/hair-loss-solutions.html">Hair loss solutions</a></li>
+              <li><a class="dropdown-item" href="spa_service/scalp-care.html">Scalp care</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+
+          <!-- Conditions -->
+          <li class="nav-item dropdown" data-bs-auto-close="outside">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="conditionsDropdown"
+               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Conditions
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="conditionsDropdown">
+              <li><a class="dropdown-item" href="conditions/acne-blemishes.html">Acne & Blemishes</a></li>
+              <li><a class="dropdown-item" href="conditions/complexion.html">Complexion</a></li>
+              <li><a class="dropdown-item" href="conditions/sun-damage-hyperpigmentation.html">Sun damage/Hyperpigmentation</a></li>
+              <li><a class="dropdown-item" href="conditions/skin-tone-texture.html">Skin tone & Texture</a></li>
+              <li><a class="dropdown-item" href="conditions/scars.html">Scars</a></li>
+              <li><a class="dropdown-item" href="conditions/fine-lines-wrinkles.html">Fine lines & Wrinkles</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
-      </div>
-    </div>
+      </div> <!-- /.collapse .navbar-collapse -->
+    </div> <!-- /.container-fluid -->
   </nav>
 
   <!-- Hero Section -->
