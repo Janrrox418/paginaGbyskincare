@@ -16,14 +16,18 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener("click", (e) => {
       const parentLi = link.closest(".nav-item.dropdown");
 
-      if (parentLi && window.innerWidth < 992) {
-        e.preventDefault();
-        const menu = parentLi.querySelector(".dropdown-menu");
-        menu.classList.toggle("show");
-        return;
+      if (parentLi) {
+        if (window.innerWidth < 992) {
+          // 🔹 En móvil → abrir submenu sin navegar
+          e.preventDefault();
+          const menu = parentLi.querySelector(".dropdown-menu");
+          menu.classList.toggle("show");
+          return;
+        }
+        // 🔹 En PC → dejar que el enlace funcione normal
       }
 
-      // Link normal → cerrar menú
+      // Link normal → cerrar menú (solo en móvil)
       const navbarCollapse = document.querySelector(".navbar-collapse");
       const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
       if (bsCollapse) bsCollapse.hide();
