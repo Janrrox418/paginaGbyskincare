@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener("click", (e) => {
       const parentLi = link.closest(".nav-item.dropdown");
 
-      // Si es un dropdown padre en móvil, solo toggle el submenu
       if (parentLi && window.innerWidth < 992) {
         e.preventDefault();
         const menu = parentLi.querySelector(".dropdown-menu");
@@ -106,23 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     card.addEventListener("mouseleave", () => card.classList.remove("hovered"));
   });
 
-  // ===== FIX: SUBMENÚS PRINCIPALES EN MÓVIL =====
-  document.querySelectorAll(".dropdown-toggle").forEach((toggle) => {
-    toggle.addEventListener("click", function (e) {
-      if (window.innerWidth < 992) {
-        const parentLi = this.closest(".nav-item.dropdown");
-        const menu = parentLi.querySelector(".dropdown-menu");
-
-        if (!menu.classList.contains("show")) {
-          e.preventDefault(); // evita navegar en el primer toque
-          let dropdown = new bootstrap.Dropdown(this);
-          dropdown.show();
-        }
-      }
-    });
-  });
-
-  // ===== FIX: SUBMENÚS DE SEGUNDO NIVEL EN MÓVIL =====
+  // ===== SUBMENÚS DE SEGUNDO NIVEL EN MÓVIL =====
   document.querySelectorAll('.dropdown-submenu > .dropdown-toggle').forEach((toggle) => {
     toggle.addEventListener('click', function (e) {
       if (window.innerWidth < 992) {
@@ -140,6 +123,20 @@ document.addEventListener("DOMContentLoaded", function () {
       if (window.innerWidth < 992) e.stopPropagation();
     });
   });
+
+  // ===== PROCEDURES LINK: PC navega, móvil abre dropdown =====
+  const proceduresLink = document.querySelector("#treatmentsDropdown"); // tu ID en HTML
+  if (proceduresLink) {
+    proceduresLink.addEventListener("click", function (e) {
+      if (window.innerWidth < 992) {
+        // Móvil → abrir submenu (ya lo hace el dropdown)
+        return;
+      }
+      // PC → ir a procedures.html
+      // Nota: no hacemos preventDefault, solo aseguramos navegación
+      window.location.href = this.getAttribute("href");
+    });
+  }
 });
 
 // ===== NAVBAR: ESCONDER EN SCROLL HACIA ABAJO, MOSTRAR EN SCROLL HACIA ARRIBA =====
