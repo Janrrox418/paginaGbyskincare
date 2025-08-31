@@ -69,11 +69,11 @@ body {
 /* Ajuste para móviles */
 @media (max-width: 992px) {
   .navbar-brand img, 
-  .navbar .imagen-flotante { height: 130px; }
+  .navbar .imagen-flotante { max-height: 130px; }
 }
 @media (max-width: 576px) {
   .navbar-brand img,
-  .navbar .imagen-flotante { height: 100px; }
+  .navbar .imagen-flotante { max-height: 100px; }
 }
 
 /* Mostrar submenús en móviles cuando tengan la clase show */
