@@ -50,7 +50,7 @@ body {
 }
 
 /* Logo flotante animado dentro de la navbar */
-.navbar-brand img
+.navbar-brand img,
 .navbar .imagen-flotante {
   height: 150px;
   width: auto;
