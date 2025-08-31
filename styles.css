@@ -499,6 +499,7 @@ body {
   object-fit: cover;
   border-radius: 8px;
   display: block;
+  margin-bottom: 1rem;
 }
 .skin-tightening-img {
   width: 100%;
