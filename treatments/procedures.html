@@ -4,151 +4,194 @@
   <meta charset="UTF-8">
   <title>Our Procedures - GBYSkincare</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS global y específico -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-   <!-- Navbar -->
+  <!-- Navbar idéntico al index -->
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <!-- Logo -->
       <img src="assets/logoletra.png" alt="GBY Skincare Logo" class="imagen-flotante">
-      <!-- Botón hamburguesa -->
       <button class="navbar-toggler me-2" type="button"
         data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Abrir menú">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <!-- Menú -->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
-
           <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html#about">About us</a></li>
-
-          <!-- Procedures -->
           <li class="nav-item dropdown" data-bs-auto-close="outside">
-            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="proceduresDropdown"
-               role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Procedures
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="proceduresDropdown">
-              <!-- Dermal Fillers submenú -->
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="javascript:void(0)">Dermal Fillers</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="treatments/lips-filler.html">Lips Filler</a></li>
-                  <li><a class="dropdown-item" href="treatments/cheeks-filler.html">Cheeks Filler</a></li>
-                  <li><a class="dropdown-item" href="treatments/under-eye-filler.html">Under Eye Filler</a></li>
-                  <li><a class="dropdown-item" href="treatments/botox.html">Botox</a></li>
-                </ul>
-              </li>
-
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)">Procedures</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="treatments/lips-filler.html">Lips Filler</a></li>
+              <li><a class="dropdown-item" href="treatments/cheeks-filler.html">Cheeks Filler</a></li>
+              <li><a class="dropdown-item" href="treatments/under-eye-filler.html">Under Eye Filler</a></li>
+              <li><a class="dropdown-item" href="treatments/botox.html">Botox</a></li>
               <li><a class="dropdown-item" href="treatments/acne-treatment.html">Acne Treatment</a></li>
               <li><a class="dropdown-item" href="treatments/microneedling.html">Microneedling</a></li>
               <li><a class="dropdown-item" href="treatments/skin-tightening.html">Skin Tightening</a></li>
               <li><a class="dropdown-item" href="treatments/chemical-peel.html">Chemical Peel</a></li>
-              <li><a class="dropdown-item" href="treatments/prp.html">Platelet Rich Plasma (PRP)</a></li>
+              <li><a class="dropdown-item" href="treatments/prp.html">PRP</a></li>
               <li><a class="dropdown-item" href="treatments/oxygeneo.html">Oxygeneo</a></li>
-              <li><a class="dropdown-item" href="treatments/lips-filler.html">Lips Filler</a></li>
               <li><a class="dropdown-item" href="treatments/hydrafacial.html">HydraFacial®</a></li>
               <li><a class="dropdown-item" href="treatments/dermaplaning.html">Dermaplaning</a></li>
               <li><a class="dropdown-item" href="treatments/hair-treatments.html">Hair Treatments</a></li>
               <li><a class="dropdown-item" href="treatments/hair-loss-treatment.html">Hair Loss Treatment</a></li>
               <li><a class="dropdown-item" href="treatments/scalp-treatments.html">Scalp Treatments</a></li>
               <li><a class="dropdown-item" href="treatments/body-contouring.html">Body Contouring</a></li>
-              <li><a class="dropdown-item" href="treatments/skin-tag-removal.html">Skin Tag Removal - Cauterization</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#other-treatments">Other Treatments</a></li>
+              <li><a class="dropdown-item" href="treatments/skin-tag-removal.html">Skin Tag Removal</a></li>
             </ul>
           </li>
-
-          <!-- Spa Service -->
-          <li class="nav-item dropdown" data-bs-auto-close="outside">
-            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="spaserviceDropdown"
-               role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Spa Service
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="spaserviceDropdown">
-              <li><a class="dropdown-item" href="spa_service/eyebrow-lamination.html">Eyebrow Lamination</a></li>
-              <li><a class="dropdown-item" href="spa_service/head-service.html">Head Service</a></li>
-              <li><a class="dropdown-item" href="spa_service/hair-loss-solutions.html">Hair Loss Solutions</a></li>
-              <li><a class="dropdown-item" href="spa_service/scalp-care.html">Scalp Care</a></li>
-            </ul>
-          </li>
-
-          <!-- Conditions -->
-          <li class="nav-item dropdown" data-bs-auto-close="outside">
-            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="conditionsDropdown"
-               role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Conditions
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="conditionsDropdown">
-              <li><a class="dropdown-item" href="conditions/acne-blemishes.html">Acne & Blemishes</a></li>
-              <li><a class="dropdown-item" href="conditions/complexion.html">Complexion</a></li>
-              <li><a class="dropdown-item" href="conditions/sun-damage-hyperpigmentation.html">Sun Damage / Hyperpigmentation</a></li>
-              <li><a class="dropdown-item" href="conditions/skin-tone-texture.html">Skin Tone & Texture</a></li>
-              <li><a class="dropdown-item" href="conditions/scars.html">Scars</a></li>
-              <li><a class="dropdown-item" href="conditions/fine-lines-wrinkles.html">Fine Lines & Wrinkles</a></li>
-            </ul>
-          </li>
-
           <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Procedures Hero -->
-  <section class="procedures-section">
-    <div class="procedures-text fade-in">
+  <!-- Hero Section -->
+  <section class="welcome-section fade-in" id="procedures-hero">
+    <div class="welcome-box-right">
       <h1>Our Procedures</h1>
       <p>Explore our wide range of treatments to enhance your beauty and wellbeing.</p>
     </div>
-    <img src="assets/procedure-hero.jpg" alt="Procedures" class="procedures-image fade-in">
+    <img src="assets/procedure-hero.jpg" alt="Procedures" class="imagen-flotante fade-in">
   </section>
 
-  <!-- Procedure Lists -->
-<section class="procedure-list container">
-  <div class="row">
-    <!-- Derma Fillers -->
-    <div class="col-lg-6 fade-in">
-      <h3>Derma Fillers</h3>
-      <ul id="derma-fillers">
-        <li><a href="treatments/lips-filler.html">Lips Filler</a></li>
-        <li><a href="treatments/cheeks-filler.html">Cheeks Filler</a></li>
-        <li><a href="treatments/under-eye-filler.html">Under Eye Filler</a></li>
-        <li><a href="treatments/botox.html">Botox</a></li>
-      </ul>
+  <!-- Derma Fillers Section -->
+  <section class="container my-5">
+    <h2 class="mb-4">Derma Fillers</h2>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Lips Filler</h3>
+          <img src="assets/lips-filler.jpg" alt="Lips Filler">
+          <a href="treatments/lips-filler.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Cheeks Filler</h3>
+          <img src="assets/cheeks-filler.jpg" alt="Cheeks Filler">
+          <a href="treatments/cheeks-filler.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Under Eye Filler</h3>
+          <img src="assets/under-eye-filler.jpg" alt="Under Eye Filler">
+          <a href="treatments/under-eye-filler.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Botox</h3>
+          <img src="assets/botox.jpg" alt="Botox">
+          <a href="treatments/botox.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Other Procedures -->
-    <div class="col-lg-6 fade-in">
-      <h3>Procedures</h3>
-      <ul id="other-procedures">
-        <li><a href="treatments/acne-treatment.html">Acne Treatment</a></li>
-        <li><a href="treatments/microneedling.html">Microneedling</a></li>
-        <li><a href="treatments/skin-tightening.html">Skin Tightening</a></li>
-        <li><a href="treatments/chemical-peel.html">Chemical Peel</a></li>
-        <li><a href="treatments/prp.html">Platelet Rich Plasma (PRP)</a></li>
-        <li><a href="treatments/oxygeneo.html">Oxygeneo</a></li>
-        <li><a href="treatments/hydrafacial.html">HydraFacial®</a></li>
-        <li><a href="treatments/dermaplaning.html">Dermaplaning</a></li>
-        <li><a href="treatments/hair-treatments.html">Hair Treatments</a></li>
-        <li><a href="treatments/hair-loss-treatment.html">Hair Loss Treatment</a></li>
-        <li><a href="treatments/scalp-treatments.html">Scalp Treatments</a></li>
-        <li><a href="treatments/body-countouring.html">Body Contouring</a></li>
-        <li><a href="treatments/skin-tag-removal.html">Skin Tag Removal - Cauterization</a></li>
-      </ul>
+  <!-- Other Procedures Section -->
+  <section class="container my-5">
+    <h2 class="mb-4">Other Procedures</h2>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Acne Treatment</h3>
+          <img src="assets/acne-treatment.jpg" alt="Acne Treatment">
+          <a href="treatments/acne-treatment.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Microneedling</h3>
+          <img src="assets/microneedling.jpg" alt="Microneedling">
+          <a href="treatments/microneedling.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Skin Tightening</h3>
+          <img src="assets/skin-tightening.jpg" alt="Skin Tightening">
+          <a href="treatments/skin-tightening.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Chemical Peel</h3>
+          <img src="assets/chemical-peel.jpg" alt="Chemical Peel">
+          <a href="treatments/chemical-peel.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Platelet Rich Plasma (PRP)</h3>
+          <img src="assets/prp.jpg" alt="PRP">
+          <a href="treatments/prp.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Oxygeneo</h3>
+          <img src="assets/oxygeneo.jpg" alt="Oxygeneo">
+          <a href="treatments/oxygeneo.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>HydraFacial®</h3>
+          <img src="assets/hydrafacial.jpg" alt="HydraFacial">
+          <a href="treatments/hydrafacial.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Dermaplaning</h3>
+          <img src="assets/dermaplaning.jpg" alt="Dermaplaning">
+          <a href="treatments/dermaplaning.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Hair Treatments</h3>
+          <img src="assets/hair-treatments.jpg" alt="Hair Treatments">
+          <a href="treatments/hair-treatments.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Hair Loss Treatment</h3>
+          <img src="assets/hair-loss-treatment.jpg" alt="Hair Loss Treatment">
+          <a href="treatments/hair-loss-treatment.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Scalp Treatments</h3>
+          <img src="assets/scalp-treatments.jpg" alt="Scalp Treatments">
+          <a href="treatments/scalp-treatments.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Body Contouring</h3>
+          <img src="assets/body-contouring.jpg" alt="Body Contouring">
+          <a href="treatments/body-contouring.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="treatment-box">
+          <h3>Skin Tag Removal - Cauterization</h3>
+          <img src="assets/skin-tag-removal.jpg" alt="Skin Tag Removal">
+          <a href="treatments/skin-tag-removal.html" class="btn btn-primary mt-2">Learn More</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-  <!-- Footer -->
+  <!-- Footer idéntico al index -->
   <footer class="footer">
     <div class="footer-container">
       <div>
@@ -178,7 +221,6 @@
     </div>
   </footer>
 
-  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
