@@ -52,27 +52,39 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ===== SUBMENÚS: CLICK EN MÓVIL / HOVER EN PC =====
-  const dropdowns = document.querySelectorAll(".dropdown");
-  dropdowns.forEach((dropdown) => {
-    const toggle = dropdown.querySelector(".dropdown-toggle");
-    const menu = dropdown.querySelector(".dropdown-menu");
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+  const toggle = dropdown.querySelector(".dropdown-toggle");
+  const menu = dropdown.querySelector(".dropdown-menu");
+  if (!toggle || !menu) return;
 
-    // Click en móvil
-    toggle.addEventListener("click", function (e) {
-      if (window.innerWidth < 992) {
-        e.preventDefault();
-        menu.classList.toggle("show");
-      }
-    });
+  // Clic: en móvil abre el submenú; en PC navega al href
+  toggle.addEventListener("click", function (e) {
+    const href = this.getAttribute("href");
 
-    // Hover en PC
-    dropdown.addEventListener("mouseenter", function () {
-      if (window.innerWidth >= 992) menu.classList.add("show");
-    });
-    dropdown.addEventListener("mouseleave", function () {
-      if (window.innerWidth >= 992) menu.classList.remove("show");
-    });
+    if (window.innerWidth < 992) {
+      // Móvil → abrir/cerrar dropdown y NO navegar
+      e.preventDefault();
+      menu.classList.toggle("show");
+      return;
+    }
+
+    // Desktop → navegar si el href es real
+    if (href && href !== "#" && href !== "javascript:void(0)") {
+      e.preventDefault();                  // anula el preventDefault de Bootstrap
+      window.location.assign(href);        // navega a la página de Procedures
+    }
   });
+
+  // Hover en PC
+  dropdown.addEventListener("mouseenter", function () {
+    if (window.innerWidth >= 992) menu.classList.add("show");
+  });
+  dropdown.addEventListener("mouseleave", function () {
+    if (window.innerWidth >= 992) menu.classList.remove("show");
+  });
+});
+
 
   // ===== RESET ESTADOS AL CAMBIAR TAMAÑO =====
   window.addEventListener("resize", function () {
