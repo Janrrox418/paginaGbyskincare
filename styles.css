@@ -12,9 +12,9 @@
    2. BODY
 ======================================================= */
 body {
-  background-color: #e4c6b8;
+  background-color: #fff;
   color: #333;
-  font-family: Arial, sans-serif;
+  font-family: 'Times New Roman', Times, serif, sans-serif;
   margin: 0;
   padding-top: 50px;
 }
