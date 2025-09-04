@@ -223,7 +223,7 @@ body {
    5. CARDS (Other Treatments)
 ======================================================= */
 .treatment-box {
-  background-color: #fff;
+  background-color: #e4c6b8;
   border: 1px solid var(--c-primario);
   border-radius: 12px;
   padding: 2rem;
@@ -508,4 +508,22 @@ body {
   width: 100%;
   height: 200px;
   object-fit: cover;
+}
+/* =======================================================
+   13. MICRONEEDLING - VIDEO
+   =======================================================*/
+
+ .video-box {
+  max-width: 500px;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
