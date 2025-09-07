@@ -510,6 +510,19 @@ body {
   object-fit: cover;
 }
 /* =======================================================
+   Imagen complementaria en Body Contouring
+   =======================================================*/
+.body-contouring-extra-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 350px; /* Puedes ajustar este valor según tu diseño */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* =======================================================
    13. MICRONEEDLING - VIDEO
    =======================================================*/
 
