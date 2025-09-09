@@ -200,7 +200,7 @@ body {
 
 .welcome-text-box {
   border: 2px solid var(--c-primario);
-  padding: 20px 40px;
+  padding: 40px 60px;
   border-radius: 10px;
   display: inline-block;
   text-align: center;
