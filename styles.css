@@ -183,15 +183,15 @@ body {
 
 .welcome-box-right h1 {
   font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 10px;
+  font-weight: 850;
+  margin-bottom: 20px;
   color: var(--c-oscuro);
   animation: float 3s ease-in-out infinite;
 }
 
 .welcome-box-right p {
   font-size: 1.5rem;
-  margin-top: 15px;
+  margin-top: 20px;
   color: var(--c-primario);
   opacity: 0;
   animation: fadeInRight 4s ease-in-out infinite;
@@ -511,7 +511,7 @@ body {
 }
 /* =======================================================
    Imagen complementaria en Body Contouring
-   =======================================================*/
+   =======================================================*/ 
 .body-contouring-extra-img {
   max-width: 100%;
   height: auto;
