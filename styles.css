@@ -356,11 +356,15 @@ body {
 /* =======================================================
    9. HERO VIDEO
 ======================================================= */
-.hero-video {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+ .hero-video {
+  position: relative; /* Mantiene la posición para el overlay */
+  padding: 5vh 5vw; /* Espacio alrededor para crear el marco */
+  background-color: #f5f0ec; /* Color de fondo que se verá como el marco */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .hero-video video {
@@ -373,6 +377,12 @@ body {
   height: auto;
   transform: translate(-50%, -50%);
   object-fit: cover;
+  /* Estilos para el video dentro del marco */
+  position: relative;
+  width: 100%;
+  height: 90vh; /* Altura del video */
+  border-radius: 15px; /* Esquinas redondeadas */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
 }
 
 .hero-overlay {
@@ -381,7 +391,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Aumentamos la opacidad para disimular la calidad */
+  background: rgba(0, 0, 0, 0.3); /* Overlay sobre el video */
+  border-radius: 15px; /* Asegura que el overlay también tenga esquinas redondeadas */
+  /* Ajustamos el overlay para que solo cubra el video */
+  position: absolute;
+  inset: auto; /* Reseteamos para que no ocupe toda la sección */
 }
 
 @media (max-width: 576px) {
