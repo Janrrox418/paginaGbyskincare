@@ -52,10 +52,11 @@ body {
 /* Logo flotante animado dentro de la navbar */
 .navbar-brand img,
 .navbar .imagen-flotante {
-  height: 150px;
+  height: clamp(60px, 12vw, 160px); /* mínimo 60px, preferido 12vw, máximo 160px */
   width: auto;
   animation: caerExpandir 3s ease-in-out infinite;
 }
+
 
 /* Animación: caída desde arriba + expansión */
 @keyframes caerExpandir {
@@ -68,12 +69,12 @@ body {
 
 /* Ajuste para móviles */
 @media (max-width: 992px) {
-  .navbar-brand img, 
-  .navbar .imagen-flotante { max-height: 130px; }
+  .navbar-brand img,
+  .navbar .imagen-flotante { height: 15vh; max-height: 130px; }
 }
 @media (max-width: 576px) {
   .navbar-brand img,
-  .navbar .imagen-flotante { max-height: 100px; }
+  .navbar .imagen-flotante { height: 12vh; max-height: 100px; }
 }
 
 /* Mostrar submenús en móviles cuando tengan la clase show */
@@ -182,7 +183,7 @@ body {
 }
 
 .welcome-box-right h1 {
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 5vw, 3.5rem); /* tamaño adaptable */
   font-weight: 850;
   margin-bottom: 20px;
   color: var(--c-oscuro);
@@ -190,7 +191,7 @@ body {
 }
 
 .welcome-box-right p {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.6rem); /* tamaño adaptable */
   margin-top: 20px;
   color: var(--c-primario);
   opacity: 0;
@@ -200,12 +201,21 @@ body {
 
 .welcome-text-box {
   border: 2px solid var(--c-primario);
-  padding: 40px 60px;
+  padding: clamp(15px, 4vw, 50px) clamp(20px, 6vw, 80px); /* padding adaptable */
   border-radius: 10px;
   display: inline-block;
   text-align: center;
-  background: #e4c6b8; /* Color de fondo añadido */
+  background: #e4c6b8;
   backdrop-filter: blur(4px);
+  width: clamp(280px, 80%, 800px); /* mínimo 280px, fluido hasta 80%, máximo 800px */
+}
+
+
+@media (min-width: 992px) { /* Estilos para pantallas grandes */
+  .welcome-text-box {
+    padding: 50px 80px; /* Más padding en pantallas grandes */
+    max-width: 800px;   /* Hacemos la caja más ancha */
+  }
 }
 
 @keyframes float {
